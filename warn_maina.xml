@@ -100,17 +100,23 @@
             <Visibility>!lua
                 local GS_HOLD = bool(varget(&quot;A:AUTOPILOT GLIDESLOPE HOLD&quot;, &quot;Number&quot;))
                 if (GS_HOLD == true) then
+                    local GS_INTERCEPTED = bool(varget(&quot;L:GS_INTERCEPTED&quot;,&quot;Number&quot;))
+                    if (GS_INTERCEPTED == true) then
+                        return 1
+                    end
                     local NAV_HAS_GS = bool(varget(&quot;A:NAV HAS GLIDE SLOPE:1&quot;, &quot;Number&quot;))
                     if (NAV_HAS_GS == true) then
                         local AP_ALT_LOCK = bool(varget(&quot;A:AUTOPILOT ALTITUDE LOCK&quot;, &quot;Number&quot;))
                         if (AP_ALT_LOCK == false) then
                             local HSI_GSI_NEEDLE = varget(&quot;A:HSI GSI NEEDLE&quot;, &quot;Number&quot;)
-                            if (HSI_GSI_NEEDLE &gt; -2) and (HSI_GSI_NEEDLE &lt; 2) then
+                            if (HSI_GSI_NEEDLE &gt; -2) and (HSI_GSI_NEEDLE &lt; 3) then
+                                varset(&quot;L:GS_INTERCEPTED&quot;,1)
                                 return true
                             end
                         end
                     end
                 end
+                varset(&quot;L:GS_INTERCEPTED&quot;,0)
                 return false
             </Visibility>
             <Image id="Image" Name="warn_mainaGLIDESLOPEgr.bmp">

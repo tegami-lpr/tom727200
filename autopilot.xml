@@ -68,7 +68,6 @@
             <FloatPosition>421.000,83.000</FloatPosition>
             <Visibility>
                 (L:ALT_SW_STATE, bool)
-                <!-- (A:AUTOPILOT ALTITUDE LOCK, bool) -->
 	        </Visibility>
             <Image id="switch_up.bmp" Name="switch_up.bmp">
                 <Transparent>True</Transparent>
@@ -78,7 +77,6 @@
             <FloatPosition>421.000,83.000</FloatPosition>
             <Visibility>
                (L:ALT_SW_STATE, bool) !
-               <!-- (A:AUTOPILOT ALTITUDE LOCK, bool) ! -->
 	        </Visibility>
             <Image id="switch_dn.bmp" Name="switch_dn.bmp">
                 <Transparent>True</Transparent>
@@ -150,14 +148,6 @@
                 </Expression>
             </Shift>
         </Element>
-        <Macro Name="ALT_SWITCH_LOGIC">
-            <MacroValue>
-                <!--
-                (L:switchalt, bool)  if{ (&gt;K:AP_ALT_HOLD_ON) (A:INDICATED ALTITUDE, feet) (&gt;K:AP_ALT_VAR_SET_ENGLISH) }
-                els{ (&gt;K:AP_ATT_HOLD_ON) }
-                -->
-            </MacroValue>
-        </Macro>
 
         <Macro Name="AP_KEYS_CHANGED">
             <MacroValue>
@@ -217,23 +207,7 @@
                     <CursorType>Hand</CursorType>
                     <MouseClick id="MouseClick">
                         <Script>
-                            (L:HDG_SW_STATE, number) 1 &gt; if{
-                                <!-- Set value only when greater then 1 -->
-                                (A:SIM TIME, number) (&gt;L:HDG_SW_STATE, number)
-                            }
-                                                        
-                            <!--
-                            10 (&gt;L:HDG_SW_STATE, number)
-                                
-                            (A:AUTOPILOT HEADING LOCK, bool) ! if{
-                                (&gt;K:AP_PANEL_HEADING_ON)
-                                <!-(&gt;K:KEY_AP_HDG_HOLD_ON)->
-                            } els{
-                                (&gt;K:AP_PANEL_HEADING_OFF)
-                                <!-(&gt;K:KEY_AP_HDG_HOLD_OFF)->
-                            }
-                            @AP_KEYS_CHANGED
-                            -->
+                            (A:SIM TIME, number) (&gt;L:HDG_SW_STATE, number)
                         </Script>
                     </MouseClick>
             		<Tooltip id="Tooltip">
@@ -247,20 +221,13 @@
                     <CursorType>Hand</CursorType>
                     <MouseClick id="MouseClick">
                         <Script>
-                            (L:ALT_SW_STATE, number) 1 &gt; if{
-                                <!-- Set value only when greater then 1 -->
-                                (A:SIM TIME, number) (&gt;L:ALT_SW_STATE, number)
+                            (L:ALT_SW_STATE, number) 0 == if{
+                                <!-- We setting altitude value there
+                                     because 1) react more quicly to ALT HOLD enabling
+                                         and 2) setting value from Lua is not working! -->
+                                (A:INDICATED ALTITUDE, feet) (&gt;K:AP_ALT_VAR_SET_ENGLISH)
                             }
-                                <!--
-                                (A:AUTOPILOT ALTITUDE LOCK, bool) ! if{
-                                    (&gt;K:AP_ALT_HOLD_ON)
-                                    (A:INDICATED ALTITUDE, feet) (&gt;K:AP_ALT_VAR_SET_ENGLISH)
-                                } els{
-                                    (&gt;K:AP_ALT_HOLD_OFF)
-                                    <!-(&gt;K:AP_ATT_HOLD_ON)->
-                                }
-                                @AP_KEYS_CHANGED
-                                -->
+                            (A:SIM TIME, number) (&gt;L:ALT_SW_STATE, number)
                         </Script>
                     </MouseClick>
             		<Tooltip id="Tooltip">
@@ -276,21 +243,6 @@
                     <MouseClick id="MouseClick">
                         <Script> 
                             (&gt;K:AP_MASTER)
-                            <!--
-                            (A:AUTOPILOT MASTER, number) 1 == if{   (&gt;K:AP_HDG_HOLD_OFF)
-                                                                    (&gt;K:AP_ATT_HOLD_OFF)
-                                                                    (&gt;K:AP_ALT_HOLD_OFF)
-                                                                    (&gt;K:AP_LOC_HOLD_OFF)
-                                                                    (&gt;K:AP_APR_HOLD_OFF)
-                                                                    (&gt;K:AP_PANEL_HEADING_OFF)
-                                                                    0 (&gt;L:Autopilot Mode, number)
-                                                                    <!- (&gt;K:KEY_AUTOPILOT_OFF) ->
-                                                                } els{ 
-                                                                    <!- (&gt;K:KEY_AUTOPILOT_ON) ->
-                                                                    <!-1 (&gt;K:KEY_YAW_DAMPER_SET)->
-                                                                    @AP_KEYS_CHANGED 
-                                                                }
-                            -->
                         </Script>
                     </MouseClick>
             		<Tooltip id="Tooltip">
@@ -306,7 +258,6 @@
                         <Script>
 			                (L:Autopilot Mode, number) 1 + (&gt;L:Autopilot Mode, number)
 			                (L:Autopilot Mode, number) 4 == if{ 0 (&gt;L:Autopilot Mode, number) } 
-                            <!-- @AP_KEYS_CHANGED -->
                         </Script>
                     </MouseClick>
             		<Tooltip id="Tooltip">
@@ -445,6 +396,12 @@
         <Update id="Update">
             <Frequency>10</Frequency>
             <Script>!lua
+
+                local SIMD = bool(varget(&quot;A:SIM DISABLED&quot;,&quot;Number&quot;))
+                if (SIMD == true) then
+                    return 1
+                end
+
                 if (AP_INIT == nil) then
                     AP_INIT = true
 
@@ -554,17 +511,17 @@
                             varset(&quot;L:ALT_SW_STATE&quot;, OLD_ALT_SW_STATE)
                         end
                     else
+                        OLD_ALT_SW_STATE = ALT_SW_STATE
                         -- Update old_states to expected for next update
                         if (ALT_HOLD == true) then
                             varset(&quot;K:AP_ALT_HOLD_OFF&quot;, 1)
                         else
                             varset(&quot;K:AP_ALT_HOLD_ON&quot;, 1)
-                            local ia = varget(&quot;A:INDICATED ALTITUDE&quot;, &quot;feet&quot;)
-                            varset(&quot;K:AP_ALT_VAR_SET_ENGLISH&quot;, ia)
-                            --(A:INDICATED ALTITUDE, feet) (&gt;K:AP_ALT_VAR_SET_ENGLISH)                            
+                            --XXX: Setting altitude value from Lua not working!
+                            --local ia = varget(&quot;A:INDICATED ALTITUDE&quot;, &quot;Feet&quot;)
+                            --local ia = varget(&quot;A:INDICATED ALTITUDE&quot;, &quot;Number&quot;)
+                            --varset(&quot;A:AUTOPILOT ALTITUDE LOCK VAR&quot;, &quot;4000&quot;)
                         end
-
-                        varset(&quot;L:ALT_SW_STATE&quot;, OLD_ALT_SW_STATE)
                     end
                 end                
 
@@ -592,9 +549,12 @@
                 -----------------Misc procedures-----------------
                 -- Check for ATT AP mode
                 if (AP_MASTER == true) then
-                    if (HDG_SW_STATE == false) and (ALT_SW_STATE == false) and (AP_MODE == 0) then
+                    if (HDG_HOLD == false) and (ALT_HOLD == false) and (AP_MODE == 0) then
                         --With MAN AP mode if HDG and ALT holding is disabled then enable ATT HOLD
-                        varset(&quot;K:AP_ATT_HOLD_ON&quot;, 1)
+                        local ATT_HOLD = bool(varget(&quot;A:AUTOPILOT ATTITUDE HOLD&quot;,&quot;Number&quot;))
+                        if (ATT_HOLD == false) then
+                            varset(&quot;K:AP_ATT_HOLD_ON&quot;, 1)
+                        end    
                     end
                 end
 
