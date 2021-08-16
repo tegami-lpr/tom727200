@@ -12,8 +12,9 @@
             <Transparent>True</Transparent>
         </Image>
         <Size>134,167</Size>
+
         <!-- LOC/VOR annunciator -->
-       <Element id="warn_mainaVORLOCor">
+        <Element id="warn_mainaVORLOCor">
             <FloatPosition>0.000,0.000</FloatPosition>
             <!--Visibility>(A:AUTOPILOT APPROACH HOLD, bool) (A:CIRCUIT GENERAL PANEL ON, bool) &amp;&amp;
 	    </Visibility-->
@@ -31,14 +32,14 @@
        <Element id="warn_mainaVORLOCgr">
             <FloatPosition>0.000,0.000</FloatPosition>
             <Visibility>!lua
-                local APR_HOLD = varget(&quot;A:AUTOPILOT APPROACH HOLD&quot;, &quot;Number&quot;)
-                if (APR_HOLD == 1) then
+                local APR_HOLD = bool(varget(&quot;A:AUTOPILOT APPROACH HOLD&quot;, &quot;Number&quot;))
+                if (APR_HOLD == true) then
                     --local HSI_LOC = varget(&quot;A:HSI HAS LOCALIZER&quot;, &quot;Number&quot;)
                     --if (HSI_LOC == 1) then
                     local NAV_SIGNAL = varget(&quot;A:NAV SIGNAL:1&quot;, &quot;Number&quot;)
                     if (NAV_SIGNAL &gt; 1) then
-                        local AP_HDG_LOCK = varget(&quot;A:AUTOPILOT HEADING LOCK&quot;, &quot;Number&quot;)
-                        if (AP_HDG_LOCK == 0) then
+                        local AP_HDG_LOCK = bool(varget(&quot;A:AUTOPILOT HEADING LOCK&quot;, &quot;Number&quot;))
+                        if (AP_HDG_LOCK == false) then
                             local HSI_CDI_NEEDLE = varget(&quot;A:HSI CDI NEEDLE&quot;, &quot;Number&quot;)
                             if (HSI_CDI_NEEDLE &gt; -127) and (HSI_CDI_NEEDLE &lt; 127) then
                                 return true
@@ -73,37 +74,60 @@
             </Image>
         </Element>
 
-       <Element id="warn_mainaGLIDESLOPEor">
+
+        <!-- Glidescope annunciators -->
+        <Element id="warn_mainaGLIDESLOPEor">
             <FloatPosition>0.000,0.000</FloatPosition>
-            <!--Visibility>(A:AUTOPILOT GLIDESLOPE HOLD, bool) (A:CIRCUIT GENERAL PANEL ON, bool) &amp;&amp;
-	    </Visibility-->
+            <!--Visibility>
+                (A:AUTOPILOT GLIDESLOPE HOLD, bool) (A:CIRCUIT GENERAL PANEL ON, bool) &amp;&amp;
+	        </Visibility-->
             <Visibility>
                 (A:AUTOPILOT MASTER, bool) if{
                     (L:Autopilot Mode, number) 2 ==
-                } els{ 0 }
+                }
 	        </Visibility>
             <Image id="Image" Name="warn_mainaGLIDESLOPEor.bmp">
-		<Bright>True</Bright>
+		        <Bright>True</Bright>
                 <Transparent>True</Transparent>
             </Image>
         </Element>
 
-       <Element id="warn_mainaGLIDESLOPEgr">
+        <Element id="warn_mainaGLIDESLOPEgr">
             <FloatPosition>0.000,0.000</FloatPosition>
-            <Visibility>(A:AUTOPILOT GLIDESLOPE HOLD, bool) (A:HSI GSI NEEDLE VALID, bool) &amp;&amp; (A:CIRCUIT GENERAL PANEL ON, bool) &amp;&amp;
-	    </Visibility>
+            <!-- Visibility>
+                (A:AUTOPILOT GLIDESLOPE HOLD, bool) (A:HSI GSI NEEDLE VALID, bool) &amp;&amp; (A:CIRCUIT GENERAL PANEL ON, bool) &amp;&amp;
+	        </Visibility -->
+            <Visibility>!lua
+                local GS_HOLD = bool(varget(&quot;A:AUTOPILOT GLIDESLOPE HOLD&quot;, &quot;Number&quot;))
+                if (GS_HOLD == true) then
+                    local NAV_HAS_GS = bool(varget(&quot;A:NAV HAS GLIDE SLOPE:1&quot;, &quot;Number&quot;))
+                    if (NAV_HAS_GS == true) then
+                        local AP_ALT_LOCK = bool(varget(&quot;A:AUTOPILOT ALTITUDE LOCK&quot;, &quot;Number&quot;))
+                        if (AP_ALT_LOCK == false) then
+                            local HSI_GSI_NEEDLE = varget(&quot;A:HSI GSI NEEDLE&quot;, &quot;Number&quot;)
+                            if (HSI_GSI_NEEDLE &gt; -2) and (HSI_GSI_NEEDLE &lt; 2) then
+                                return true
+                            end
+                        end
+                    end
+                end
+                return false
+            </Visibility>
             <Image id="Image" Name="warn_mainaGLIDESLOPEgr.bmp">
-		<Bright>True</Bright>
+		        <Bright>True</Bright>
                 <Transparent>True</Transparent>
             </Image>
         </Element>
 
-       <Element id="warn_mainaGOAROUND">
+
+        <!-- G/A annunciators -->
+        <Element id="warn_mainaGOAROUND">
             <FloatPosition>0.000,0.000</FloatPosition>
-            <Visibility>(A:AUTOPILOT TAKEOFF POWER ACTIVE, bool) (A:CIRCUIT GENERAL PANEL ON, bool) &amp;&amp;
-	    </Visibility>
+            <Visibility>
+                (A:AUTOPILOT TAKEOFF POWER ACTIVE, bool) (A:CIRCUIT GENERAL PANEL ON, bool) &amp;&amp;
+	        </Visibility>
             <Image id="Image" Name="warn_mainaGOAROUND.bmp">
-		<Bright>True</Bright>
+		        <Bright>True</Bright>
                 <Transparent>True</Transparent>
             </Image>
         </Element>
