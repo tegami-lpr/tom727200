@@ -1,0 +1,1 @@
+* TURN Controller must enter plane to turn with some roll angle, not just reposition heading bug

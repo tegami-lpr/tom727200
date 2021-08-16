@@ -218,7 +218,7 @@
                     <MouseClick id="MouseClick">
                         <Script>
                             (L:HDG_SW_STATE, number) 1 &gt; if{
-                                <!-- Set value only when greater then 0 -->
+                                <!-- Set value only when greater then 1 -->
                                 (A:SIM TIME, number) (&gt;L:HDG_SW_STATE, number)
                             }
                                                         
@@ -248,7 +248,7 @@
                     <MouseClick id="MouseClick">
                         <Script>
                             (L:ALT_SW_STATE, number) 1 &gt; if{
-                                <!-- Set value only when greater then 0 -->
+                                <!-- Set value only when greater then 1 -->
                                 (A:SIM TIME, number) (&gt;L:ALT_SW_STATE, number)
                             }
                                 <!--
@@ -306,7 +306,7 @@
                         <Script>
 			                (L:Autopilot Mode, number) 1 + (&gt;L:Autopilot Mode, number)
 			                (L:Autopilot Mode, number) 4 == if{ 0 (&gt;L:Autopilot Mode, number) } 
-                            @AP_KEYS_CHANGED
+                            <!-- @AP_KEYS_CHANGED -->
                         </Script>
                     </MouseClick>
             		<Tooltip id="Tooltip">
@@ -319,7 +319,8 @@
                     <Size>27,32</Size>
                     <CursorType>Hand</CursorType>
                     <MouseClick id="MouseClick">
-                        <Script> (&gt;K:AP_PITCH_REF_INC_DN) 
+                        <Script> 
+                            (&gt;K:AP_PITCH_REF_INC_DN) 
                         </Script>
                         <ClickRepeat>True</ClickRepeat>
                     </MouseClick>
@@ -332,7 +333,8 @@
                     <Size>27,32</Size>
                     <CursorType>Hand</CursorType>
                     <MouseClick id="MouseClick">
-                        <Script> (&gt;K:AP_PITCH_REF_INC_UP) 
+                        <Script> 
+                            (&gt;K:AP_PITCH_REF_INC_UP) 
                         </Script>
                         <ClickRepeat>True</ClickRepeat>
                     </MouseClick>
@@ -345,7 +347,8 @@
                     <Size>27,32</Size>
                     <CursorType>Hand</CursorType>
                     <MouseClick id="MouseClick">
-                        <Script> (&gt;K:HEADING_BUG_DEC) 
+                        <Script> 
+                            (&gt;K:HEADING_BUG_DEC) 
                         </Script>
                         <ClickRepeat>True</ClickRepeat>
                     </MouseClick>
@@ -358,7 +361,8 @@
                     <Size>27,32</Size>
                     <CursorType>Hand</CursorType>
                     <MouseClick id="MouseClick">
-                        <Script> (&gt;K:HEADING_BUG_INC) 
+                        <Script> 
+                            (&gt;K:HEADING_BUG_INC)
                         </Script>
                         <ClickRepeat>True</ClickRepeat>
                     </MouseClick>
@@ -375,9 +379,9 @@
                     <Size>80,160</Size>
                     <CursorType>DownArrow</CursorType>
                     <MouseClick id="MouseClick">
-	            <Script>
-				100 (&gt;K:RUDDER_TRIM_LEFT)                    
-                   </Script>
+	                    <Script>
+				            100 (&gt;K:RUDDER_TRIM_LEFT)
+                        </Script>
                         <ClickRepeat>True</ClickRepeat>
                     </MouseClick>
                 </MouseArea>
@@ -386,15 +390,15 @@
                     <Size>60,120</Size>
                     <CursorType>UpArrow</CursorType>
                     <MouseClick id="MouseClick">
- 	            <Script>
-				100 (&gt;K:RUDDER_TRIM_RIGHT)                  
-                   </Script>
+ 	                    <Script>
+				            100 (&gt;K:RUDDER_TRIM_RIGHT)
+                        </Script>
                         <ClickRepeat>True</ClickRepeat>
                     </MouseClick>
                 </MouseArea>
 	            <Tooltip id="Tooltip">
  	               <DefaultScript>Rudder trim</DefaultScript>
-                    </Tooltip>
+                </Tooltip>
             </MouseArea>
             <MouseArea id="trim Handleailer">
                 <FloatPosition>251.000,320.000</FloatPosition>
@@ -457,6 +461,8 @@
                     varset(&quot;L:ALT_SW_STATE&quot;, OLD_ALT_HOLD)
                     OLD_ALT_SW_STATE = OLD_ALT_HOLD
 
+                    --Prev AP Mode Switch position
+                    OLD_AP_MODE = 1
                 end
 
                 local needProcessAPMode = false --If need to process AP Mode switch position
@@ -512,12 +518,8 @@
                     else
                         -- Update old_states to expected for next update
                         if (HDG_HOLD == true) then
-                            --OLD_HDG_HOLD = false
-                            --OLD_HDG_SW_STATE = 0
                             varset(&quot;K:AP_PANEL_HEADING_OFF&quot;, 1)
                         else
-                            --OLD_HDG_HOLD = true
-                            --OLD_HDG_SW_STATE = 1
                             varset(&quot;K:AP_PANEL_HEADING_ON&quot;, 1)
                         end
 
@@ -554,22 +556,47 @@
                     else
                         -- Update old_states to expected for next update
                         if (ALT_HOLD == true) then
-                            OLD_ALT_HOLD = false
-                            OLD_ALT_SW_STATE = 0
                             varset(&quot;K:AP_ALT_HOLD_OFF&quot;, 1)
+                        else
+                            varset(&quot;K:AP_ALT_HOLD_ON&quot;, 1)
                             local ia = varget(&quot;A:INDICATED ALTITUDE&quot;, &quot;feet&quot;)
                             varset(&quot;K:AP_ALT_VAR_SET_ENGLISH&quot;, ia)
-                            --(A:INDICATED ALTITUDE, feet) (&gt;K:AP_ALT_VAR_SET_ENGLISH)
-                        else
-                            OLD_ALT_HOLD = true
-                            OLD_ALT_SW_STATE = 1
-                            varset(&quot;K:AP_ALT_HOLD_ON&quot;, 1)
+                            --(A:INDICATED ALTITUDE, feet) (&gt;K:AP_ALT_VAR_SET_ENGLISH)                            
                         end
 
                         varset(&quot;L:ALT_SW_STATE&quot;, OLD_ALT_SW_STATE)
                     end
                 end                
-                
+
+                -----------------AP Mode Switch State-----------------
+                local AP_MODE = varget(&quot;L:Autopilot Mode&quot;, &quot;Number&quot;)
+                if not (OLD_AP_MODE == AP_MODE) then
+                    OLD_AP_MODE = AP_MODE
+                    if (AP_MODE == 0) then
+                        -- In MAN mode LOC AND GS modes disabled
+                        varset(&quot;K:AP_LOC_HOLD_OFF&quot;, 1)
+                        varset(&quot;K:AP_APR_HOLD_OFF&quot;, 1)
+                    elseif(AP_MODE == 1) then
+                        -- In NAV LOC mode enable LOC HOLD mode
+                        varset(&quot;K:AP_LOC_HOLD_ON&quot;, 1)
+                    elseif(AP_MODE == 2) then
+                        -- In AUTO G/S mode enable APR HOLD mode
+                        varset(&quot;K:AP_APR_HOLD_ON&quot;, 1)
+                    elseif(AP_MODE == 3) then
+                        -- In MAN G/S mode enable only LOC HOLD mode
+                        -- MAN G/S mode currently is not working properly
+                        varset(&quot;K:AP_LOC_HOLD_ON&quot;, 1)
+                    end
+                end
+
+                -----------------Misc procedures-----------------
+                -- Check for ATT AP mode
+                if (AP_MASTER == true) then
+                    if (HDG_SW_STATE == false) and (ALT_SW_STATE == false) and (AP_MODE == 0) then
+                        --With MAN AP mode if HDG and ALT holding is disabled then enable ATT HOLD
+                        varset(&quot;K:AP_ATT_HOLD_ON&quot;, 1)
+                    end
+                end
 
 
 --soundOneShot(&quot;CatapultLaunch.wav&quot;)
