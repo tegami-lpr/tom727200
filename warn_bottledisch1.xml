@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<SimBase.Document
+        Type="AceXML"
+        version="1,0"
+        id="autopilot">
+    <Descr>AceXML Document</Descr>
+    <Filename>warn_bottledisch1.xml</Filename>
+    <SimGauge.Gauge id="autopilot" ArtDirectory=".">
+        <FloatPosition>0.000,0.000</FloatPosition>
+        <Image id="warn_bottledisch.bmp" Name="warn_bottledisch.bmp">
+            <Transparent>True</Transparent>
+        </Image>
+        <Size>62,30</Size>
+
+       <Element id="warn_bottledisch1">
+            <FloatPosition>0.000,0.000</FloatPosition>
+            <Visibility>(A:FIRE BOTTLE DISCHARGED:1, bool) (A:CIRCUIT GENERAL PANEL ON, bool) &amp;&amp;</Visibility>
+            <Image id="Image" Name="warn_bottledischON.bmp">
+		<Bright>True</Bright>
+                <Transparent>True</Transparent>
+            </Image>
+        </Element>
+
+    </SimGauge.Gauge>
+</SimBase.Document>

@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<SimBase.Document
+        Type="AceXML"
+        version="1,0"
+        id="stbyhor">
+    <Descr>AceXML Document</Descr>
+    <Filename>eng_egt01.xml</Filename>
+    <SimGauge.Gauge id="Gauge" ArtDirectory=".">
+        <FloatPosition>0.000,0.000</FloatPosition>
+
+        <Image id="stbyhor_back.bmp" Name="stbyhor_back.bmp">
+            <Transparent>True</Transparent>
+        </Image>
+
+
+        <Element id="stbyhor_ball">
+            <FloatPosition>50.000,47.000</FloatPosition>
+            <Image id="stbyhor_ball.bmp" Name="stbyhor_ball.bmp">
+                <Transparent>True</Transparent>
+                <Axis>62.500,187.500</Axis>
+            </Image>
+            <MaskImage id="stbyhor_ball_mask.bmp" Name="stbyhor_ball_mask.bmp">
+                <Axis>58.500,58.000</Axis>
+            </MaskImage>
+            <Shift id="Shift">
+                <Scale>0.000,-1.055</Scale>
+                <Expression id="Expression">
+                    <Minimum>-90.000</Minimum>
+                    <Maximum>90.000</Maximum>
+                    <Script>(A:Attitude indicator pitch degrees:2,degrees) </Script>
+                </Expression>
+            </Shift>
+            <Rotation id="Rotation">
+                <Expression id="Expression">
+                    <Script>(A:Attitude indicator bank degrees:2,radians)</Script>
+                </Expression>
+            </Rotation>
+        </Element>
+
+       <Element id="Shadow">
+            <FloatPosition>0.000,0.000</FloatPosition>
+            <Image id="stbyhor_shadow.bmp" Alpha="True" Name="stbyhor_shadow.bmp">
+                <Transparent>True</Transparent>
+            </Image>
+        </Element>
+
+        <Element id="stbyhor_roll">
+            <FloatPosition>108.000,106.000</FloatPosition>
+            <Image id="stbyhor_roll.bmp" Name="stbyhor_roll.bmp">
+                <Transparent>True</Transparent>
+                <Axis>7.000,62.000</Axis>
+            </Image>
+            <Rotation id="Rotation">
+                <PointsTo>NORTH</PointsTo>
+                <Expression id="Expression">
+                    <Minimum>-60.000</Minimum>
+                    <Maximum>60.000</Maximum>
+                    <Script>(A:Attitude indicator bank degrees:2, degrees) dgrd</Script>
+                </Expression>
+            </Rotation>
+        </Element>
+
+        <Element id="stbyhor_ac">
+            <FloatPosition>50.000,47.000</FloatPosition>
+            <Image id="stbyhor_ac.bmp" Name="stbyhor_ac.bmp">
+                <Transparent>True</Transparent>
+                <Axis>15.000,-50.000</Axis>
+            </Image>
+            <MaskImage id="stbyhor_ball_mask.bmp" Name="stbyhor_ball_mask.bmp">
+            </MaskImage>
+            <Shift id="Shift">
+                <Scale>0.000,-1.000</Scale>
+                <Expression id="Expression">
+                    <Minimum>-10.000</Minimum>
+                    <Maximum>10.000</Maximum>
+                    <Script>(G:Var3,number)</Script>
+                </Expression>
+            </Shift>
+        </Element>
+
+        <Element id="stbyhor_fail">
+            <FloatPosition>155.000,52.000</FloatPosition>
+            <Visibility>(A:PARTIAL PANEL AVIONICS,bool) (A:PARTIAL PANEL ELECTRICAL,bool) + (A:PARTIAL PANEL ATTITUDE,bool) +</Visibility>
+            <Image id="stbyhor_fail.bmp" Name="stbyhor_fail.bmp">
+                <Transparent>True</Transparent>
+            </Image>
+        </Element>
+
+        <MouseArea id="MouseArea">
+            <FloatPosition>0.000,0.000</FloatPosition>
+            <Size>209,207</Size>
+ 
+            <MouseArea id="stbyhor calibration">
+                <FloatPosition>167.000,163.000</FloatPosition>
+                <Size>42,42</Size>
+                <MouseArea id="Decrement">
+                    <FloatPosition>0.000,0.000</FloatPosition>
+                    <Size>21,42</Size>
+                    <CursorType>DownArrow</CursorType>
+                    <MouseClick id="MouseClick">
+                        <Script>
+                        	(G:Var3) 1 - s1 -10 &lt; if{ -10 } els{ l1 } (&gt;G:Var3) 
+                        	(G:Var3) -10 &gt;
+                        	if{ (G:Var2) 10 - s0 0 &lt; if{ 340 } els{ l0 } (&gt;G:Var2) c }
+                        </Script>
+                        <ClickRepeat>True</ClickRepeat>
+                    </MouseClick>
+                </MouseArea>
+                <MouseArea id="Increment">
+                    <FloatPosition>21.000,0.000</FloatPosition>
+                    <Size>21,42</Size>
+                    <CursorType>UpArrow</CursorType>
+                    <MouseClick id="MouseClick">
+                        <Script>
+                        	(G:Var3) 1 + s1 10 &gt; if{ 10 } els{ l1 } (&gt;G:Var3)
+                        	(G:Var3) 10 &lt;
+                        	if{	(G:Var2) 10 + s0 360 &gt; if{ 0 (&gt;G:Var2) } els{ l0 } (&gt;G:Var2) c }
+                        </Script>
+                        <ClickRepeat>True</ClickRepeat>
+                    </MouseClick>
+                </MouseArea>
+                <Tooltip id="Tooltip">
+                    <DefaultId>TOOLTIPTEXT_B737_BACKUP_ATTITUDE_CAL_KNOB</DefaultId>
+                </Tooltip>
+            </MouseArea>
+            <Tooltip id="Tooltip">
+                <DefaultId>HELPID_GAUGE_BACKUP_ATTITUDE</DefaultId>
+            </Tooltip>
+        </MouseArea>
+
+
+    </SimGauge.Gauge>
+</SimBase.Document>

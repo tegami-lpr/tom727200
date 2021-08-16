@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<SimBase.Document
+        Type="AceXML"
+        version="1,0"
+        id="radioalt">
+    <Descr>AceXML Document</Descr>
+    <Filename>radioalt.xml</Filename>
+    <SimGauge.Gauge id="Gauge" ArtDirectory=".">
+        <FloatPosition>0.000,0.000</FloatPosition>
+
+        <Image id="radioalt_back.bmp" Name="radioalt_back.bmp">
+            <Transparent>True</Transparent>
+        </Image>
+
+
+        <Element id="radioalt_needle">
+            <FloatPosition>106.000,104.000</FloatPosition>
+            <Image id="radioalt_needle.bmp" Name="radioalt_needle.bmp">
+                <Transparent>True</Transparent>
+                <Axis>10.000,70.000</Axis>
+            </Image>
+            <Rotation id="Rotation">
+               	    <PointsTo>NORTH</PointsTo>
+		    <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>3000.000</Maximum>
+                        <Script>(A:RADIO HEIGHT, feet)</Script>
+		    </Expression>
+		     <NonlinearityTable id="NonlinearityTable">
+						  <NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>0.000</ExpressionResult>
+							<Degrees>0</Degrees>
+						  </NonlinearityEntry>
+						  <NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>250.000</ExpressionResult>
+							<Degrees>92</Degrees>
+						  </NonlinearityEntry>
+						  <NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>500.000</ExpressionResult>
+							<Degrees>180</Degrees>
+						  </NonlinearityEntry>
+						  <NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>1000.000</ExpressionResult>
+							<Degrees>238</Degrees>
+						  </NonlinearityEntry>
+						  <NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>1500.000</ExpressionResult>
+							<Degrees>271</Degrees>
+						  </NonlinearityEntry>
+						  <NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>2000.000</ExpressionResult>
+							<Degrees>295</Degrees>
+						  </NonlinearityEntry>
+						  <NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>3000.000</ExpressionResult>
+							<Degrees>334</Degrees>
+						  </NonlinearityEntry>
+		     </NonlinearityTable>
+            </Rotation>
+        </Element>
+
+
+        <Element id="radioaltblock">
+            <FloatPosition>51.000,21.000</FloatPosition>
+            <Image id="radioalt_block.bmp" Name="radioalt_block.bmp">
+                <Transparent>True</Transparent>
+            </Image>
+        </Element>
+
+
+        <Element id="radioalt_dh">
+            <FloatPosition>106.000,104.000</FloatPosition>
+            <Image id="radioalt_dh.bmp" Name="radioalt_dh.bmp">
+                <Transparent>True</Transparent>
+                <Axis>10.000,85.000</Axis>
+            </Image>
+            <Rotation id="Rotation">
+               	    <PointsTo>NORTH</PointsTo>
+		    <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>2500.000</Maximum>
+                        <Script>(A:DECISION HEIGHT, feet)</Script>
+		    </Expression>
+		     <NonlinearityTable id="NonlinearityTable">
+						  <NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>0.000</ExpressionResult>
+							<Degrees>0</Degrees>
+						  </NonlinearityEntry>
+						  <NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>250.000</ExpressionResult>
+							<Degrees>92</Degrees>
+						  </NonlinearityEntry>
+						  <NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>500.000</ExpressionResult>
+							<Degrees>180</Degrees>
+						  </NonlinearityEntry>
+						  <NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>1000.000</ExpressionResult>
+							<Degrees>238</Degrees>
+						  </NonlinearityEntry>
+						  <NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>1500.000</ExpressionResult>
+							<Degrees>271</Degrees>
+						  </NonlinearityEntry>
+						  <NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>2000.000</ExpressionResult>
+							<Degrees>295</Degrees>
+						  </NonlinearityEntry>
+						  <NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>2500.000</ExpressionResult>
+							<Degrees>315</Degrees>
+						  </NonlinearityEntry>
+		     </NonlinearityTable>
+            </Rotation>
+        </Element>
+
+    <Element id="radioalt_failflag.bmp">
+            <FloatPosition>151.000,37.000</FloatPosition>
+            <Visibility>(A:PARTIAL PANEL AVIONICS,bool) (A:PARTIAL PANEL ELECTRICAL,bool) +</Visibility>
+            <Image id="radioalt_failflag.bmp" Name="radioalt_failflag.bmp">
+                <Transparent>True</Transparent>
+            </Image>
+        </Element>
+
+        <Element id="radioalt_button.bmp">
+            <FloatPosition>183.000,179.000</FloatPosition>
+            <Image id="radioalt_button.bmp" Name="radioalt_button.bmp">
+                <Transparent>True</Transparent>
+                <Axis>16.000,15.000</Axis>
+            </Image>
+            <Rotation id="Rotation">
+               	    <PointsTo>WEST</PointsTo>
+		    <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>200.000</Maximum>
+                        <Script>(A:DECISION HEIGHT, feet) 100 /</Script>
+		    </Expression>
+            </Rotation>
+        </Element>
+
+        <MouseArea id="MouseArea">
+            <FloatPosition>0.000,0.000</FloatPosition>
+            <Size>209,207</Size>
+            <MouseArea id="Set Knob">
+                <FloatPosition>171.000,168.000</FloatPosition>
+                <Size>25,25</Size>
+                <MouseArea id="Decrement">
+                    <FloatPosition>0.000,0.000</FloatPosition>
+                    <Size>12,25</Size>
+                    <CursorType>DownArrow</CursorType>
+                   <MouseClick id="MouseClick">
+                       <KeyEvent>DECREASE_DECISION_HEIGHT</KeyEvent>
+                        <ClickRepeat>True</ClickRepeat>
+                    </MouseClick>
+                </MouseArea>
+                <MouseArea id="Increment">
+                    <FloatPosition>13.000,0.000</FloatPosition>
+                    <Size>12,25</Size>
+                    <CursorType>UpArrow</CursorType>
+                   <MouseClick id="MouseClick">
+                       <KeyEvent>INCREASE_DECISION_HEIGHT</KeyEvent>
+                        <ClickRepeat>True</ClickRepeat>
+                    </MouseClick>
+                </MouseArea>
+	            <Tooltip id="Tooltip">
+              		 <DefaultScript>Decision Height:%((A:DECISION HEIGHT, feet))%! 4.0f! feet</DefaultScript>
+               	    </Tooltip>
+            </MouseArea>
+        <Tooltip id="Tooltip">
+               <DefaultScript>Radio Altitude:%((A:RADIO HEIGHT, feet))%! 4.0f! feet</DefaultScript>
+               </Tooltip>
+        </MouseArea>
+
+    </SimGauge.Gauge>
+</SimBase.Document>

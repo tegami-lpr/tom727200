@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<SimBase.Document
+        Type="AceXML"
+        version="1,0"
+        id="autopilot">
+    <Descr>AceXML Document</Descr>
+    <Filename>switch_pneumaticbrake.xml</Filename>
+    <SimGauge.Gauge id="autopilot" ArtDirectory=".">
+        <FloatPosition>0.000,0.000</FloatPosition>
+        <Size>163,163</Size>
+
+       <Element id="warn_press">
+            <FloatPosition>0.000,0.000</FloatPosition>
+            <Visibility>(A:BRAKE PARKING INDICATOR, bool) !
+	    </Visibility>
+            <Image id="pneumaticbrake.bmp" Name="pneumaticbrake.bmp">
+                <Transparent>True</Transparent>
+            </Image>
+        </Element>
+
+       <Element id="warn_press">
+            <FloatPosition>0.000,0.000</FloatPosition>
+            <Visibility>(A:BRAKE PARKING INDICATOR, bool) 
+	    </Visibility>
+            <Image id="pneumaticbrake90.bmp" Name="pneumaticbrake90.bmp">
+                <Transparent>True</Transparent>
+            </Image>
+        </Element>
+
+        <MouseArea id="MouseArea">
+            <FloatPosition>0.000,0.000</FloatPosition>
+            <Size>163,163</Size>
+ 
+                <MouseArea id="Increment">
+                    <FloatPosition>0.000,0.000</FloatPosition>
+                    <Size>163,163</Size>
+                    <CursorType>Hand</CursorType>
+                    <MouseClick id="MouseClick">
+                        <Script>			1 (&gt;K:PARKING_BRAKES)
+                        </Script>
+                    </MouseClick>
+                </MouseArea>
+            <Tooltip id="Tooltip">
+                <DefaultScript>Brake</DefaultScript>
+            </Tooltip>
+        </MouseArea>
+
+    </SimGauge.Gauge>
+</SimBase.Document>

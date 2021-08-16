@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<SimBase.Document
+        Type="AceXML"
+        version="1,0"
+        id="autopilot">
+    <Descr>AceXML Document</Descr>
+    <Filename>warn_engfail.xml</Filename>
+    <SimGauge.Gauge id="autopilot" ArtDirectory=".">
+        <FloatPosition>0.000,0.000</FloatPosition>
+        <Image id="warn_engfail.bmp" Name="warn_engfail.bmp">
+            <Transparent>True</Transparent>
+        </Image>
+        <Size>66,38</Size>
+
+       <Element id="warn_engfail">
+            <FloatPosition>0.000,0.000</FloatPosition>
+            <Visibility>(A:ENG FAILED:1, bool) (A:ENG FAILED:2, bool) | (A:ENG FAILED:3, bool) | (A:CIRCUIT GENERAL PANEL ON, bool) &amp;&amp;</Visibility>
+            <Image id="Image" Name="warn_engfailON.bmp">
+		<Bright>True</Bright>
+                <Transparent>True</Transparent>
+            </Image>
+        </Element>
+
+    </SimGauge.Gauge>
+</SimBase.Document>

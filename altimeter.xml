@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<SimBase.Document
+        Type="AceXML"
+        version="1,0"
+        id="altimeter">
+    <Descr>AceXML Document</Descr>
+    <Filename>altimeter.xml</Filename>
+    <SimGauge.Gauge id="Gauge" ArtDirectory=".">
+        <FloatPosition>0.000,0.000</FloatPosition>
+        <Image id="altimeter_back.bmp" Name="altimeter_back.bmp">
+            <Transparent>True</Transparent>
+        </Image>
+
+        <Element id="altimeter_range">
+            <FloatPosition>108.000,107.000</FloatPosition>
+            <Image id="altimeter_range.bmp" Name="altimeter_range.bmp">
+                <Transparent>True</Transparent>
+                <Axis>35.000,43.000</Axis>
+            </Image>
+            <Rotation id="Rotation">
+               	    <PointsTo>NORTH</PointsTo>
+		    <Expression id="Expression">
+                    <Minimum>10000.000</Minimum>
+                    <Maximum>16000.000</Maximum>
+                        <Script>(A:INDICATED ALTITUDE, feet)</Script>
+		    </Expression>
+		     <NonlinearityTable id="NonlinearityTable">
+						  <NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>0.000</ExpressionResult>
+							<Degrees>-70</Degrees>
+						  </NonlinearityEntry>
+						  <NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>10000.000</ExpressionResult>
+							<Degrees>-70</Degrees>
+						  </NonlinearityEntry>
+						  <NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>13000.000</ExpressionResult>
+							<Degrees>-35</Degrees>
+						  </NonlinearityEntry>
+						  <NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>16000.000</ExpressionResult>
+							<Degrees>0</Degrees>
+						  </NonlinearityEntry>
+		     </NonlinearityTable>
+            </Rotation>
+        </Element>
+
+        <Element id="altimeter_baro">
+            <FloatPosition>155.000,91.000</FloatPosition>
+            <Image id="altimeter_baro.bmp" Name="altimeter_baro.bmp">
+                <Axis>0.000,-14.000</Axis>
+            </Image>
+            <MaskImage id="altimeter_baro_mask.bmp" Name="altimeter_baro_mask.bmp">
+                <Axis>0.000,0.000</Axis>
+            </MaskImage>
+            <Shift id="Shift">
+                <Scale>0.000,-119.72.000</Scale>
+                <Expression id="Expression">
+                    <Script>(A:Kohlsman setting hg,inHg) 28.0 -</Script>
+                </Expression>
+            </Shift>
+       </Element>
+
+        <Element id="altimeter_scale">
+            <FloatPosition>0.000,0.000</FloatPosition>
+            <Image id="altimeter_scale.bmp" Name="altimeter_scale.bmp">
+                <Transparent>True</Transparent>
+            </Image>
+        </Element>
+
+        <Element id="altimeter_stby">
+            <FloatPosition>51.000,65.000</FloatPosition>
+            <Visibility>(A:CIRCUIT GENERAL PANEL ON, bool) !</Visibility>
+            <Image id="altimeter_stby.bmp" Name="altimeter_stby.bmp">
+                <Transparent>True</Transparent>
+            </Image>
+        </Element>
+
+
+        <Element id="altimeter_n10000">
+            <FloatPosition>108.000,107.000</FloatPosition>
+            <Image id="altimeter_n10000.bmp" Name="altimeter_n10000.bmp">
+                <Transparent>True</Transparent>
+                <Axis>11.000,82.000</Axis>
+            </Image>
+            <Rotation id="Rotation">
+                <Expression id="Expression">
+                            <Script>(A:Indicated Altitude:1, feet) 100000 / 360 * dgrd</Script>
+		    </Expression>
+            </Rotation>
+        </Element>
+
+
+        <Element id="altimeter_n1000">
+            <FloatPosition>108.000,107.000</FloatPosition>
+            <Image id="altimeter_n1000.bmp" Name="altimeter_n1000.bmp">
+                <Transparent>True</Transparent>
+                <Axis>9.000,45.000</Axis>
+            </Image>
+            <Rotation id="Rotation">
+                <Expression id="Expression">
+                            <Script>(A:Indicated Altitude:1, feet) 10000 / 360 * dgrd</Script>
+		    </Expression>
+            </Rotation>
+        </Element>
+
+
+        <Element id="altimeter_n100">
+            <FloatPosition>108.000,107.000</FloatPosition>
+            <Image id="altimeter_n100.bmp" Name="altimeter_n100.bmp">
+                <Transparent>True</Transparent>
+                <Axis>6.000,61.000</Axis>
+            </Image>
+            <Rotation id="Rotation">
+                <Expression id="Expression">
+                            <Script>(A:Indicated Altitude:1, feet) 1000 / 360 * dgrd</Script>
+		    </Expression>
+            </Rotation>
+        </Element>
+
+        <MouseArea id="MouseArea">
+            <FloatPosition>0.000,0.000</FloatPosition>
+            <Size>209,207</Size>
+            <MouseArea id="baro Knob">
+                <FloatPosition>16.000,167.000</FloatPosition>
+                <Size>30,30</Size>
+                <MouseArea id="Decrement">
+                    <FloatPosition>0.000,0.000</FloatPosition>
+                    <Size>15,30</Size>
+                    <CursorType>DownArrow</CursorType>
+                    <MouseClick id="MouseClick">
+                                <KeyEvent>KOHLSMAN_DEC</KeyEvent>
+                        <ClickRepeat>True</ClickRepeat>
+                    </MouseClick>
+                </MouseArea>
+                <MouseArea id="Increment">
+                    <FloatPosition>15.000,0.000</FloatPosition>
+                    <Size>15,30</Size>
+                    <CursorType>UpArrow</CursorType>
+                    <MouseClick id="MouseClick">
+                                <KeyEvent>KOHLSMAN_INC</KeyEvent>
+                        <ClickRepeat>True</ClickRepeat>
+                    </MouseClick>
+                </MouseArea>
+	            <Tooltip id="Tooltip">
+              		 <DefaultScript>Kohlman setting:%((A:KOHLSMAN SETTING HG, inHg))%! 2.1f! inHg</DefaultScript>
+               	    </Tooltip>
+            </MouseArea>
+                <Tooltip id="Tooltip">
+                    <DefaultId>TOOLTIPTEXT_BACKUP_ALTIMETER_FEET</DefaultId>
+                </Tooltip>
+        </MouseArea>
+
+    </SimGauge.Gauge>
+</SimBase.Document>

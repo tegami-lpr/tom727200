@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<SimBase.Document
+        Type="AceXML"
+        version="1,0"
+        id="autopilot">
+    <Descr>AceXML Document</Descr>
+    <Filename>warn_fire2.xml</Filename>
+    <SimGauge.Gauge id="autopilot" ArtDirectory=".">
+        <FloatPosition>0.000,0.000</FloatPosition>
+        <Image id="warn_fire2.bmp" Name="warn_fire2.bmp">
+            <Transparent>True</Transparent>
+        </Image>
+        <Size>51,75</Size>
+
+       <Element id="firewarn1">
+            <FloatPosition>0.000,0.000</FloatPosition>
+            <Visibility>(A:ENG ON FIRE:2, bool) (A:CIRCUIT GENERAL PANEL ON, bool) &amp;&amp;</Visibility>
+            <Image id="Image" Name="warn_fire2ON.bmp">
+		<Bright>True</Bright>
+                <Transparent>True</Transparent>
+            </Image>
+        </Element>
+
+        <MouseArea id="MouseArea - Panel">
+			<FloatPosition>0.000,0.000</FloatPosition>
+        	<Size>51,75</Size>
+		        <MouseArea id="askid">
+				<FloatPosition>1.000,1.000</FloatPosition>
+				<Size>49,73</Size>
+				<CursorType>Hand</CursorType>
+				<MouseClick id="MouseClick">
+		                    <Script>
+					(A:ENG ON FIRE:2, bool)
+ 		                   	if{ 1 (&gt;K:TOGGLE_FUEL_VALVE_ENG2) (L:bottleselect.bool)
+						if{ 12 (&gt;K:EXTINGUISH_ENGINE_FIRE) } 
+						els{ 22 (&gt;K:EXTINGUISH_ENGINE_FIRE) }
+					  }
+		                    	els{ 0 }
+ 		                   </Script>
+				</MouseClick>
+			           <Tooltip id="Tooltip">
+ 			               <DefaultScript>Fuelcutoff in Case of Eng2 Fire</DefaultScript>
+ 			           </Tooltip>
+			</MouseArea>
+
+	</MouseArea>
+    </SimGauge.Gauge>
+</SimBase.Document>

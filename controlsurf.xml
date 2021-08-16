@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<SimBase.Document
+        Type="AceXML"
+        version="1,0"
+        id="controlsurf">
+    <Descr>AceXML Document</Descr>
+    <Filename>controlsurf.xml</Filename>
+    <SimGauge.Gauge id="Gauge" ArtDirectory=".">
+        <FloatPosition>0.000,0.000</FloatPosition>
+        <Image id="controlsurf_back.bmp" Name="controlsurf_back.bmp">
+            <Transparent>True</Transparent>
+        </Image>
+
+        <Element id="Element">
+            <FloatPosition>105.000,94.000</FloatPosition>
+            <Image id="controlsurf_rudd.bmp" Name="controlsurf_rudd.bmp">
+                <Transparent>True</Transparent>
+                <Axis>7.000,0.000</Axis>
+            </Image>
+            <Shift id="Shift">
+                <Scale>0.450,0.000</Scale>
+                <Expression id="Expression">
+                    <Script>(A:RUDDER POSITION, percent)</Script>
+                </Expression>
+            </Shift>
+        </Element>
+
+        <Element id="Element">
+            <FloatPosition>164.000,108.000</FloatPosition>
+            <Image id="controlsurf_ailr.bmp" Name="controlsurf_ailr.bmp">
+                <Transparent>True</Transparent>
+                <Axis>12.000,8.000</Axis>
+            </Image>
+            <Shift id="Shift">
+                <Scale>0.000,0.280</Scale>
+                <Expression id="Expression">
+                    <Script>(A:AILERON POSITION, percent)</Script>
+                </Expression>
+            </Shift>
+        </Element>
+        <Element id="Element">
+            <FloatPosition>49.000,107.000</FloatPosition>
+            <Image id="controlsurf_aill.bmp" Name="controlsurf_aill.bmp">
+                <Transparent>True</Transparent>
+                <Axis>1.000,8.000</Axis>
+            </Image>
+            <Shift id="Shift">
+                <Scale>0.000,-0.280</Scale>
+                <Expression id="Expression">
+                    <Script>(A:AILERON POSITION, percent)</Script>
+                </Expression>
+            </Shift>
+        </Element>
+
+        <Element id="Element">
+            <FloatPosition>93.000,57.000</FloatPosition>
+            <Visibility>(A:AUTOPILOT YAW DAMPER, bool) ! (A:CIRCUIT GENERAL PANEL ON, bool) &amp;&amp;</Visibility>
+            <Image id="controlsurf_yd.bmp" Name="controlsurf_yd.bmp">
+                <Transparent>True</Transparent>
+                <Bright>True</Bright>
+            </Image>
+        </Element>
+
+        <MouseArea>
+        <Tooltip id="Tooltip">
+               <DefaultScript>Rudder/Aileron relative position</DefaultScript>
+               </Tooltip>
+         </MouseArea>
+
+    </SimGauge.Gauge>
+</SimBase.Document>

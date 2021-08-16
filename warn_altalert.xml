@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<SimBase.Document
+        Type="AceXML"
+        version="1,0"
+        id="autopilot">
+    <Descr>AceXML Document</Descr>
+    <Filename>warn_altalert.xml</Filename>
+    <SimGauge.Gauge id="autopilot" ArtDirectory=".">
+        <FloatPosition>0.000,0.000</FloatPosition>
+        <Image id="warn_altalert.bmp" Name="warn_altalert.bmp">
+            <Transparent>True</Transparent>
+        </Image>
+        <Size>49,49</Size>
+
+       <Element id="warn_altalert">
+            <FloatPosition>0.000,0.000</FloatPosition>
+            <Visibility> (A:INDICATED ALTITUDE, feet) (A:AUTOPILOT ALTITUDE LOCK VAR, feet) - abs 900 &lt; 
+				if{ (A:INDICATED ALTITUDE, feet) (A:AUTOPILOT ALTITUDE LOCK VAR, feet) - abs 300 &gt; (A:CIRCUIT GENERAL PANEL ON, bool) &amp;&amp; }
+				els{ 0 }
+	    </Visibility>
+            <Image id="Image" Name="warn_altalertON.bmp">
+		<Bright>True</Bright>
+                <Transparent>True</Transparent>
+            </Image>
+        </Element>
+
+    </SimGauge.Gauge>
+</SimBase.Document>

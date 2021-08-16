@@ -1,0 +1,581 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<SimBase.Document
+        Type="AceXML"
+        version="1,0"
+        id="autopilot">
+    <Descr>AceXML Document</Descr>
+    <Filename>autopilot.xml</Filename>
+    <SimGauge.Gauge id="autopilot" ArtDirectory=".">
+        <FloatPosition>0.000,0.000</FloatPosition>
+        <Size>541,337</Size>
+        <Update_When_Hidden>True</Update_When_Hidden>
+
+       <Element id="apbutton">
+            <FloatPosition>25.000,37.000</FloatPosition>
+            <Visibility>
+                (L:Autopilot Mode, number) 0 ==
+	        </Visibility>
+            <Image id="button_ap1.bmp" Name="button_ap1.bmp">
+                <Transparent>True</Transparent>
+            </Image>
+        </Element>
+       <Element id="apbutton">
+            <FloatPosition>25.000,37.000</FloatPosition>
+            <Visibility>
+                (L:Autopilot Mode, number) 1 ==
+	        </Visibility>
+            <Image id="button_ap1.bmp" Name="button_ap2.bmp">
+                <Transparent>True</Transparent>
+            </Image>
+        </Element>
+       <Element id="apbutton">
+            <FloatPosition>25.000,37.000</FloatPosition>
+            <Visibility>(L:Autopilot Mode, number) 2 ==
+	    </Visibility>
+            <Image id="button_ap1.bmp" Name="button_ap3.bmp">
+                <Transparent>True</Transparent>
+            </Image>
+        </Element>
+       <Element id="apbutton">
+            <FloatPosition>25.000,37.000</FloatPosition>
+            <Visibility>(L:Autopilot Mode, number) 3 ==
+	    </Visibility>
+            <Image id="button_ap1.bmp" Name="button_ap4.bmp">
+                <Transparent>True</Transparent>
+            </Image>
+        </Element>
+
+       <Element id="apmaster">
+            <FloatPosition>261.000,43.000</FloatPosition>
+            <Visibility>(A:AUTOPILOT MASTER, bool)
+	    </Visibility>
+            <Image id="switch_apmaster.bmp" Name="switch_apmaster.bmp">
+                <Transparent>True</Transparent>
+            </Image>
+        </Element>
+       <Element id="apmaster">
+            <FloatPosition>261.000,89.000</FloatPosition>
+            <Visibility>(A:AUTOPILOT MASTER, bool) !
+	    </Visibility>
+            <Image id="switch_apmaster.bmp" Name="switch_apmaster.bmp">
+                <Transparent>True</Transparent>
+            </Image>
+        </Element>
+
+       <!-- Altitude Hold Switch -->
+       <Element id="althold">
+            <FloatPosition>421.000,83.000</FloatPosition>
+            <Visibility>
+                (L:ALT_SW_STATE, bool)
+                <!-- (A:AUTOPILOT ALTITUDE LOCK, bool) -->
+	        </Visibility>
+            <Image id="switch_up.bmp" Name="switch_up.bmp">
+                <Transparent>True</Transparent>
+            </Image>
+        </Element>
+       <Element id="althold">
+            <FloatPosition>421.000,83.000</FloatPosition>
+            <Visibility>
+               (L:ALT_SW_STATE, bool) !
+               <!-- (A:AUTOPILOT ALTITUDE LOCK, bool) ! -->
+	        </Visibility>
+            <Image id="switch_dn.bmp" Name="switch_dn.bmp">
+                <Transparent>True</Transparent>
+            </Image>
+        </Element>
+
+       <!-- Hdg Hold Switch -->
+       <Element id="hdghold">
+            <FloatPosition>481.000,83.000</FloatPosition>
+            <Visibility>
+                (L:HDG_SW_STATE, bool)
+	        </Visibility>
+            <Image id="switch_up.bmp" Name="switch_up.bmp">
+                <Transparent>True</Transparent>
+            </Image>
+        </Element>
+       <Element id="hdghold">
+            <FloatPosition>481.000,83.000</FloatPosition>
+            <Visibility>
+                (L:HDG_SW_STATE, bool) !
+	        </Visibility>
+            <Image id="switch_dn.bmp" Name="switch_dn.bmp">
+                <Transparent>True</Transparent>
+            </Image>
+        </Element>
+
+       <!-- FD Switch -->
+       <Element id="fd">
+            <FloatPosition>515.000,35.000</FloatPosition>
+            <Visibility>(A:AUTOPILOT FLIGHT DIRECTOR ACTIVE, bool) 
+	    </Visibility>
+            <Image id="switch_up.bmp" Name="switch_up.bmp">
+                <Transparent>True</Transparent>
+            </Image>
+        </Element>
+       <Element id="fd">
+            <FloatPosition>515.000,35.000</FloatPosition>
+            <Visibility>(A:AUTOPILOT FLIGHT DIRECTOR ACTIVE, bool) !
+	    </Visibility>
+            <Image id="switch_dn.bmp" Name="switch_dn.bmp">
+                <Transparent>True</Transparent>
+            </Image>
+        </Element>
+
+        <Element id="Element">
+            <FloatPosition>248.000,249.000</FloatPosition>
+            <Image id="trimindrudder.bmp" Name="trimindrudder.bmp">
+                <Transparent>True</Transparent>
+                <Axis>60.000,60.000</Axis>
+            </Image>
+            <Rotation id="Rotation">
+                <Expression id="Expression">
+                    <Script>(A:RUDDER TRIM PCT, percent) 0.03 *</Script>
+                </Expression>
+             </Rotation>
+        </Element>
+
+        <Element id="Element">
+            <FloatPosition>302.000,314.000</FloatPosition>
+            <Image id="trimindaileron.bmp" Name="trimindaileron.bmp">
+                <Transparent>True</Transparent>
+            </Image>
+            <Shift id="Shift">
+                <Scale>0.200,0.000</Scale>
+                <Expression id="Expression">
+                    <Minimum>-50.000</Minimum>
+                    <Maximum>50.000</Maximum>
+                    <Script>(A:AILERON TRIM PCT, percent)</Script>
+                </Expression>
+            </Shift>
+        </Element>
+        <Macro Name="ALT_SWITCH_LOGIC">
+            <MacroValue>
+                <!--
+                (L:switchalt, bool)  if{ (&gt;K:AP_ALT_HOLD_ON) (A:INDICATED ALTITUDE, feet) (&gt;K:AP_ALT_VAR_SET_ENGLISH) }
+                els{ (&gt;K:AP_ATT_HOLD_ON) }
+                -->
+            </MacroValue>
+        </Macro>
+
+        <Macro Name="AP_KEYS_CHANGED">
+            <MacroValue>
+                <!--(&gt;K:AP_HDG_HOLD_OFF)-->
+                <!--(&gt;K:AP_ATT_HOLD_OFF)-->
+                <!--(&gt;K:AP_ALT_HOLD_OFF)-->
+                <!--(&gt;K:AP_LOC_HOLD_OFF)
+                (&gt;K:AP_APR_HOLD_OFF) -->
+                <!--(&gt;K:AP_PANEL_HEADING_OFF)-->
+
+                (&gt;K:AP_WING_LEVELER_OFF)
+                (L:Autopilot Mode, number) 0 == if{
+                                                    (&gt;K:AP_LOC_HOLD_OFF)
+                                                    (&gt;K:AP_APR_HOLD_OFF)
+
+                                                    <!--
+                                                    (A:AUTOPILOT HEADING LOCK, bool) ! if{
+                                                        (&gt;K:AP_ATT_HOLD_ON)
+                                                    }                                                        
+                                                    ((A:AUTOPILOT HEADING LOCK, bool) (A:AUTOPILOT ALTITUDE LOCK, bool) ||) ! if{
+                                                        (&gt;K:AP_ATT_HOLD_ON)
+                                                    }-->
+                                                } els{
+                                                    (L:Autopilot Mode, number) 1 ==  if{
+                                                                                           (&gt;K:AP_LOC_HOLD_ON)
+                                                                                        } els{
+                                                                                            (L:Autopilot Mode, number) 2 == if{
+                                                                                                                                (&gt;K:AP_APR_HOLD_ON)
+                                                                                                                            } els{
+                                                                                                                                (L:Autopilot Mode, number) 3 == if{ (&gt;K:AP_LOC_HOLD_ON) }
+                                                                                                                            }
+                                                                                        }
+                                                }
+            </MacroValue>
+       </Macro>
+        <MouseArea id="MouseArea">
+            <FloatPosition>0.000,0.000</FloatPosition>
+            <Size>541,337</Size>
+ 
+                <MouseArea id="Increment">
+                    <FloatPosition>515.000,35.000</FloatPosition>
+                    <Size>11,40</Size>
+                    <CursorType>Hand</CursorType>
+                    <MouseClick id="MouseClick">
+                        <Script>			
+                            (&gt;K:TOGGLE_FLIGHT_DIRECTOR)
+                        </Script>
+                    </MouseClick>
+            		<Tooltip id="Tooltip">
+                		<DefaultScript>Flightdirector</DefaultScript>
+            		</Tooltip>
+                </MouseArea>
+                <!-- Heading Hold Switch Click Area-->
+                <MouseArea id="Increment">
+                    <FloatPosition>481.000,83.000</FloatPosition>
+                    <Size>11,40</Size>
+                    <CursorType>Hand</CursorType>
+                    <MouseClick id="MouseClick">
+                        <Script>
+                            (L:HDG_SW_STATE, number) 1 &gt; if{
+                                <!-- Set value only when greater then 0 -->
+                                (A:SIM TIME, number) (&gt;L:HDG_SW_STATE, number)
+                            }
+                                                        
+                            <!--
+                            10 (&gt;L:HDG_SW_STATE, number)
+                                
+                            (A:AUTOPILOT HEADING LOCK, bool) ! if{
+                                (&gt;K:AP_PANEL_HEADING_ON)
+                                <!-(&gt;K:KEY_AP_HDG_HOLD_ON)->
+                            } els{
+                                (&gt;K:AP_PANEL_HEADING_OFF)
+                                <!-(&gt;K:KEY_AP_HDG_HOLD_OFF)->
+                            }
+                            @AP_KEYS_CHANGED
+                            -->
+                        </Script>
+                    </MouseClick>
+            		<Tooltip id="Tooltip">
+                		<DefaultScript>Heading Hold</DefaultScript>
+            		</Tooltip>
+                </MouseArea>
+                <!-- Altitude Hold Switch Click Area-->
+                <MouseArea id="Increment">
+                    <FloatPosition>421.000,83.000</FloatPosition>
+                    <Size>11,40</Size>
+                    <CursorType>Hand</CursorType>
+                    <MouseClick id="MouseClick">
+                        <Script>
+                            (L:ALT_SW_STATE, number) 1 &gt; if{
+                                <!-- Set value only when greater then 0 -->
+                                (A:SIM TIME, number) (&gt;L:ALT_SW_STATE, number)
+                            }
+                                <!--
+                                (A:AUTOPILOT ALTITUDE LOCK, bool) ! if{
+                                    (&gt;K:AP_ALT_HOLD_ON)
+                                    (A:INDICATED ALTITUDE, feet) (&gt;K:AP_ALT_VAR_SET_ENGLISH)
+                                } els{
+                                    (&gt;K:AP_ALT_HOLD_OFF)
+                                    <!-(&gt;K:AP_ATT_HOLD_ON)->
+                                }
+                                @AP_KEYS_CHANGED
+                                -->
+                        </Script>
+                    </MouseClick>
+            		<Tooltip id="Tooltip">
+                		<DefaultScript>Altitude Hold</DefaultScript>
+            		</Tooltip>
+                </MouseArea>
+
+                <!-- Autopilot Master Switch Click Area-->
+                <MouseArea id="Increment">
+                    <FloatPosition>261.000,43.000</FloatPosition>
+                    <Size>128,61</Size>
+                    <CursorType>Hand</CursorType>
+                    <MouseClick id="MouseClick">
+                        <Script> 
+                            (&gt;K:AP_MASTER)
+                            <!--
+                            (A:AUTOPILOT MASTER, number) 1 == if{   (&gt;K:AP_HDG_HOLD_OFF)
+                                                                    (&gt;K:AP_ATT_HOLD_OFF)
+                                                                    (&gt;K:AP_ALT_HOLD_OFF)
+                                                                    (&gt;K:AP_LOC_HOLD_OFF)
+                                                                    (&gt;K:AP_APR_HOLD_OFF)
+                                                                    (&gt;K:AP_PANEL_HEADING_OFF)
+                                                                    0 (&gt;L:Autopilot Mode, number)
+                                                                    <!- (&gt;K:KEY_AUTOPILOT_OFF) ->
+                                                                } els{ 
+                                                                    <!- (&gt;K:KEY_AUTOPILOT_ON) ->
+                                                                    <!-1 (&gt;K:KEY_YAW_DAMPER_SET)->
+                                                                    @AP_KEYS_CHANGED 
+                                                                }
+                            -->
+                        </Script>
+                    </MouseClick>
+            		<Tooltip id="Tooltip">
+                		<DefaultScript>Autopilot Master</DefaultScript>
+            		</Tooltip>
+                </MouseArea>
+                <!-- Autopilot mode rotary switch click area -->
+                <MouseArea id="Increment">
+                    <FloatPosition>25.000,37.000</FloatPosition>
+                    <Size>70,70</Size>
+                    <CursorType>Hand</CursorType>
+                    <MouseClick id="MouseClick">
+                        <Script>
+			                (L:Autopilot Mode, number) 1 + (&gt;L:Autopilot Mode, number)
+			                (L:Autopilot Mode, number) 4 == if{ 0 (&gt;L:Autopilot Mode, number) } 
+                            @AP_KEYS_CHANGED
+                        </Script>
+                    </MouseClick>
+            		<Tooltip id="Tooltip">
+                		<DefaultScript>Autopilot Mode</DefaultScript>
+            		</Tooltip>
+                </MouseArea>
+
+                <MouseArea id="pitc">
+                    <FloatPosition>157.000,31.000</FloatPosition>
+                    <Size>27,32</Size>
+                    <CursorType>Hand</CursorType>
+                    <MouseClick id="MouseClick">
+                        <Script> (&gt;K:AP_PITCH_REF_INC_DN) 
+                        </Script>
+                        <ClickRepeat>True</ClickRepeat>
+                    </MouseClick>
+            		<Tooltip id="Tooltip">
+                		<DefaultScript>Pitch DOWN</DefaultScript>
+            		</Tooltip>
+                </MouseArea>
+                <MouseArea id="pitc">
+                    <FloatPosition>157.000,77.000</FloatPosition>
+                    <Size>27,32</Size>
+                    <CursorType>Hand</CursorType>
+                    <MouseClick id="MouseClick">
+                        <Script> (&gt;K:AP_PITCH_REF_INC_UP) 
+                        </Script>
+                        <ClickRepeat>True</ClickRepeat>
+                    </MouseClick>
+            		<Tooltip id="Tooltip">
+                		<DefaultScript>Pitch UP</DefaultScript>
+            		</Tooltip>
+                </MouseArea>
+                <MouseArea id="pitc">
+                    <FloatPosition>126.000,67.000</FloatPosition>
+                    <Size>27,32</Size>
+                    <CursorType>Hand</CursorType>
+                    <MouseClick id="MouseClick">
+                        <Script> (&gt;K:HEADING_BUG_DEC) 
+                        </Script>
+                        <ClickRepeat>True</ClickRepeat>
+                    </MouseClick>
+            		<Tooltip id="Tooltip">
+                		<DefaultScript>turn LEFT</DefaultScript>
+            		</Tooltip>
+                </MouseArea>
+                <MouseArea id="pitc">
+                    <FloatPosition>194.000,67.000</FloatPosition>
+                    <Size>27,32</Size>
+                    <CursorType>Hand</CursorType>
+                    <MouseClick id="MouseClick">
+                        <Script> (&gt;K:HEADING_BUG_INC) 
+                        </Script>
+                        <ClickRepeat>True</ClickRepeat>
+                    </MouseClick>
+            		<Tooltip id="Tooltip">
+                		<DefaultScript>turn RIGHT</DefaultScript>
+            		</Tooltip>
+                </MouseArea>
+
+            <MouseArea id="trim Handlerudd">
+                <FloatPosition>188.000,189.000</FloatPosition>
+                <Size>160,160</Size>
+                <MouseArea id="Dec">
+                    <FloatPosition>0.000,0.000</FloatPosition>
+                    <Size>80,160</Size>
+                    <CursorType>DownArrow</CursorType>
+                    <MouseClick id="MouseClick">
+	            <Script>
+				100 (&gt;K:RUDDER_TRIM_LEFT)                    
+                   </Script>
+                        <ClickRepeat>True</ClickRepeat>
+                    </MouseClick>
+                </MouseArea>
+                <MouseArea id="Inc">
+                    <FloatPosition>60.000,0.000</FloatPosition>
+                    <Size>60,120</Size>
+                    <CursorType>UpArrow</CursorType>
+                    <MouseClick id="MouseClick">
+ 	            <Script>
+				100 (&gt;K:RUDDER_TRIM_RIGHT)                  
+                   </Script>
+                        <ClickRepeat>True</ClickRepeat>
+                    </MouseClick>
+                </MouseArea>
+	            <Tooltip id="Tooltip">
+ 	               <DefaultScript>Rudder trim</DefaultScript>
+                    </Tooltip>
+            </MouseArea>
+            <MouseArea id="trim Handleailer">
+                <FloatPosition>251.000,320.000</FloatPosition>
+                <Size>110,18</Size>
+                <MouseArea id="Dec">
+                    <FloatPosition>0.000,0.000</FloatPosition>
+                    <Size>55,18</Size>
+                    <CursorType>DownArrow</CursorType>
+                    <MouseClick id="MouseClick">
+	            <Script>
+				1 (&gt;K:AILERON_TRIM_LEFT)                  
+                   </Script>
+                        <ClickRepeat>True</ClickRepeat>
+                    </MouseClick>
+                </MouseArea>
+                <MouseArea id="Inc">
+                    <FloatPosition>55.000,0.000</FloatPosition>
+                    <Size>55,18</Size>
+                    <CursorType>UpArrow</CursorType>
+                    <MouseClick id="MouseClick">
+ 	            <Script>
+				1 (&gt;K:AILERON_TRIM_RIGHT)                   
+                   </Script>
+                        <ClickRepeat>True</ClickRepeat>
+                    </MouseClick>
+                </MouseArea>
+	            <Tooltip id="Tooltip">
+ 	               <DefaultScript>Aileron trim</DefaultScript>
+                    </Tooltip>
+            </MouseArea>
+            <MouseArea id="CLOSE">
+                <FloatPosition>382.000,221.000</FloatPosition>
+                <Size>16,16</Size>
+                <CursorType>DownArrow</CursorType>
+                <MouseClick id="MouseClick">
+                    <Script>
+			            10 (&gt;K:PANEL_ID_TOGGLE)
+                    </Script>
+                </MouseClick>
+            </MouseArea>
+        </MouseArea>
+
+
+        <Update id="Update">
+            <Frequency>10</Frequency>
+            <Script>!lua
+                if (AP_INIT == nil) then
+                    AP_INIT = true
+
+                    --Prev AP Master state
+                    OLD_AP_MASTER = bool(varget(&quot;A:AUTOPILOT MASTER&quot;,&quot;Number&quot;))
+
+                    --Prev HDG Hold and HDG Hold Switch states
+                    OLD_HDG_HOLD = bool(varget(&quot;A:AUTOPILOT HEADING LOCK&quot;,&quot;Number&quot;))
+                    varset(&quot;L:HDG_SW_STATE&quot;, OLD_HDG_HOLD)
+                    OLD_HDG_SW_STATE = OLD_HDG_HOLD
+
+                    --Prev ALT Hold and ALT Hold Switch states
+                    OLD_ALT_HOLD = bool(varget(&quot;A:AUTOPILOT ALTITUDE LOCK&quot;,&quot;Number&quot;))
+                    varset(&quot;L:ALT_SW_STATE&quot;, OLD_ALT_HOLD)
+                    OLD_ALT_SW_STATE = OLD_ALT_HOLD
+
+                end
+
+                local needProcessAPMode = false --If need to process AP Mode switch position
+
+                -- Process AP Master state
+                local AP_MASTER = bool(varget(&quot;A:AUTOPILOT MASTER&quot;,&quot;Number&quot;))
+                if not (OLD_AP_MASTER == AP_MASTER) then
+                    OLD_AP_MASTER = AP_MASTER
+
+                    if (AP_MASTER == false) then
+                        varset(&quot;K:AP_HDG_HOLD_OFF&quot;, 1)
+                        varset(&quot;K:AP_ATT_HOLD_OFF&quot;, 1)
+                        varset(&quot;K:AP_ALT_HOLD_OFF&quot;, 1)
+                        varset(&quot;K:AP_LOC_HOLD_OFF&quot;, 1)
+                        varset(&quot;K:AP_APR_HOLD_OFF&quot;, 1)
+                        varset(&quot;K:AP_PANEL_HEADING_OFF&quot;, 1)
+                        varset(&quot;L:Autopilot Mode&quot;, 0)
+                        
+                        return 1
+                    else
+                        --varset(&quot;K:KEY_YAW_DAMPER_ON&quot;, 1)
+                        --varset(&quot;K:KEY_YAW_DAMPER_TOGGLE&quot;, 1)
+                        needProcessAPMode = true
+                    end
+                end
+
+                -----------------Heading Hold State-----------------
+                -- Process SIM Heading hold state
+                -- It may be switching off, to example, after intercepting localizer
+                local HDG_HOLD = bool(varget(&quot;A:AUTOPILOT HEADING LOCK&quot;,&quot;Number&quot;))
+                if not (OLD_HDG_HOLD == HDG_HOLD) then
+                    OLD_HDG_HOLD = HDG_HOLD
+                    if (HDG_HOLD == false) then
+                        --Set switch state to off
+                        OLD_HDG_SW_STATE = 0
+                    else
+                        --Set switch state to on
+                        OLD_HDG_SW_STATE = 1
+                    end
+                    varset(&quot;L:HDG_SW_STATE&quot;, OLD_HDG_SW_STATE)
+                end
+
+                -- Process HDG Hold Switch state
+                local HDG_SW_STATE = varget(&quot;L:HDG_SW_STATE&quot;,&quot;Number&quot;)
+                if not (OLD_HDG_SW_STATE == HDG_SW_STATE) then
+                    if (AP_MASTER == false) then
+                        --Simulate switch off from detent
+                        local SIM_TIME = varget(&quot;A:SIM TIME&quot;,&quot;Number&quot;)
+                        if (SIM_TIME - HDG_SW_STATE) > 1 then
+                            OLD_HDG_SW_STATE = 0
+                            varset(&quot;L:HDG_SW_STATE&quot;, OLD_HDG_SW_STATE)
+                        end
+                    else
+                        -- Update old_states to expected for next update
+                        if (HDG_HOLD == true) then
+                            --OLD_HDG_HOLD = false
+                            --OLD_HDG_SW_STATE = 0
+                            varset(&quot;K:AP_PANEL_HEADING_OFF&quot;, 1)
+                        else
+                            --OLD_HDG_HOLD = true
+                            --OLD_HDG_SW_STATE = 1
+                            varset(&quot;K:AP_PANEL_HEADING_ON&quot;, 1)
+                        end
+
+                        --varset(&quot;L:HDG_SW_STATE&quot;, OLD_HDG_SW_STATE)
+                    end
+                end
+
+                -----------------Altitude Hold State-----------------
+                -- Process SIM Altitude hold state
+                -- It may be switching off, to example, after intercepting glidescope
+                local ALT_HOLD = bool(varget(&quot;A:AUTOPILOT ALTITUDE LOCK&quot;,&quot;Number&quot;))
+                if not (OLD_ALT_HOLD == ALT_HOLD) then
+                    OLD_ALT_HOLD = ALT_HOLD
+                    if (ALT_HOLD == false) then
+                        --Set switch state to off
+                        OLD_ALT_SW_STATE = 0
+                    else
+                        --Set switch state to on
+                        OLD_ALT_SW_STATE = 1
+                    end
+                    varset(&quot;L:ALT_SW_STATE&quot;, OLD_ALT_SW_STATE)
+                end
+                
+                -- Process ALT Hold Switch state
+                local ALT_SW_STATE = varget(&quot;L:ALT_SW_STATE&quot;,&quot;Number&quot;)
+                if not (OLD_ALT_SW_STATE == ALT_SW_STATE) then
+                    if (AP_MASTER == false) then
+                        --Simulate switch off from detent
+                        local SIM_TIME = varget(&quot;A:SIM TIME&quot;,&quot;Number&quot;)
+                        if (SIM_TIME - ALT_SW_STATE) > 1 then
+                            OLD_ALT_SW_STATE = 0
+                            varset(&quot;L:ALT_SW_STATE&quot;, OLD_ALT_SW_STATE)
+                        end
+                    else
+                        -- Update old_states to expected for next update
+                        if (ALT_HOLD == true) then
+                            OLD_ALT_HOLD = false
+                            OLD_ALT_SW_STATE = 0
+                            varset(&quot;K:AP_ALT_HOLD_OFF&quot;, 1)
+                            local ia = varget(&quot;A:INDICATED ALTITUDE&quot;, &quot;feet&quot;)
+                            varset(&quot;K:AP_ALT_VAR_SET_ENGLISH&quot;, ia)
+                            --(A:INDICATED ALTITUDE, feet) (&gt;K:AP_ALT_VAR_SET_ENGLISH)
+                        else
+                            OLD_ALT_HOLD = true
+                            OLD_ALT_SW_STATE = 1
+                            varset(&quot;K:AP_ALT_HOLD_ON&quot;, 1)
+                        end
+
+                        varset(&quot;L:ALT_SW_STATE&quot;, OLD_ALT_SW_STATE)
+                    end
+                end                
+                
+
+
+--soundOneShot(&quot;CatapultLaunch.wav&quot;)
+
+                return 1
+            </Script>
+        </Update>
+    </SimGauge.Gauge>
+</SimBase.Document>

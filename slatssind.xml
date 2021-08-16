@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<SimBase.Document
+        Type="AceXML"
+        version="1,0"
+        id="flapsind">
+    <Descr>AceXML Document</Descr>
+    <Filename>slatssind.xml</Filename>
+    <SimGauge.Gauge id="Gauge" ArtDirectory=".">
+        <FloatPosition>0.000,0.000</FloatPosition>
+        <Size>146,47</Size>
+
+
+        <Element id="gen1off">
+            <FloatPosition>0.000,0.000</FloatPosition>
+            <Visibility>
+			(A:LEADING EDGE FLAPS LEFT PERCENT, percent) 99 &gt;
+			(A:CIRCUIT GENERAL PANEL ON, bool) &amp;&amp;
+	    </Visibility>
+            <Image id="slats_GR1_L.bmp" Name="slats_GR1_L.bmp">
+                <Transparent>True</Transparent>
+                <Bright>True</Bright>
+            </Image>
+        </Element>
+        <Element id="gen1off">
+            <FloatPosition>0.000,0.000</FloatPosition>
+            <Visibility>
+			(A:LEADING EDGE FLAPS RIGHT PERCENT, percent) 99 &gt;
+			(A:CIRCUIT GENERAL PANEL ON, bool) &amp;&amp;
+	    </Visibility>
+            <Image id="slats_GR1_R.bmp" Name="slats_GR1_R.bmp">
+                <Transparent>True</Transparent>
+                <Bright>True</Bright>
+            </Image>
+        </Element>
+        <Element id="gen1off">
+            <FloatPosition>0.000,0.000</FloatPosition>
+            <Visibility>
+			(A:LEADING EDGE FLAPS LEFT PERCENT, percent) 99 &gt;
+			(A:CIRCUIT GENERAL PANEL ON, bool) &amp;&amp;
+	    </Visibility>
+            <Image id="slats_GR2_L.bmp" Name="slats_GR2_L.bmp">
+                <Transparent>True</Transparent>
+                <Bright>True</Bright>
+            </Image>
+        </Element>
+        <Element id="gen1off">
+            <FloatPosition>0.000,0.000</FloatPosition>
+            <Visibility>
+			(A:LEADING EDGE FLAPS RIGHT PERCENT, percent) 99 &gt;
+			(A:CIRCUIT GENERAL PANEL ON, bool) &amp;&amp;
+	    </Visibility>
+            <Image id="slats_GR2_RL.bmp" Name="slats_GR2_R.bmp">
+                <Transparent>True</Transparent>
+                <Bright>True</Bright>
+            </Image>
+        </Element>
+        <Element id="gen1off">
+            <FloatPosition>0.000,0.000</FloatPosition>
+            <Visibility>
+			(A:LEADING EDGE FLAPS LEFT PERCENT, percent) 29 &gt;
+			(A:CIRCUIT GENERAL PANEL ON, bool) &amp;&amp;
+	    </Visibility>
+            <Image id="slats_GR3_L.bmp" Name="slats_GR3_L.bmp">
+                <Transparent>True</Transparent>
+                <Bright>True</Bright>
+            </Image>
+        </Element>
+        <Element id="gen1off">
+            <FloatPosition>0.000,0.000</FloatPosition>
+            <Visibility>
+			(A:LEADING EDGE FLAPS RIGHT PERCENT, percent) 29 &gt;
+			(A:CIRCUIT GENERAL PANEL ON, bool) &amp;&amp;
+	    </Visibility>
+            <Image id="slats_GR3_R.bmp" Name="slats_GR3_R.bmp">
+                <Transparent>True</Transparent>
+                <Bright>True</Bright>
+            </Image>
+        </Element>
+
+        <Element id="gen1off">
+            <FloatPosition>0.000,0.000</FloatPosition>
+            <Visibility>
+			(A:LEADING EDGE FLAPS LEFT PERCENT, percent) 30 &gt; (A:LEADING EDGE FLAPS LEFT PERCENT, percent) 100 &lt; &amp;&amp;
+			(A:CIRCUIT GENERAL PANEL ON, bool) &amp;&amp;
+	    </Visibility>
+            <Image id="slats_OR1_L.bmp" Name="slats_OR1_L.bmp">
+                <Transparent>True</Transparent>
+                <Bright>True</Bright>
+            </Image>
+        </Element>
+        <Element id="gen1off">
+            <FloatPosition>0.000,0.000</FloatPosition>
+            <Visibility>
+			(A:LEADING EDGE FLAPS RIGHT PERCENT, percent) 30 &gt; (A:LEADING EDGE FLAPS RIGHT PERCENT, percent) 100 &lt; &amp;&amp;
+			(A:CIRCUIT GENERAL PANEL ON, bool) &amp;&amp;
+	    </Visibility>
+            <Image id="slats_OR1_R.bmp" Name="slats_OR1_R.bmp">
+                <Transparent>True</Transparent>
+                <Bright>True</Bright>
+            </Image>
+        </Element>
+        <Element id="gen1off">
+            <FloatPosition>0.000,0.000</FloatPosition>
+            <Visibility>
+			(A:LEADING EDGE FLAPS LEFT PERCENT, percent) 30 &gt; (A:LEADING EDGE FLAPS LEFT PERCENT, percent) 100 &lt; &amp;&amp;
+			(A:CIRCUIT GENERAL PANEL ON, bool) &amp;&amp;
+	    </Visibility>
+            <Image id="slats_OR2_L.bmp" Name="slats_OR2_L.bmp">
+                <Transparent>True</Transparent>
+                <Bright>True</Bright>
+            </Image>
+        </Element>
+        <Element id="gen1off">
+            <FloatPosition>0.000,0.000</FloatPosition>
+            <Visibility>
+			(A:LEADING EDGE FLAPS RIGHT PERCENT, percent) 30 &gt; (A:LEADING EDGE FLAPS RIGHT PERCENT, percent) 100 &lt; &amp;&amp;
+			(A:CIRCUIT GENERAL PANEL ON, bool) &amp;&amp;
+	    </Visibility>
+            <Image id="slats_OR2_R.bmp" Name="slats_OR2_R.bmp">
+                <Transparent>True</Transparent>
+                <Bright>True</Bright>
+            </Image>
+        </Element>
+        <Element id="gen1off">
+            <FloatPosition>0.000,0.000</FloatPosition>
+            <Visibility>
+			(A:LEADING EDGE FLAPS LEFT PERCENT, percent) 0 &gt; (A:LEADING EDGE FLAPS LEFT PERCENT, percent) 30 &lt; &amp;&amp;
+			(A:CIRCUIT GENERAL PANEL ON, bool) &amp;&amp;
+	    </Visibility>
+            <Image id="slats_OR3_L.bmp" Name="slats_OR3_L.bmp">
+                <Transparent>True</Transparent>
+                <Bright>True</Bright>
+            </Image>
+        </Element>
+        <Element id="gen1off">
+            <FloatPosition>0.000,0.000</FloatPosition>
+            <Visibility>
+			(A:LEADING EDGE FLAPS RIGHT PERCENT, percent) 0 &gt; (A:LEADING EDGE FLAPS RIGHT PERCENT, percent) 30 &lt; &amp;&amp;
+			(A:CIRCUIT GENERAL PANEL ON, bool) &amp;&amp;
+	    </Visibility>
+            <Image id="slats_OR3_R.bmp" Name="slats_OR3_R.bmp">
+                <Transparent>True</Transparent>
+                <Bright>True</Bright>
+            </Image>
+        </Element>
+
+    </SimGauge.Gauge>
+</SimBase.Document>

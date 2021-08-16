@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<SimBase.Document
+        Type="AceXML"
+        version="1,0"
+        id="autopilot">
+    <Descr>AceXML Document</Descr>
+    <Filename>ohead_iceSTRUCT2D.xml</Filename>
+    <SimGauge.Gauge id="autopilot" ArtDirectory=".">
+        <FloatPosition>0.000,0.000</FloatPosition>
+        <Size>23,23</Size>
+
+       <Element id="ohead_pitot3">
+            <FloatPosition>0.000,0.000</FloatPosition>
+            <Visibility>(A:PANEL ANTI ICE SWITCH, bool) (A:CIRCUIT GENERAL PANEL ON, bool) &amp;&amp;
+	    </Visibility>
+            <Image id="Image" Name="oheadlamp_redON.bmp">
+		<Bright>True</Bright>
+                <Transparent>True</Transparent>
+            </Image>
+        </Element>
+
+
+    </SimGauge.Gauge>
+</SimBase.Document>

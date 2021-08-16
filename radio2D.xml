@@ -1,0 +1,542 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<SimBase.Document
+        Type="AceXML"
+        version="1,0"
+        id="A300 autopilot">
+    <Descr>AceXML Document</Descr>
+    <Filename>radio2D.xml</Filename>
+    <SimGauge.Gauge id="Gauge" ArtDirectory=".">
+        <FloatPosition>0.000,0.000</FloatPosition>
+        <Size>205,678</Size>
+
+        <Element id="Element">
+            <FloatPosition>70.000,16.000</FloatPosition>
+            <GaugeText id="GaugeText">
+                <FontColor>White</FontColor>
+                <FontHeight>15</FontHeight>
+                <GaugeString>%((A:TRANSPONDER1 CODE, BCO16) sp0)%(l0 12 &gt;&gt; 15 &amp;)%!d!%(l0 8 &gt;&gt; 15 &amp;)%!d!%(l0 4 &gt;&gt; 15 &amp;)%!d!%(l0 15 &amp;)%!d!</GaugeString>
+                <HorizontalAlign>RIGHT</HorizontalAlign>
+                <Size>50,27</Size>
+                <Transparent>True</Transparent>
+            </GaugeText>
+        </Element>
+
+
+        <Element id="Element">
+            <FloatPosition>70.000,127.000</FloatPosition>
+            <GaugeText id="GaugeText">
+                <FontColor>White</FontColor>
+                <FontHeight>15</FontHeight>
+                <GaugeString>%((A:Adf active frequency:1,Kilohertz))%!4.1f!</GaugeString>
+                <HorizontalAlign>RIGHT</HorizontalAlign>
+                <Size>52,27</Size>
+                <Transparent>True</Transparent>
+            </GaugeText>
+        </Element>
+
+        <Element id="Element">
+            <FloatPosition>70.000,222.000</FloatPosition>
+            <GaugeText id="GaugeText">
+                <FontColor>White</FontColor>
+                <FontHeight>15</FontHeight>
+                <GaugeString>%((A:Adf active frequency:2,Kilohertz))%!4.1f!</GaugeString>
+                <HorizontalAlign>RIGHT</HorizontalAlign>
+                <Size>52,27</Size>
+                <Transparent>True</Transparent>
+            </GaugeText>
+        </Element>
+
+        <Element id="Element">
+            <FloatPosition>22.000,300.000</FloatPosition>
+            <GaugeText id="GaugeText">
+                <FontColor>White</FontColor>
+                <FontHeight>12</FontHeight>
+                <GaugeString>%((A:Com active frequency:1,Megahertz))%!6.2f!</GaugeString>
+                <HorizontalAlign>RIGHT</HorizontalAlign>
+                <Size>52,27</Size>
+                <Transparent>True</Transparent>
+            </GaugeText>
+        </Element>
+
+        <Element id="Element">
+            <FloatPosition>22.000,420.000</FloatPosition>
+            <GaugeText id="GaugeText">
+                <FontColor>White</FontColor>
+                <FontHeight>12</FontHeight>
+                <GaugeString>%((A:Com active frequency:2,Megahertz))%!6.2f!</GaugeString>
+                <HorizontalAlign>RIGHT</HorizontalAlign>
+                <Size>52,27</Size>
+                <Transparent>True</Transparent>
+            </GaugeText>
+        </Element>
+
+
+        <Element id="Element">
+            <FloatPosition>114.000,300.000</FloatPosition>
+            <GaugeText id="GaugeText">
+                <FontColor>White</FontColor>
+                <FontHeight>12</FontHeight>
+                <GaugeString>%((A:Nav active frequency:1,Megahertz))%!6.2f!</GaugeString>
+                <HorizontalAlign>RIGHT</HorizontalAlign>
+                <Size>52,27</Size>
+                <Transparent>True</Transparent>
+            </GaugeText>
+        </Element>
+
+        <Element id="Element">
+            <FloatPosition>114.000,420.000</FloatPosition>
+            <GaugeText id="GaugeText">
+                <FontColor>White</FontColor>
+                <FontHeight>12</FontHeight>
+                <GaugeString>%((A:Nav active frequency:2,Megahertz))%!6.2f!</GaugeString>
+                <HorizontalAlign>RIGHT</HorizontalAlign>
+                <Size>52,27</Size>
+                <Transparent>True</Transparent>
+            </GaugeText>
+        </Element>
+
+       <Element id="switchnav1">
+            <FloatPosition>26.000,534.000</FloatPosition>
+            <Visibility>(A:NAV SOUND:1, bool) 
+	    </Visibility>
+            <Image id="switch_up.bmp" Name="switch_up.bmp">
+                <Transparent>True</Transparent>
+            </Image>
+        </Element>
+
+       <Element id="switchnav1">
+            <FloatPosition>26.000,534.000</FloatPosition>
+            <Visibility>(A:NAV SOUND:1, bool) !
+	    </Visibility>
+            <Image id="switch_dn.bmp" Name="switch_dn.bmp">
+                <Transparent>True</Transparent>
+            </Image>
+        </Element>
+
+       <Element id="switchnav1">
+            <FloatPosition>145.000,534.000</FloatPosition>
+            <Visibility>(A:NAV SOUND:2, bool) 
+	    </Visibility>
+            <Image id="switch_up.bmp" Name="switch_up.bmp">
+                <Transparent>True</Transparent>
+            </Image>
+        </Element>
+
+       <Element id="switchnav1">
+            <FloatPosition>145.000,534.000</FloatPosition>
+            <Visibility>(A:NAV SOUND:2, bool) !
+	    </Visibility>
+            <Image id="switch_dn.bmp" Name="switch_dn.bmp">
+                <Transparent>True</Transparent>
+            </Image>
+        </Element>
+
+       <Element id="switchnav1">
+            <FloatPosition>50.000,534.000</FloatPosition>
+            <Visibility>(A:COM TRANSMIT:1, bool) 
+	    </Visibility>
+            <Image id="switch_up.bmp" Name="switch_up.bmp">
+                <Transparent>True</Transparent>
+            </Image>
+        </Element>
+
+       <Element id="switchnav1">
+            <FloatPosition>50.000,534.000</FloatPosition>
+            <Visibility>(A:COM TRANSMIT:1, bool) !
+	    </Visibility>
+            <Image id="switch_dn.bmp" Name="switch_dn.bmp">
+                <Transparent>True</Transparent>
+            </Image>
+        </Element>
+
+       <Element id="switchnav1">
+            <FloatPosition>167.000,534.000</FloatPosition>
+            <Visibility>(A:COM TRANSMIT:2, bool) 
+	    </Visibility>
+            <Image id="switch_up.bmp" Name="switch_up.bmp">
+                <Transparent>True</Transparent>
+            </Image>
+        </Element>
+
+       <Element id="switchnav1">
+            <FloatPosition>167.000,534.000</FloatPosition>
+            <Visibility>(A:COM TRANSMIT:2, bool) !
+	    </Visibility>
+            <Image id="switch_dn.bmp" Name="switch_dn.bmp">
+                <Transparent>True</Transparent>
+            </Image>
+        </Element>
+
+       <Element id="switchnav1">
+            <FloatPosition>97.000,525.000</FloatPosition>
+            <Visibility>(A:MARKER SOUND, bool) 
+	    </Visibility>
+            <Image id="switch_up.bmp" Name="switch_up.bmp">
+                <Transparent>True</Transparent>
+            </Image>
+        </Element>
+
+       <Element id="switchnav1">
+            <FloatPosition>97.000,525.000</FloatPosition>
+            <Visibility>(A:MARKER SOUND, bool) !
+	    </Visibility>
+            <Image id="switch_dn.bmp" Name="switch_dn.bmp">
+                <Transparent>True</Transparent>
+            </Image>
+        </Element>
+
+       <Element id="switchnav1">
+            <FloatPosition>21.000,631.000</FloatPosition>
+            <Visibility>(A:ADF SOUND:1, bool) 
+	    </Visibility>
+            <Image id="switch_radioright.bmp" Name="switch_radioright.bmp">
+                <Transparent>True</Transparent>
+            </Image>
+        </Element>
+
+       <Element id="switchnav1">
+            <FloatPosition>21.000,631.000</FloatPosition>
+            <Visibility>(A:ADF SOUND:1, bool) !
+	    </Visibility>
+            <Image id="switch_radioleft.bmp" Name="switch_radioleft.bmp">
+                <Transparent>True</Transparent>
+            </Image>
+        </Element>
+
+       <Element id="switchnav1">
+            <FloatPosition>147.000,631.000</FloatPosition>
+            <Visibility>(A:DME SOUND, bool) 
+	    </Visibility>
+            <Image id="switch_radioright.bmp" Name="switch_radioright.bmp">
+                <Transparent>True</Transparent>
+            </Image>
+        </Element>
+
+       <Element id="switchnav1">
+            <FloatPosition>147.000,631.000</FloatPosition>
+            <Visibility>(A:DME SOUND, bool) !
+	    </Visibility>
+            <Image id="switch_radioleft.bmp" Name="switch_radioleft.bmp">
+                <Transparent>True</Transparent>
+            </Image>
+        </Element>
+
+        <MouseArea id="MouseArea - Panel">
+            <FloatPosition>0.000,0.000</FloatPosition>
+            <Size>205,678</Size>
+            <MouseArea id="nav1 sound">
+                <FloatPosition>27.000,536.000</FloatPosition>
+                <Size>12,39</Size>
+                <CursorType>Hand</CursorType>
+                <MouseClick id="MouseClick">
+                    <Script>1 (&gt;K:RADIO_VOR1_IDENT_TOGGLE)</Script>
+                </MouseClick>
+	            <Tooltip id="Tooltip">
+ 	               <DefaultScript>NAV1 Sound</DefaultScript>
+                    </Tooltip>
+            </MouseArea>
+            <MouseArea id="nav2 sound">
+                <FloatPosition>144.000,536.000</FloatPosition>
+                <Size>12,39</Size>
+                <CursorType>Hand</CursorType>
+                <MouseClick id="MouseClick">
+                    <Script>1 (&gt;K:RADIO_VOR2_IDENT_TOGGLE)</Script>
+                </MouseClick>
+	            <Tooltip id="Tooltip">
+ 	               <DefaultScript>NAV2 Sound</DefaultScript>
+                    </Tooltip>
+            </MouseArea>
+            <MouseArea id="marker sound">
+                <FloatPosition>97.000,528.000</FloatPosition>
+                <Size>12,39</Size>
+                <CursorType>Hand</CursorType>
+                <MouseClick id="MouseClick">
+                    <Script>1 (&gt;K:MARKER_SOUND_TOGGLE)</Script>
+                </MouseClick>
+	            <Tooltip id="Tooltip">
+ 	               <DefaultScript>Marker Sound</DefaultScript>
+                    </Tooltip>
+            </MouseArea>
+            <MouseArea id="dme sound">
+                <FloatPosition>150.000,632.000</FloatPosition>
+                <Size>30,30</Size>
+                <CursorType>Hand</CursorType>
+                <MouseClick id="MouseClick">
+                    <Script>1 (&gt;K:RADIO_DME1_IDENT_TOGGLE)</Script>
+                </MouseClick>
+	            <Tooltip id="Tooltip">
+ 	               <DefaultScript>DME1 Sound</DefaultScript>
+                    </Tooltip>
+            </MouseArea>
+            <MouseArea id="adf1 sound">
+                <FloatPosition>26.000,632.000</FloatPosition>
+                <Size>30,30</Size>
+                <CursorType>Hand</CursorType>
+                <MouseClick id="MouseClick">
+                    <Script>1 (&gt;K:RADIO_ADF_IDENT_TOGGLE)</Script>
+                </MouseClick>
+	            <Tooltip id="Tooltip">
+ 	               <DefaultScript>ADF1 Sound</DefaultScript>
+                    </Tooltip>
+            </MouseArea>
+            <MouseArea id="com1 sound">
+                <FloatPosition>50.000,536.000</FloatPosition>
+                <Size>12,39</Size>
+                <CursorType>Hand</CursorType>
+                <MouseClick id="MouseClick">
+                    <Script>1 (&gt;K:COM1_TRANSMIT_SELECT)</Script>
+                </MouseClick>
+	            <Tooltip id="Tooltip">
+ 	               <DefaultScript>COM1 Sound</DefaultScript>
+                    </Tooltip>
+            </MouseArea>
+            <MouseArea id="com1 sound">
+                <FloatPosition>168.000,536.000</FloatPosition>
+                <Size>12,39</Size>
+                <CursorType>Hand</CursorType>
+                <MouseClick id="MouseClick">
+                    <Script>1 (&gt;K:COM2_TRANSMIT_SELECT)</Script>
+                </MouseClick>
+	            <Tooltip id="Tooltip">
+ 	               <DefaultScript>COM2 Sound</DefaultScript>
+                    </Tooltip>
+            </MouseArea>
+
+            <MouseArea id="com1 stby knob">
+                <FloatPosition>38.000,326.000</FloatPosition>
+                <Size>40,40</Size>
+                <MouseArea id="Decrement">
+                    <FloatPosition>0.000,0.000</FloatPosition>
+                    <Size>20,40</Size>
+                    <CursorType>DownArrow</CursorType>
+                    <MouseClick id="MouseClick">
+                        <Script>
+				(A:COM ACTIVE FREQUENCY:1, Frequency BCD16) (&gt;K:COM_STBY_RADIO_SET) (>K:COM_RADIO_FRACT_DEC_CARRY) 1 (&gt;K:COM_STBY_RADIO_SWAP)
+                        </Script>
+                        <ClickRepeat>True</ClickRepeat>
+                    </MouseClick>
+                </MouseArea>
+                <MouseArea id="Increment">
+                    <FloatPosition>20.000,0.000</FloatPosition>
+                    <Size>20,40</Size>
+                    <CursorType>UpArrow</CursorType>
+                    <MouseClick id="MouseClick">
+                        <Script>
+                        	(A:COM ACTIVE FREQUENCY:1, Frequency BCD16) (&gt;K:COM_STBY_RADIO_SET) (>K:COM_RADIO_FRACT_INC_CARRY) 1 (&gt;K:COM_STBY_RADIO_SWAP)
+                        </Script>
+                        <ClickRepeat>True</ClickRepeat>
+                    </MouseClick>
+                </MouseArea>
+	            <Tooltip id="Tooltip">
+ 	               <DefaultScript>COM1 frequency</DefaultScript>
+                    </Tooltip>
+            </MouseArea>
+            <MouseArea id="com2 stby knob">
+                <FloatPosition>38.000,446.000</FloatPosition>
+                <Size>40,40</Size>
+                <MouseArea id="Decrement">
+                    <FloatPosition>0.000,0.000</FloatPosition>
+                    <Size>20,40</Size>
+                    <CursorType>DownArrow</CursorType>
+                    <MouseClick id="MouseClick">
+                        <Script>
+				(A:COM ACTIVE FREQUENCY:2, Frequency BCD16) (&gt;K:COM2_STBY_RADIO_SET) (>K:COM2_RADIO_FRACT_DEC_CARRY) 1 (&gt;K:COM2_RADIO_SWAP)
+                        </Script>
+                        <ClickRepeat>True</ClickRepeat>
+                    </MouseClick>
+                </MouseArea>
+                <MouseArea id="Increment">
+                    <FloatPosition>20.000,0.000</FloatPosition>
+                    <Size>20,40</Size>
+                    <CursorType>UpArrow</CursorType>
+                    <MouseClick id="MouseClick">
+                        <Script>
+                        	(A:COM ACTIVE FREQUENCY:2, Frequency BCD16) (&gt;K:COM2_STBY_RADIO_SET) (>K:COM2_RADIO_FRACT_INC_CARRY) 1 (&gt;K:COM2_RADIO_SWAP)
+                        </Script>
+                        <ClickRepeat>True</ClickRepeat>
+                    </MouseClick>
+                </MouseArea>
+	            <Tooltip id="Tooltip">
+ 	               <DefaultScript>COM2 frequency</DefaultScript>
+                    </Tooltip>
+            </MouseArea>
+            <MouseArea id="nav1 stby knob">
+                <FloatPosition>130.000,326.000</FloatPosition>
+                <Size>40,40</Size>
+                <MouseArea id="Decrement">
+                    <FloatPosition>0.000,0.000</FloatPosition>
+                    <Size>20,40</Size>
+                    <CursorType>DownArrow</CursorType>
+                    <MouseClick id="MouseClick">
+                        <Script>
+				(A:NAV ACTIVE FREQUENCY:1, Frequency BCD16) (&gt;K:NAV1_STBY_SET) (>K:NAV1_RADIO_FRACT_DEC_CARRY) 1 (&gt;K:NAV1_RADIO_SWAP)
+                        </Script>
+                        <ClickRepeat>True</ClickRepeat>
+                    </MouseClick>
+                </MouseArea>
+                <MouseArea id="Increment">
+                    <FloatPosition>20.000,0.000</FloatPosition>
+                    <Size>20,40</Size>
+                    <CursorType>UpArrow</CursorType>
+                    <MouseClick id="MouseClick">
+                        <Script>
+                        	(A:NAV ACTIVE FREQUENCY:1, Frequency BCD16) (&gt;K:NAV1_STBY_SET) (>K:NAV1_RADIO_FRACT_INC_CARRY) 1 (&gt;K:NAV1_RADIO_SWAP)
+                        </Script>
+                        <ClickRepeat>True</ClickRepeat>
+                    </MouseClick>
+                </MouseArea>
+	            <Tooltip id="Tooltip">
+ 	               <DefaultScript>NAV1 frequency</DefaultScript>
+                    </Tooltip>
+            </MouseArea>
+            <MouseArea id="nav2 stby knob">
+                <FloatPosition>130.000,446.000</FloatPosition>
+                <Size>40,40</Size>
+                <MouseArea id="Decrement">
+                    <FloatPosition>0.000,0.000</FloatPosition>
+                    <Size>20,40</Size>
+                    <CursorType>DownArrow</CursorType>
+                    <MouseClick id="MouseClick">
+                        <Script>
+				(A:NAV ACTIVE FREQUENCY:2, Frequency BCD16) (&gt;K:NAV2_STBY_SET) (>K:NAV2_RADIO_FRACT_DEC_CARRY) 1 (&gt;K:NAV2_RADIO_SWAP)
+                        </Script>
+                        <ClickRepeat>True</ClickRepeat>
+                    </MouseClick>
+                </MouseArea>
+                <MouseArea id="Increment">
+                    <FloatPosition>20.000,0.000</FloatPosition>
+                    <Size>20,40</Size>
+                    <CursorType>UpArrow</CursorType>
+                    <MouseClick id="MouseClick">
+                        <Script>
+                        	(A:NAV ACTIVE FREQUENCY:2, Frequency BCD16) (&gt;K:NAV2_STBY_SET) (>K:NAV2_RADIO_FRACT_INC_CARRY) 1 (&gt;K:NAV2_RADIO_SWAP)
+                        </Script>
+                        <ClickRepeat>True</ClickRepeat>
+                    </MouseClick>
+                </MouseArea>
+	            <Tooltip id="Tooltip">
+ 	               <DefaultScript>NAV2 frequency</DefaultScript>
+                    </Tooltip>
+            </MouseArea>
+            <MouseArea id="adf1 stby knob">
+                <FloatPosition>144.000,135.000</FloatPosition>
+                <Size>40,40</Size>
+                <MouseArea id="Decrement">
+                    <FloatPosition>0.000,0.000</FloatPosition>
+                    <Size>20,40</Size>
+                    <CursorType>DownArrow</CursorType>
+                    <MouseClick id="MouseClick">
+                        <Script>
+				1 (&gt;K:ADF_FRACT_DEC_CARRY)
+                        </Script>
+                        <ClickRepeat>True</ClickRepeat>
+                    </MouseClick>
+                </MouseArea>
+                <MouseArea id="Increment">
+                    <FloatPosition>20.000,0.000</FloatPosition>
+                    <Size>20,40</Size>
+                    <CursorType>UpArrow</CursorType>
+                    <MouseClick id="MouseClick">
+                        <Script>
+                        	1 (&gt;K:ADF_FRACT_INC_CARRY)
+                        </Script>
+                        <ClickRepeat>True</ClickRepeat>
+                    </MouseClick>
+                </MouseArea>
+	            <Tooltip id="Tooltip">
+ 	               <DefaultScript>ADF1 frequency</DefaultScript>
+                    </Tooltip>
+            </MouseArea>
+            <MouseArea id="adf2 stby knob">
+                <FloatPosition>144.000,230.000</FloatPosition>
+                <Size>40,40</Size>
+                <MouseArea id="Decrement">
+                    <FloatPosition>0.000,0.000</FloatPosition>
+                    <Size>20,40</Size>
+                    <CursorType>DownArrow</CursorType>
+                    <MouseClick id="MouseClick">
+                        <Script>
+				1 (&gt;K:ADF2_FRACT_DEC_CARRY)
+                        </Script>
+                        <ClickRepeat>True</ClickRepeat>
+                    </MouseClick>
+                </MouseArea>
+                <MouseArea id="Increment">
+                    <FloatPosition>20.000,0.000</FloatPosition>
+                    <Size>20,40</Size>
+                    <CursorType>UpArrow</CursorType>
+                    <MouseClick id="MouseClick">
+                        <Script>
+                        	1 (&gt;K:ADF2_FRACT_INC_CARRY)
+                        </Script>
+                        <ClickRepeat>True</ClickRepeat>
+                    </MouseClick>
+                </MouseArea>
+	            <Tooltip id="Tooltip">
+ 	               <DefaultScript>ADF2 frequency</DefaultScript>
+                    </Tooltip>
+            </MouseArea>
+
+            <MouseArea id="xpdr hz">
+                <FloatPosition>159.000,13.000</FloatPosition>
+                <Size>30,30</Size>
+                <CursorType>Hand</CursorType>
+                <MouseClick id="MouseClick">
+                    <Script>1 (&gt;K:XPNDR_1_INC)</Script>
+                </MouseClick>
+	            <Tooltip id="Tooltip">
+ 	               <DefaultScript>XPDR Hz</DefaultScript>
+                    </Tooltip>
+            </MouseArea>
+
+            <MouseArea id="xpdr khz">
+                <FloatPosition>119.000,39.000</FloatPosition>
+                <Size>30,30</Size>
+                <CursorType>Hand</CursorType>
+                <MouseClick id="MouseClick">
+                    <Script>1 (&gt;K:XPNDR_10_INC)</Script>
+                </MouseClick>
+	            <Tooltip id="Tooltip">
+ 	               <DefaultScript>XPDR KHz</DefaultScript>
+                    </Tooltip>
+            </MouseArea>
+
+            <MouseArea id="xpdr mhz">
+                <FloatPosition>59.000,39.000</FloatPosition>
+                <Size>30,30</Size>
+                <CursorType>Hand</CursorType>
+                <MouseClick id="MouseClick">
+                    <Script>1 (&gt;K:XPNDR_100_INC)</Script>
+                </MouseClick>
+	            <Tooltip id="Tooltip">
+ 	               <DefaultScript>XPDR MHz</DefaultScript>
+                    </Tooltip>
+            </MouseArea>
+
+            <MouseArea id="xpdr ghz">
+                <FloatPosition>22.000,15.000</FloatPosition>
+                <Size>30,30</Size>
+                <CursorType>Hand</CursorType>
+                <MouseClick id="MouseClick">
+                    <Script>1 (&gt;K:XPNDR_1000_INC)</Script>
+                </MouseClick>
+	            <Tooltip id="Tooltip">
+ 	               <DefaultScript>XPDR GHz</DefaultScript>
+                    </Tooltip>
+            </MouseArea>
+
+
+            <MouseArea id="CLOSE">
+                <FloatPosition>90.000,252.000</FloatPosition>
+                <Size>16,16</Size>
+                <CursorType>DownArrow</CursorType>
+                <MouseClick id="MouseClick">
+                    <Script>
+			50 (&gt;K:PANEL_ID_TOGGLE)							
+                        </Script>
+                </MouseClick>
+            </MouseArea>
+        </MouseArea>
+    </SimGauge.Gauge>
+</SimBase.Document>

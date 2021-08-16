@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<SimBase.Document
+        Type="AceXML"
+        version="1,0"
+        id="hsi">
+    <Descr>AceXML Document</Descr>
+    <Filename>hsi.xml</Filename>
+    <SimGauge.Gauge id="hsi" ArtDirectory=".">
+        <FloatPosition>0.000,0.000</FloatPosition>
+        <Size>253,253</Size>
+        <Image id="hsi_back.bmp" Name="hsi_back.bmp">
+            <Transparent>True</Transparent>
+        </Image>
+
+
+        <Element id="hsi_compass_out">
+            <FloatPosition>128.000,147.000</FloatPosition>
+            <Image id="hsi_compass_out.bmp" Name="hsi_compass_out.bmp">
+                <Transparent>True</Transparent>
+                <Axis>90.000,90.000</Axis>
+            </Image>
+            <Rotation id="Rotation">
+                <Expression id="Expression">
+                    <Script>0 (A:Plane heading degrees gyro, radians) -</Script>
+                </Expression>
+                <FailureTable id="FailureTable">
+                    <Failure id="Mag Slave Failure">
+                        <Fail_Key>GAUGE_GYRO_HEADING</Fail_Key>
+                        <Fail_Action>Freeze</Fail_Action>
+                    </Failure>
+                    <Failure id="Electric Failure">
+                        <Fail_Key>SYSTEM_ELECTRICAL_PANELS</Fail_Key>
+                        <Fail_Action>Freeze</Fail_Action>
+                    </Failure>
+                </FailureTable>
+            </Rotation>
+        </Element>
+
+        <Element id="hsi_compass_in">
+            <FloatPosition>128.000,147.000</FloatPosition>
+            <Image id="hsi_compass_in.bmp" Name="hsi_compass_in.bmp">
+                <Transparent>True</Transparent>
+                <Axis>65.500,65.500</Axis>
+            </Image>
+            <Rotation id="Rotation">
+                <Expression id="Expression">
+                    <Script>(A:NAV1 OBS,radians) (A:Plane heading degrees gyro,radians) -</Script>
+                </Expression>
+                <FailureTable id="FailureTable">
+                    <Failure id="Electric Failure">
+                        <Fail_Key>SYSTEM_ELECTRICAL_PANELS</Fail_Key>
+                        <Fail_Action>Freeze</Fail_Action>
+                    </Failure>
+                </FailureTable>
+            </Rotation>
+        </Element>
+
+        <Element id="hsi_navoff">
+            <FloatPosition>128.000,147.000</FloatPosition>
+            <Visibility>(A:NAV HAS NAV:1, bool) !</Visibility>
+            <Image id="hsi_navoff.bmp" Name="hsi_navoff.bmp">
+                <Transparent>True</Transparent>
+                <Axis>-13.500,43.500</Axis>
+            </Image>
+            <Rotation id="Rotation">
+                <Expression id="Expression">
+                    <Script>(A:NAV1 OBS,radians) (A:Plane heading degrees gyro,radians) -</Script>
+                </Expression>
+            </Rotation>
+        </Element>
+
+        <Element id="hsi_flag_to">
+            <FloatPosition>128.000,147.000</FloatPosition>
+            <Visibility>(A:HSI TF flags, ENUM) 1 == </Visibility>
+            <Image id="hsi_flag_to.bmp" Name="hsi_flag_to.bmp">
+                <Transparent>True</Transparent>
+                <Axis>14.000,54.000</Axis>
+            </Image>
+            <Rotation id="Rotation">
+                <Expression id="Expression">
+                    <Script>(A:NAV1 OBS,radians) (A:Plane heading degrees gyro,radians) -</Script>
+                </Expression>
+                <FailureTable id="FailureTable">
+                    <Failure id="Electric Failure">
+                        <Fail_Key>SYSTEM_ELECTRICAL_PANELS</Fail_Key>
+                        <Fail_Action>Freeze</Fail_Action>
+                    </Failure>
+                </FailureTable>
+            </Rotation>
+        </Element>
+
+        <Element id="hsi_flag_from">
+            <FloatPosition>128.000,147.000</FloatPosition>
+            <Visibility>(A:HSI TF flags, ENUM) 2 == </Visibility>
+            <Image id="hsi_flag_from.bmp" Name="hsi_flag_from.bmp">
+                <Transparent>True</Transparent>
+                <Axis>14.000,54.000</Axis>
+            </Image>
+            <Rotation id="Rotation">
+                <Expression id="Expression">
+                    <Script>(A:NAV1 OBS,radians) (A:Plane heading degrees gyro,radians) -</Script>
+                </Expression>
+                <FailureTable id="FailureTable">
+                    <Failure id="Electric Failure">
+                        <Fail_Key>SYSTEM_ELECTRICAL_PANELS</Fail_Key>
+                        <Fail_Action>Freeze</Fail_Action>
+                    </Failure>
+                </FailureTable>
+            </Rotation>
+        </Element>
+
+        <Element id="hsi_needle">
+            <FloatPosition>128.000,147.000</FloatPosition>
+            <Image id="hsi_needle.bmp" Name="hsi_needle.bmp">
+                <Transparent>True</Transparent>
+                <Axis>2.000,53.000</Axis>
+            </Image>
+
+            <Shift id="Shift">
+                <Scale>0.173,0.000</Scale>
+                <Expression id="Expression">
+                    <Script>(A:HSI CDI needle valid, bool) if{ (A:HSI CDI needle, number)  } els{ 0 }</Script>
+                </Expression>
+            </Shift>
+
+            <Rotation id="Rotation">
+                <Expression id="Expression">
+                    <Script>(A:NAV1 OBS,radians) (A:Plane heading degrees gyro,radians) -</Script>
+                </Expression>
+            </Rotation>
+        </Element>
+
+        <Element id="hsi_gs">
+            <FloatPosition>82.000,144.000</FloatPosition>
+            <Visibility>(A:HSI GSI needle valid, bool)</Visibility>
+            <Image id="hsi_gs.bmp" Name="hsi_gs.bmp">
+                <Transparent>True</Transparent>
+                <Axis>1.000,1.000</Axis>
+            </Image>
+            <Shift id="Shift">
+                <Scale>0.000,0.273</Scale>
+                <Expression id="Expression">
+                    <Minimum>-220.000</Minimum>
+                    <Maximum>120.000</Maximum>
+                    <Script>(A:HSI GSI needle, number)</Script>
+                </Expression>
+            </Shift>
+        </Element>
+
+
+         <Element id="hsi_pointer">
+            <FloatPosition>128.000,147</FloatPosition>
+            <Image id="hsi_pointer.bmp" Name="hsi_pointer.bmp">
+                <Transparent>True</Transparent>
+                <Axis>8.000,101.000</Axis>
+            </Image>
+            <Rotation id="Rotation">
+                <Expression id="Expression">
+                    <Script>(A:Autopilot heading lock dir,radians) (A:Plane heading degrees gyro,radians) -</Script>
+                </Expression>
+            </Rotation>
+        </Element>
+
+
+        <Element id="Display  text">
+            <FloatPosition>30.000,25.000</FloatPosition>
+            <GaugeText id="GaugeText">
+                <Bold>True</Bold>
+                <FontColor>White</FontColor>
+                <FontFace>Arial</FontFace>
+                <FontHeight>18</FontHeight>
+                <GaugeString>%( (A:NAV1 OBS,degrees) )%!03d!</GaugeString>
+                <HorizontalAlign>RIGHT</HorizontalAlign>
+                <Size>35,22</Size>
+                <Transparent>True</Transparent>
+                <VerticalAlign>CENTER</VerticalAlign>
+            </GaugeText>
+        </Element>
+
+       <Element id="hsi_aircraft">
+            <FloatPosition>111.000,127.000</FloatPosition>
+            <Image id="Image" Name="hsi_aircraft.bmp">
+                <Transparent>True</Transparent>
+            </Image>
+        </Element>
+
+       <Element id="hsi_off">
+            <FloatPosition>174.000,84.000</FloatPosition>
+            <Visibility>(A:CIRCUIT GENERAL PANEL ON, bool) !</Visibility>
+            <Image id="Image" Name="hsi_off.bmp">
+                <Transparent>True</Transparent>
+            </Image>
+        </Element>
+
+  <Element id="hsi_gnobleft">
+            <FloatPosition>30.000,228.000</FloatPosition>
+            <Image id="hsi_gnobleft.bmp" Name="hsi_gnobleft.bmp">
+                <Transparent>True</Transparent>
+                <Axis>17.500,17.500</Axis>
+            </Image>
+            <Rotation id="Rotation">
+               	    <PointsTo>WEST</PointsTo>
+		    <Expression id="Expression">
+                    <Minimum>-100.000</Minimum>
+                    <Maximum>100.000</Maximum>
+                        <Script>(A:NAV1 OBS,radians) 5 *</Script>
+		    </Expression>
+            </Rotation>
+        </Element>
+
+  <Element id="hsi_gnobright">
+            <FloatPosition>228.000,224.000</FloatPosition>
+            <Image id="hsi_gnobright.bmp" Name="hsi_gnobright.bmp">
+                <Transparent>True</Transparent>
+                <Axis>18.500,18.500</Axis>
+            </Image>
+            <Rotation id="Rotation">
+               	    <PointsTo>WEST</PointsTo>
+		    <Expression id="Expression">
+                    <Minimum>-100.000</Minimum>
+                    <Maximum>100.000</Maximum>
+                        <Script>(A:Autopilot heading lock dir,radians) 5 *</Script>
+		    </Expression>
+            </Rotation>
+        </Element>
+
+        <MouseArea id="MouseArea">
+            <FloatPosition>0.000,0.000</FloatPosition>
+            <Size>253,253</Size>
+            <MouseArea id="left Knob">
+                <FloatPosition>15.000,213.000</FloatPosition>
+                <Size>30,30</Size>
+                <MouseArea id="Decrement">
+                    <FloatPosition>0.000,0.000</FloatPosition>
+                    <Size>15,30</Size>
+                    <CursorType>DownArrow</CursorType>
+                   <MouseClick id="MouseClick">
+                       <KeyEvent>VOR1_OBI_DEC</KeyEvent>
+                        <ClickRepeat>True</ClickRepeat>
+                    </MouseClick>
+                </MouseArea>
+                <MouseArea id="Increment">
+                    <FloatPosition>15.000,0.000</FloatPosition>
+                    <Size>15,30</Size>
+                    <CursorType>UpArrow</CursorType>
+                   <MouseClick id="MouseClick">
+                       <KeyEvent>VOR1_OBI_INC</KeyEvent>
+                        <ClickRepeat>True</ClickRepeat>
+                    </MouseClick>
+                </MouseArea>
+	            <Tooltip id="Tooltip">
+              		 <DefaultScript>Course:%((A:NAV1 OBS, radians))%! 0.3d! degrees</DefaultScript>
+               	    </Tooltip>
+            </MouseArea>
+
+            <MouseArea id="Right Knob">
+                <FloatPosition>214.000,209.000</FloatPosition>
+                <Size>30,30</Size>
+                <MouseArea id="Decrement">
+                    <FloatPosition>0.000,0.000</FloatPosition>
+                    <Size>15,30</Size>
+                    <CursorType>DownArrow</CursorType>
+                   <MouseClick id="MouseClick">
+                       <KeyEvent>HEADING_BUG_DEC</KeyEvent>
+                        <ClickRepeat>True</ClickRepeat>
+                    </MouseClick>
+                </MouseArea>
+                <MouseArea id="Increment">
+                    <FloatPosition>15.000,0.000</FloatPosition>
+                    <Size>15,30</Size>
+                    <CursorType>UpArrow</CursorType>
+                   <MouseClick id="MouseClick">
+                       <KeyEvent>HEADING_BUG_INC</KeyEvent>
+                        <ClickRepeat>True</ClickRepeat>
+                    </MouseClick>
+                </MouseArea>
+	            <Tooltip id="Tooltip">
+              		 <DefaultScript>AP Heading:%((A:Autopilot heading lock dir, degrees))%! 0.3d! degrees</DefaultScript>
+               	    </Tooltip>
+            </MouseArea>
+
+
+        <Tooltip id="Tooltip">
+               <DefaultScript>HSI Indicator</DefaultScript>
+               </Tooltip>
+        </MouseArea>
+
+    </SimGauge.Gauge>
+</SimBase.Document>

@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<SimBase.Document
+        Type="AceXML"
+        version="1,0"
+        id="eng_egt03">
+    <Descr>AceXML Document</Descr>
+    <Filename>eng_egt03.xml</Filename>
+    <SimGauge.Gauge id="Gauge" ArtDirectory=".">
+        <FloatPosition>0.000,0.000</FloatPosition>
+
+        <Image id="eng_egt_back.bmp" Name="eng_egt_back.bmp">
+            <Transparent>True</Transparent>
+        </Image>
+
+
+        <Element id="egt_needle">
+            <FloatPosition>64.000,64.000</FloatPosition>
+            <Image id="eng_egt_needle.bmp" Name="eng_egt_needle.bmp">
+                <Transparent>True</Transparent>
+                <Axis>19.000,19.000</Axis>
+            </Image>
+            <Rotation id="Rotation">
+               	    <PointsTo>WEST</PointsTo>
+		    <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>860.000</Maximum>
+                        <Script>(A:GENERAL ENG EXHAUST GAS TEMPERATURE:3, celsius)</Script>
+		    </Expression>
+		     <NonlinearityTable id="NonlinearityTable">
+						  <NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>200</ExpressionResult>
+							<Degrees>60</Degrees>
+						  </NonlinearityEntry>
+						  <NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>400</ExpressionResult>
+							<Degrees>121</Degrees>
+						  </NonlinearityEntry>
+						  <NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>800</ExpressionResult>
+							<Degrees>242</Degrees>
+						  </NonlinearityEntry>
+						  <NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>860</ExpressionResult>
+							<Degrees>254</Degrees>
+						  </NonlinearityEntry>
+		     </NonlinearityTable>
+
+            </Rotation>
+        </Element>
+
+        <MouseArea>
+        <Tooltip id="Tooltip">
+               <DefaultScript>EGT:%((A:GENERAL ENG EXHAUST GAS TEMPERATURE:3, celsius))%! 3.0f! degrees</DefaultScript>
+               </Tooltip>
+         </MouseArea>
+
+    </SimGauge.Gauge>
+</SimBase.Document>

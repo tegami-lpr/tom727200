@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<SimBase.Document
+        Type="AceXML"
+        version="1,0"
+        id="flapsind">
+    <Descr>AceXML Document</Descr>
+    <Filename>flapsind.xml</Filename>
+    <SimGauge.Gauge id="Gauge" ArtDirectory=".">
+        <FloatPosition>0.000,0.000</FloatPosition>
+
+        <Image id="flapsind.bmp" Name="flapsind_back.bmp">
+            <Transparent>True</Transparent>
+        </Image>
+
+
+        <Element id="flapsind_needlel">
+            <FloatPosition>64.000,64.000</FloatPosition>
+            <Image id="flapsind_needlel.bmp" Name="flapsind_needlel.bmp">
+                <Transparent>True</Transparent>
+                <Axis>54.000,8.000</Axis>
+            </Image>
+            <Rotation id="Rotation">
+               	    <PointsTo>WEST</PointsTo>
+		    <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>100.000</Maximum>
+                        <Script>(A:TRAILING EDGE FLAPS LEFT PERCENT, percent)</Script>
+		    </Expression>
+		     <NonlinearityTable id="NonlinearityTable">
+						  <NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>0.000</ExpressionResult>
+							<Degrees>0</Degrees>
+						  </NonlinearityEntry>
+						  <NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>5</ExpressionResult>
+							<Degrees>66</Degrees>
+						  </NonlinearityEntry>
+						  <NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>13</ExpressionResult>
+							<Degrees>157</Degrees>
+						  </NonlinearityEntry>
+						  <NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>25</ExpressionResult>
+							<Degrees>177</Degrees>
+						  </NonlinearityEntry>
+						  <NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>38</ExpressionResult>
+							<Degrees>192</Degrees>
+						  </NonlinearityEntry>
+						  <NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>63</ExpressionResult>
+							<Degrees>219</Degrees>
+						  </NonlinearityEntry>
+						  <NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>75</ExpressionResult>
+							<Degrees>232</Degrees>
+						  </NonlinearityEntry>
+						  <NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>100</ExpressionResult>
+							<Degrees>265</Degrees>
+						  </NonlinearityEntry>
+		     </NonlinearityTable>
+
+            </Rotation>
+        </Element>
+
+        <Element id="flapsind_needler">
+            <FloatPosition>64.000,64.000</FloatPosition>
+            <Image id="flapsind_needler.bmp" Name="flapsind_needler.bmp">
+                <Transparent>True</Transparent>
+                <Axis>54.000,8.000</Axis>
+            </Image>
+            <Rotation id="Rotation">
+               	    <PointsTo>WEST</PointsTo>
+		    <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>100.000</Maximum>
+                        <Script>(A:TRAILING EDGE FLAPS RIGHT PERCENT, percent)</Script>
+		    </Expression>
+		     <NonlinearityTable id="NonlinearityTable">
+						  <NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>0.000</ExpressionResult>
+							<Degrees>0</Degrees>
+						  </NonlinearityEntry>
+						  <NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>5</ExpressionResult>
+							<Degrees>66</Degrees>
+						  </NonlinearityEntry>
+						  <NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>13</ExpressionResult>
+							<Degrees>157</Degrees>
+						  </NonlinearityEntry>
+						  <NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>25</ExpressionResult>
+							<Degrees>177</Degrees>
+						  </NonlinearityEntry>
+						  <NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>38</ExpressionResult>
+							<Degrees>192</Degrees>
+						  </NonlinearityEntry>
+						  <NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>63</ExpressionResult>
+							<Degrees>219</Degrees>
+						  </NonlinearityEntry>
+						  <NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>75</ExpressionResult>
+							<Degrees>232</Degrees>
+						  </NonlinearityEntry>
+						  <NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>100</ExpressionResult>
+							<Degrees>265</Degrees>
+						  </NonlinearityEntry>
+		     </NonlinearityTable>
+
+            </Rotation>
+        </Element>
+
+        <MouseArea>
+        <Tooltip id="Tooltip">
+               <DefaultScript>Trailing Edge Flap Position</DefaultScript>
+               </Tooltip>
+         </MouseArea>
+
+    </SimGauge.Gauge>
+</SimBase.Document>

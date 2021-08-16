@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<SimBase.Document
+        Type="AceXML"
+        version="1,0"
+        id="autopilot">
+    <Descr>AceXML Document</Descr>
+    <Filename>radioinicatorMRK.xml</Filename>
+    <SimGauge.Gauge id="autopilot" ArtDirectory=".">
+        <FloatPosition>0.000,0.000</FloatPosition>
+        <Image id="radioinicator.bmp" Name="radioinicator.bmp">
+            <Transparent>True</Transparent>
+        </Image>
+        <Size>54,27</Size>
+
+        <Element id="Element">
+            <FloatPosition>0.000,3.000</FloatPosition>
+            <GaugeText id="GaugeText">
+                <FontColor>White</FontColor>
+                <FontHeight>17</FontHeight>
+                <GaugeString>%((A:TRANSPONDER1 CODE, BCO16) sp0)%(l0 12 &gt;&gt; 15 &amp;)%!d!%(l0 8 &gt;&gt; 15 &amp;)%!d!%(l0 4 &gt;&gt; 15 &amp;)%!d!%(l0 15 &amp;)%!d!</GaugeString>
+                <HorizontalAlign>RIGHT</HorizontalAlign>
+                <Size>50,27</Size>
+                <Transparent>True</Transparent>
+            </GaugeText>
+        </Element>
+
+    </SimGauge.Gauge>
+</SimBase.Document>

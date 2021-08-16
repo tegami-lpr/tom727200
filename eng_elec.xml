@@ -1,0 +1,374 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<SimBase.Document
+        Type="AceXML"
+        version="1,0"
+        id="hsi_backup">
+    <Descr>AceXML Document</Descr>
+    <Filename>eng_elec.xml</Filename>
+    <SimGauge.Gauge id="A300 fuelback" ArtDirectory=".">
+        <FloatPosition>0.000,0.000</FloatPosition>
+        <Size>366,608</Size>
+
+        <Element id="switchbat1">
+            <FloatPosition>316.000,39.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Script>(A:Electrical master battery,bool)</Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>1.000</ExpressionResult>
+                    <Image id="Image" Name="switch_up.bmp">
+                        <Transparent>True</Transparent>
+                    </Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>0.000</ExpressionResult>
+                    <Image id="Image" Name="switch_dn.bmp">
+                        <Transparent>True</Transparent>
+                    </Image>
+                </Case>
+            </Select>
+        </Element>
+
+        <Element id="switchgen1">
+            <FloatPosition>36.000,126.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Script>(A:General Eng1 Generator Switch, bool)</Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>1.000</ExpressionResult>
+                    <Image id="Image" Name="switch_up.bmp">
+                        <Transparent>True</Transparent>
+                    </Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>0.000</ExpressionResult>
+                    <Image id="Image" Name="switch_dn.bmp">
+                        <Transparent>True</Transparent>
+                    </Image>
+                </Case>
+            </Select>
+        </Element>
+        <Element id="switchgen2n">
+            <FloatPosition>120.000,126.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Script>(A:General Eng2 Generator Switch, bool)</Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>1.000</ExpressionResult>
+                    <Image id="Image" Name="switch_up.bmp">
+                        <Transparent>True</Transparent>
+                    </Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>0.000</ExpressionResult>
+                    <Image id="Image" Name="switch_dn.bmp">
+                        <Transparent>True</Transparent>
+                    </Image>
+                </Case>
+            </Select>
+        </Element>
+        <Element id="switchgen3">
+            <FloatPosition>204.000,126.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Script>(A:General Eng3 Generator Switch, bool)</Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>1.000</ExpressionResult>
+                    <Image id="Image" Name="switch_up.bmp">
+                        <Transparent>True</Transparent>
+                    </Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>0.000</ExpressionResult>
+                    <Image id="Image" Name="switch_dn.bmp">
+                        <Transparent>True</Transparent>
+                    </Image>
+                </Case>
+            </Select>
+        </Element>
+
+        <Element id="switchmaster">
+            <FloatPosition>269.000,172.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Script>(A:AVIONICS MASTER SWITCH, bool)</Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>1.000</ExpressionResult>
+                    <Image id="Image" Name="switch_up.bmp">
+                        <Transparent>True</Transparent>
+                    </Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>0.000</ExpressionResult>
+                    <Image id="Image" Name="switch_mid.bmp">
+                        <Transparent>True</Transparent>
+                    </Image>
+                </Case>
+            </Select>
+        </Element>
+
+        <Element id="gen1off">
+            <FloatPosition>67.000,140.000</FloatPosition>
+            <Visibility>(A:General Eng Generator active:1, bool) 0 == (A:CIRCUIT GENERAL PANEL ON, bool) &amp;&amp;</Visibility>
+            <Image id="lamp_redsmallON.bmp" Name="lamp_redsmallON.bmp">
+                <Transparent>True</Transparent>
+                <Bright>True</Bright>
+            </Image>
+        </Element>
+        <Element id="gen2off">
+            <FloatPosition>151.000,140.000</FloatPosition>
+            <Visibility>(A:General Eng Generator active:2, bool) 0 == (A:CIRCUIT GENERAL PANEL ON, bool) &amp;&amp;</Visibility>
+            <Image id="lamp_redsmallON.bmp" Name="lamp_redsmallON.bmp">
+                <Transparent>True</Transparent>
+                <Bright>True</Bright>
+            </Image>
+        </Element>
+        <Element id="gen3off">
+            <FloatPosition>232.000,140.000</FloatPosition>
+            <Visibility>(A:General Eng Generator active:3, bool) 0 == (A:CIRCUIT GENERAL PANEL ON, bool) &amp;&amp;</Visibility>
+            <Image id="lamp_redsmallON.bmp" Name="lamp_redsmallON.bmp">
+                <Transparent>True</Transparent>
+                <Bright>True</Bright>
+            </Image>
+        </Element>
+
+        <Element id="bus1off">
+            <FloatPosition>19.000,351.000</FloatPosition>
+            <Visibility>(A:CIRCUIT GENERAL PANEL ON, bool) 1 == if{ (A:TURB ENG N1:1, percent) 7 > ! } els{ 0 }</Visibility>
+            <Image id="lamp_redsmallON.bmp" Name="lamp_redsmallON.bmp">
+                <Transparent>True</Transparent>
+                <Bright>True</Bright>
+            </Image>
+        </Element>
+        <Element id="bus1off">
+            <FloatPosition>19.000,405.000</FloatPosition>
+            <Visibility>(A:CIRCUIT GENERAL PANEL ON, bool) 1 == if{ (A:TURB ENG N1:1, percent) 7 > ! } els{ 0 }</Visibility>
+            <Image id="lamp_redsmallON.bmp" Name="lamp_redsmallON.bmp">
+                <Transparent>True</Transparent>
+                <Bright>True</Bright>
+            </Image>
+        </Element>
+        <Element id="bus1off">
+            <FloatPosition>19.000,459.000</FloatPosition>
+            <Visibility>(A:CIRCUIT GENERAL PANEL ON, bool) 1 == if{ (A:TURB ENG N1:1, percent) 7 > ! } els{ 0 }</Visibility>
+            <Image id="lamp_redsmallON.bmp" Name="lamp_redsmallON.bmp">
+                <Transparent>True</Transparent>
+                <Bright>True</Bright>
+            </Image>
+        </Element>
+
+        <Element id="bus1off">
+            <FloatPosition>104.000,351.000</FloatPosition>
+            <Visibility>(A:CIRCUIT GENERAL PANEL ON, bool) 1 == if{ (A:TURB ENG N1:2, percent) 7 > ! } els{ 0 }</Visibility>
+            <Image id="lamp_redsmallON.bmp" Name="lamp_redsmallON.bmp">
+                <Transparent>True</Transparent>
+                <Bright>True</Bright>
+            </Image>
+        </Element>
+        <Element id="bus1off">
+            <FloatPosition>104.000,405.000</FloatPosition>
+            <Visibility>(A:CIRCUIT GENERAL PANEL ON, bool) 1 == if{ (A:TURB ENG N1:2, percent) 7 > ! } els{ 0 }</Visibility>
+            <Image id="lamp_redsmallON.bmp" Name="lamp_redsmallON.bmp">
+                <Transparent>True</Transparent>
+                <Bright>True</Bright>
+            </Image>
+        </Element>
+        <Element id="bus1off">
+            <FloatPosition>104.000,459.000</FloatPosition>
+            <Visibility>(A:CIRCUIT GENERAL PANEL ON, bool) 1 == if{ (A:TURB ENG N1:2, percent) 7 > ! } els{ 0 }</Visibility>
+            <Image id="lamp_redsmallON.bmp" Name="lamp_redsmallON.bmp">
+                <Transparent>True</Transparent>
+                <Bright>True</Bright>
+            </Image>
+        </Element>
+
+        <Element id="bus1off">
+            <FloatPosition>187.000,352.000</FloatPosition>
+            <Visibility>(A:CIRCUIT GENERAL PANEL ON, bool) 1 == if{ (A:TURB ENG N1:3, percent) 7 > ! } els{ 0 }</Visibility>
+            <Image id="lamp_redsmallON.bmp" Name="lamp_redsmallON.bmp">
+                <Transparent>True</Transparent>
+                <Bright>True</Bright>
+            </Image>
+        </Element>
+        <Element id="bus1off">
+            <FloatPosition>187.000,405.000</FloatPosition>
+            <Visibility>(A:CIRCUIT GENERAL PANEL ON, bool) 1 == if{ (A:TURB ENG N1:3, percent) 7 > ! } els{ 0 }</Visibility>
+            <Image id="lamp_redsmallON.bmp" Name="lamp_redsmallON.bmp">
+                <Transparent>True</Transparent>
+                <Bright>True</Bright>
+            </Image>
+        </Element>
+        <Element id="bus1off">
+            <FloatPosition>187.000,460.000</FloatPosition>
+            <Visibility>(A:CIRCUIT GENERAL PANEL ON, bool) 1 == if{ (A:TURB ENG N1:3, percent) 7 > ! } els{ 0 }</Visibility>
+            <Image id="lamp_redsmallON.bmp" Name="lamp_redsmallON.bmp">
+                <Transparent>True</Transparent>
+                <Bright>True</Bright>
+            </Image>
+        </Element>
+
+
+
+        <Element id="Element">
+            <FloatPosition>79.000,54.000</FloatPosition>
+            <Image id="elecloadneedle.bmp" Name="elecloadneedle.bmp">
+                <Transparent>True</Transparent>
+                <Axis>9.000,4.000</Axis>
+            </Image>
+            <Rotation id="Rotation">
+                <PointsTo>WEST</PointsTo>
+                <Expression id="Expression">
+                    <Script>(A:ELECTRICAL BATTERY LOAD, amperes) 5 * dgrd </Script>
+                </Expression>
+            </Rotation>
+        </Element>
+
+        <Element id="Element">
+            <FloatPosition>158.000,53.000</FloatPosition>
+            <Image id="elecloadneedle.bmp" Name="elecloadneedle.bmp">
+                <Transparent>True</Transparent>
+                <Axis>9.000,4.000</Axis>
+            </Image>
+            <Rotation id="Rotation">
+                <PointsTo>WEST</PointsTo>
+                <Expression id="Expression">
+                    <Script>(A:ELECTRICAL BATTERY VOLTAGE, volts) 0.2 * dgrd </Script>
+                </Expression>
+            </Rotation>
+        </Element>
+
+        <Element id="Element">
+            <FloatPosition>47.000,522.000</FloatPosition>
+            <Image id="elecloadneedle.bmp" Name="elecloadneedle.bmp">
+                <Transparent>True</Transparent>
+                <Axis>9.000,4.000</Axis>
+            </Image>
+            <Rotation id="Rotation">
+                <PointsTo>WEST</PointsTo>
+                <Expression id="Expression">
+                    <Script>(A:ELECTRICAL GENALT BUS AMPS:1, amperes) (A:ELECTRICAL GENALT BUS VOLTAGE:1, volts) * 0.2 * dgrd </Script>
+                </Expression>
+            </Rotation>
+        </Element>
+        <Element id="Element">
+            <FloatPosition>130.000,522.000</FloatPosition>
+            <Image id="elecloadneedle.bmp" Name="elecloadneedle.bmp">
+                <Transparent>True</Transparent>
+                <Axis>9.000,4.000</Axis>
+            </Image>
+            <Rotation id="Rotation">
+                <PointsTo>WEST</PointsTo>
+                <Expression id="Expression">
+                    <Script>(A:ELECTRICAL GENALT BUS AMPS:2, amperes) (A:ELECTRICAL GENALT BUS VOLTAGE:2, volts) * 0.2 * dgrd </Script>
+                </Expression>
+            </Rotation>
+        </Element>
+        <Element id="Element">
+            <FloatPosition>215.000,522.000</FloatPosition>
+            <Image id="elecloadneedle.bmp" Name="elecloadneedle.bmp">
+                <Transparent>True</Transparent>
+                <Axis>9.000,4.000</Axis>
+            </Image>
+            <Rotation id="Rotation">
+                <PointsTo>WEST</PointsTo>
+                <Expression id="Expression">
+                    <Script>(A:ELECTRICAL GENALT BUS AMPS:3, amperes) (A:ELECTRICAL GENALT BUS VOLTAGE:3, volts) * 0.2 * dgrd </Script>
+                </Expression>
+            </Rotation>
+        </Element>
+ 
+       <Element id="Element">
+            <FloatPosition>325.000,388.000</FloatPosition>
+            <Image id="elecloadneedle.bmp" Name="elecloadneedle.bmp">
+                <Transparent>True</Transparent>
+                <Axis>9.000,4.000</Axis>
+            </Image>
+            <Rotation id="Rotation">
+                <PointsTo>WEST</PointsTo>
+                <Expression id="Expression">
+                    <Script>(A:ELECTRICAL MAIN BUS VOLTAGE, volts) 0.2 * dgrd </Script>
+                </Expression>
+            </Rotation>
+        </Element>
+
+     <MouseArea id="MouseArea">
+            <FloatPosition>0.000,0.000</FloatPosition>
+            <Size>366,608</Size>
+
+	 <MouseArea id="Battery Switch">
+	  <FloatPosition>316.000,39.000</FloatPosition> 
+  	<Size>11,40</Size> 
+  	<CursorType>Hand</CursorType> 
+ 	<MouseClick id="MouseClick">
+  	<KeyEvent>TOGGLE_MASTER_BATTERY</KeyEvent> 
+  	<ClickType>LeftSingle</ClickType> 
+  	</MouseClick>
+	            <Tooltip id="Tooltip">
+ 	               <DefaultScript>Master Battery</DefaultScript>
+                    </Tooltip>
+  	</MouseArea>
+
+
+            <MouseArea id="gen1">
+                <FloatPosition>36.000,126.000</FloatPosition>
+                 <Size>11,40</Size>
+                <CursorType>Hand</CursorType>
+                <MouseClick id="MouseClick">
+                    <Script>1 (&gt;K:TOGGLE_ALTERNATOR1)</Script>
+                    <ClickType>LeftSingle</ClickType>
+                </MouseClick>
+	            <Tooltip id="Tooltip">
+ 	               <DefaultScript>Generator Engine1</DefaultScript>
+                    </Tooltip>
+            </MouseArea>
+
+            <MouseArea id="GEN2">
+                <FloatPosition>120.000,126.000</FloatPosition>
+                 <Size>11,40</Size>
+                <CursorType>Hand</CursorType>
+                <MouseClick id="MouseClick">
+                    <Script>1 (&gt;K:TOGGLE_ALTERNATOR2)</Script>
+                    <ClickType>LeftSingle</ClickType>
+                </MouseClick>
+	            <Tooltip id="Tooltip">
+ 	               <DefaultScript>Generator Engine2</DefaultScript>
+                    </Tooltip>
+            </MouseArea>
+
+            <MouseArea id="gen3">
+                <FloatPosition>204.000,126.000</FloatPosition>
+                 <Size>11,40</Size>
+                <CursorType>Hand</CursorType>
+                <MouseClick id="MouseClick">
+                    <Script>1 (&gt;K:TOGGLE_ALTERNATOR3)</Script>
+                    <ClickType>LeftSingle</ClickType>
+                </MouseClick>
+	            <Tooltip id="Tooltip">
+ 	               <DefaultScript>Generator Engine3</DefaultScript>
+                    </Tooltip>
+            </MouseArea>
+
+            <MouseArea id="avmaster">
+                <FloatPosition>269.000,172.000</FloatPosition>
+                 <Size>11,40</Size>
+                <CursorType>Hand</CursorType>
+                <MouseClick id="MouseClick">
+                    <Script>1 (&gt;K:TOGGLE_AVIONICS_MASTER)</Script>
+                    <ClickType>LeftSingle</ClickType>
+                </MouseClick>
+	            <Tooltip id="Tooltip">
+ 	               <DefaultScript>Avionics Master</DefaultScript>
+                    </Tooltip>
+            </MouseArea>
+
+
+        </MouseArea>
+
+    </SimGauge.Gauge>
+</SimBase.Document>

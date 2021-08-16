@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<SimBase.Document
+        Type="AceXML"
+        version="1,0"
+        id="dme2">
+    <Descr>AceXML Document</Descr>
+    <Filename>dme2.xml</Filename>
+    <SimGauge.Gauge id="Gauge" ArtDirectory=".">
+        <FloatPosition>0.000,0.000</FloatPosition>
+        <Image id="dme_back.bmp" Name="dme_back.bmp">
+            <Transparent>True</Transparent>
+        </Image>
+        <Element id="Display  text">
+            <FloatPosition>10.000,5.000</FloatPosition>
+            <GaugeText id="GaugeText">
+                <Bold>True</Bold>
+                <FontColor>White</FontColor>
+                <FontFace>Arial</FontFace>
+                <FontHeight>17</FontHeight>
+                <GaugeString>%((A:NAV DME:2, Nautical miles))%!03.1f!</GaugeString>
+                <HorizontalAlign>RIGHT</HorizontalAlign>
+                <Size>59,29</Size>
+                <Transparent>True</Transparent>
+                <VerticalAlign>CENTER</VerticalAlign>
+            </GaugeText>
+        </Element>
+    </SimGauge.Gauge>
+</SimBase.Document>

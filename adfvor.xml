@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<SimBase.Document Type="AceXML" version="1,0">
+    <Descr>AceXML Document</Descr>
+    <Filename>adfvor.xml</Filename>
+    <SimGauge.Gauge id="adfvor" ArtDirectory=".">
+        <FloatPosition>0.000,0.000</FloatPosition>
+        <Size>209,207</Size>
+        <Image id="Image" Name="adfvor_back.bmp">
+            <Transparent>True</Transparent>
+        </Image>
+        
+        <Element id="Compass Card">
+            <FloatPosition>105.000,104.000</FloatPosition>
+            <Image id="Image" Name="adfvor_compass.bmp">
+                <Transparent>True</Transparent>
+                <Axis>89,90</Axis>
+            </Image>
+            <Rotation id="Rotation">
+                <Expression id="Expression">
+                    <Script>(A:heading indicator:2,degrees) /-/ dgrd</Script>
+                </Expression>
+                <FailureTable id="FailureTable">
+                    <Failure id="Mag Slave Failure">
+                        <Fail_Key>GAUGE_GYRO_HEADING</Fail_Key>
+                        <Fail_Action>Freeze</Fail_Action>
+                    </Failure>
+                    <Failure id="Electric Failure">
+                        <Fail_Key>SYSTEM_ELECTRICAL_PANELS</Fail_Key>
+                        <Fail_Action>Freeze</Fail_Action>
+                    </Failure>
+                </FailureTable>
+                <Delay id="Delay">
+                    <DelayValue>180.000</DelayValue>
+                    <DelayUnits>DEGREES_PER_SECOND</DelayUnits>
+                </Delay>
+            </Rotation>
+        </Element>
+        
+        <Element id="Fixed Arrows">
+            <FloatPosition>16.000,14.000</FloatPosition>
+            <Image id="Image" Name="adfvor_arrows.bmp">
+                <Transparent>True</Transparent>
+            </Image>
+        </Element>
+        
+        <Element id="Needle #2">
+            <FloatPosition>105.000,104.000</FloatPosition>
+            <Image id="Image" Name="adfvor_needle2.bmp">
+                <Transparent>True</Transparent>
+                <Axis>12.000,63.000</Axis>
+            </Image>
+            <Rotation id="Rotation">
+                <Expression id="Expression">
+                    <Script>
+                    	(L:Backup VOR Pointer2,number) 0 ==
+                    	if{ (A:NAV2 radial, radians) (A:heading indicator:2, radians) - pi  + }
+                    	els{ (A:ADF radial:1, radians) }
+                    </Script>
+                </Expression>
+                <Delay id="Delay">
+                    <DelayValue>180.000</DelayValue>
+                    <DelayUnits>DEGREES_PER_SECOND</DelayUnits>
+                </Delay>
+            </Rotation>
+        </Element>
+        
+         <Element id="Needle #1">
+            <FloatPosition>105.000,104.000</FloatPosition>
+            <Image id="Image" Name="adfvor_needle1.bmp">
+                <Transparent>True</Transparent>
+                <Axis>7.000,60.000</Axis>
+            </Image>
+            <Rotation id="Rotation">
+                <Expression id="Expression">
+                    <Script>
+                    	(L:Backup VOR Pointer1,number) 0 ==
+                    	if{ (A:NAV1 radial, radians) (A:heading indicator:2, radians) - pi  + }
+                    	els{ (A:ADF radial:1, radians) }
+                    </Script>
+                </Expression>
+                <Delay id="Delay">
+                    <DelayValue>180.000</DelayValue>
+                    <DelayUnits>DEGREES_PER_SECOND</DelayUnits>
+                </Delay>
+            </Rotation>
+         </Element>
+        
+       
+         <Element id="VOR 1 Knob">
+            <FloatPosition>29.000,175.000</FloatPosition>
+            <Image id="Image" Name="adfvor_knob1.bmp">
+                <Transparent>True</Transparent>
+                <Axis>13.000,31.000</Axis>
+            </Image>
+            <Rotation id="Rotation">
+                <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>1.000</Maximum>
+                    <Script>(L:Backup VOR Pointer1,number)</Script>
+                </Expression>
+                <PointsTo>NORTH</PointsTo>
+                <NonlinearityTable id="NonlinearityTable">
+                    <NonlinearityEntry id="NonlinearityEntry">
+                        <ExpressionResult>0</ExpressionResult>
+                        <FloatPosition>14.000,74.000</FloatPosition>
+                    </NonlinearityEntry>
+                    <NonlinearityEntry id="NonlinearityEntry">
+                        <ExpressionResult>1</ExpressionResult>
+                        <FloatPosition>33.000,93.000</FloatPosition>
+                    </NonlinearityEntry>
+                 </NonlinearityTable>
+            </Rotation>
+        </Element>
+        
+        <Element id="VOR 2 Knob">
+            <FloatPosition>175.000,174.000</FloatPosition>
+            <Image id="Image" Name="adfvor_knob2.bmp">
+                <Transparent>True</Transparent>
+                <Axis>15.000,32.000</Axis>
+            </Image>
+            <Rotation id="Rotation">
+                <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>1.000</Maximum>
+                    <Script>(L:Backup VOR Pointer2,number)</Script>
+                </Expression>
+                <PointsTo>NORTH</PointsTo>
+                <NonlinearityTable id="NonlinearityTable">
+                    <NonlinearityEntry id="NonlinearityEntry">
+                        <ExpressionResult>0</ExpressionResult>
+                        <FloatPosition>91.000,74.000</FloatPosition>
+                    </NonlinearityEntry>
+                    <NonlinearityEntry id="NonlinearityEntry">
+                        <ExpressionResult>1</ExpressionResult>
+                        <FloatPosition>73.000,93.000</FloatPosition>
+                    </NonlinearityEntry>
+                 </NonlinearityTable>
+            </Rotation>
+        </Element>
+        
+        <MouseArea id="MouseArea">
+            <FloatPosition>0.000,0.000</FloatPosition>
+            <Size>209,207</Size>
+			<MouseArea id="VOR 1 Knob">
+				<FloatPosition>19.000,165.000</FloatPosition>
+				<Size>28,28</Size>
+                <CursorType>Hand</CursorType>
+				<MouseClick id="MouseClick">
+					<Script>
+						(L:Backup VOR Pointer1,number) ++ 2 % (&gt;L:Backup VOR Pointer1,number)
+					</Script>
+				</MouseClick>
+				<Tooltip id="Tooltip">
+					<DefaultId>TOOLTIPTEXT_B737_BACKUP_VOR_POINTER1</DefaultId>
+				</Tooltip>
+            </MouseArea>
+			<MouseArea id="VOR 2 Knob">
+				<FloatPosition>161.000,161.000</FloatPosition>
+				<Size>28,28</Size>
+                <CursorType>Hand</CursorType>
+				<MouseClick id="MouseClick">
+					<Script>
+						(L:Backup VOR Pointer2,number) ++ 2 % (&gt;L:Backup VOR Pointer2,number)
+					</Script>
+				</MouseClick>
+				<Tooltip id="Tooltip">
+					<DefaultId>TOOLTIPTEXT_B737_BACKUP_VOR_POINTER2</DefaultId>
+				</Tooltip>
+            </MouseArea>
+            <Tooltip id="Tooltip">
+                <DefaultId>TOOLTIPTEXT_GAUGE_BACKUP_VORADF</DefaultId>
+            </Tooltip>
+        </MouseArea>
+            
+    </SimGauge.Gauge>
+</SimBase.Document>

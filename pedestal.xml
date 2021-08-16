@@ -1,0 +1,428 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<SimBase.Document
+        Type="AceXML"
+        version="1,0"
+        id="autopilot">
+    <Descr>AceXML Document</Descr>
+    <Filename>pedestal.xml</Filename>
+    <SimGauge.Gauge id="Gauge" ArtDirectory=".">
+        <FloatPosition>0.000,0.000</FloatPosition>
+        	<Size>290,275</Size>
+
+        <Element id="spoilerlever0">
+            <FloatPosition>61.000,0.000</FloatPosition>
+		<Visibility>(A:SPOILERS HANDLE POSITION, percent) 50 > !</Visibility>
+            <Image id="lever_gearspoiler.bmp" Name="lever_gearspoiler.bmp">
+                <Transparent>True</Transparent>
+            </Image>
+        </Element>
+        <Element id="spoilerlever100">
+            <FloatPosition>61.000,79.000</FloatPosition>
+		<Visibility>(A:SPOILERS HANDLE POSITION, percent) 50 ></Visibility>
+            <Image id="lever_gearspoiler.bmp" Name="lever_gearspoiler.bmp">
+                <Transparent>True</Transparent>
+            </Image>
+        </Element>
+
+        <Element id="trimind">
+            <FloatPosition>44.000,131.000</FloatPosition>
+            <Image id="alever_geartrimind.bmp" Name="lever_geartrimind.bmp">
+                <Transparent>True</Transparent>
+            </Image>
+            <Shift id="Shift">
+                <Scale>0.000,-1.00</Scale>
+                <Expression id="Expression">
+                    <Minimum>-50.000</Minimum>
+                    <Maximum>50.000</Maximum>
+                    <Script>(A:ELEVATOR TRIM INDICATOR,percent) 0.5 *</Script>
+                </Expression>
+            </Shift>
+        </Element>
+ 
+      <Element id="flaps0">
+            <FloatPosition>252.000,18.000</FloatPosition>
+		<Visibility>(A:Flaps handle index, number) 0 ==</Visibility>
+            <Image id="lever_gearflap.bmp" Name="lever_gearflap.bmp">
+                <Transparent>True</Transparent>
+            </Image>
+        </Element>
+        <Element id="flaps1">
+            <FloatPosition>252.000,46.000</FloatPosition>
+		<Visibility>(A:Flaps handle index, number) 1 ==</Visibility>
+            <Image id="lever_gearflap.bmp" Name="lever_gearflap.bmp">
+                <Transparent>True</Transparent>
+            </Image>
+        </Element>
+        <Element id="flaps2">
+            <FloatPosition>252.000,73.000</FloatPosition>
+		<Visibility>(A:Flaps handle index, number) 2 ==</Visibility>
+            <Image id="lever_gearflap.bmp" Name="lever_gearflap.bmp">
+                <Transparent>True</Transparent>
+            </Image>
+        </Element>
+        <Element id="flaps3">
+            <FloatPosition>252.000,92.000</FloatPosition>
+		<Visibility>(A:Flaps handle index, number) 3 ==</Visibility>
+            <Image id="lever_gearflap.bmp" Name="lever_gearflap.bmp">
+                <Transparent>True</Transparent>
+            </Image>
+        </Element>
+        <Element id="flaps4">
+            <FloatPosition>252.000,129.000</FloatPosition>
+		<Visibility>(A:Flaps handle index, number) 4 ==</Visibility>
+            <Image id="lever_gearflap.bmp" Name="lever_gearflap.bmp">
+                <Transparent>True</Transparent>
+            </Image>
+        </Element>
+        <Element id="flaps4">
+            <FloatPosition>252.000,167.000</FloatPosition>
+		<Visibility>(A:Flaps handle index, number) 5 ==</Visibility>
+            <Image id="lever_gearflap.bmp" Name="lever_gearflap.bmp">
+                <Transparent>True</Transparent>
+            </Image>
+        </Element>
+
+        <Element id="throttle0">
+            <FloatPosition>105.000,121.000</FloatPosition>
+            <Image id="lever_gear1.bmp" Name="lever_gear1.bmp">
+                <Transparent>True</Transparent>
+            </Image>
+            <Shift id="Shift">
+                <Scale>0.000,-1.00</Scale>
+                <Expression id="Expression">
+                    <Minimum>-140.000</Minimum>
+                    <Maximum>140.000</Maximum>
+                    <Script>(A:General Eng Throttle Lever Position:1,percent) 1.0 *</Script>
+                </Expression>
+            </Shift>
+        </Element>
+        <Element id="throttle1">
+            <FloatPosition>146.000,121.000</FloatPosition>
+            <Image id="lever_gear2.bmp" Name="lever_gear2.bmp">
+                <Transparent>True</Transparent>
+            </Image>
+            <Shift id="Shift">
+                <Scale>0.000,-1.00</Scale>
+                <Expression id="Expression">
+                    <Minimum>-140.000</Minimum>
+                    <Maximum>140.000</Maximum>
+                    <Script>(A:General Eng Throttle Lever Position:2,percent) 1.0 *</Script>
+                </Expression>
+            </Shift>
+        </Element>
+        <Element id="throttle2">
+            <FloatPosition>188.000,121.000</FloatPosition>
+            <Image id="lever_gear3.bmp" Name="lever_gear3.bmp">
+                <Transparent>True</Transparent>
+            </Image>
+            <Shift id="Shift">
+                <Scale>0.000,-1.00</Scale>
+                <Expression id="Expression">
+                    <Minimum>-140.000</Minimum>
+                    <Maximum>140.000</Maximum>
+                    <Script>(A:General Eng Throttle Lever Position:3,percent) 1.0 *</Script>
+                </Expression>
+            </Shift>
+        </Element>
+
+        <Element id="parkingbrakeon">
+            <FloatPosition>100.000,250.000</FloatPosition>
+		<Visibility>(A:BRAKE PARKING INDICATOR, bool) (A:CIRCUIT GENERAL PANEL ON, bool) &amp;&amp;</Visibility>
+            <Image id="lamp_redsmallON.bmp" Name="lamp_redsmallON.bmp">
+		<Bright>True</Bright>
+                <Transparent>True</Transparent>
+            </Image>
+        </Element>
+        <Element id="stabtrimon">
+            <FloatPosition>224.000,250.000</FloatPosition>
+		<Visibility>(A:AUTOPILOT FLIGHT DIRECTOR ACTIVE, bool) ! (A:CIRCUIT GENERAL PANEL ON, bool) &amp;&amp;</Visibility>
+            <Image id="lamp_redsmallON.bmp" Name="lamp_redsmallON.bmp">
+		<Bright>True</Bright>
+                <Transparent>True</Transparent>
+            </Image>
+        </Element>
+
+        <Element id="Element">
+            <FloatPosition>112.000,178.000</FloatPosition>
+		<Visibility>(A:GENERAL ENG FUEL VALVE:1,Bool) 1 ==</Visibility>
+            <Image id="lever_gearfuel.bmp" Name="lever_gearfuel.bmp">
+                <Transparent>True</Transparent>
+            </Image>
+        </Element>
+        <Element id="Element">
+            <FloatPosition>112.000,218.000</FloatPosition>
+		<Visibility>(A:GENERAL ENG FUEL VALVE:1,Bool) 0 ==</Visibility>
+            <Image id="lever_gearfuel.bmp" Name="lever_gearfuel.bmp">
+                <Transparent>True</Transparent>
+            </Image>
+        </Element>
+        <Element id="Element">
+            <FloatPosition>145.000,178.000</FloatPosition>
+		<Visibility>(A:GENERAL ENG FUEL VALVE:2,Bool) 1 ==</Visibility>
+            <Image id="lever_gearfuel.bmp" Name="lever_gearfuel.bmp">
+                <Transparent>True</Transparent>
+            </Image>
+        </Element>
+        <Element id="Element">
+            <FloatPosition>145.000,218.000</FloatPosition>
+		<Visibility>(A:GENERAL ENG FUEL VALVE:2,Bool) 0 ==</Visibility>
+            <Image id="lever_gearfuel.bmp" Name="lever_gearfuel.bmp">
+                <Transparent>True</Transparent>
+            </Image>
+        </Element>
+        <Element id="Element">
+            <FloatPosition>178.000,178.000</FloatPosition>
+		<Visibility>(A:GENERAL ENG FUEL VALVE:3,Bool) 1 ==</Visibility>
+            <Image id="lever_gearfuel.bmp" Name="lever_gearfuel.bmp">
+                <Transparent>True</Transparent>
+            </Image>
+        </Element>
+        <Element id="Element">
+            <FloatPosition>178.000,218.000</FloatPosition>
+		<Visibility>(A:GENERAL ENG FUEL VALVE:3,Bool) 0 ==</Visibility>
+            <Image id="lever_gearfuel.bmp" Name="lever_gearfuel.bmp">
+                <Transparent>True</Transparent>
+            </Image>
+        </Element>
+
+        <Element id="Element">
+            <FloatPosition>226.000,3.000</FloatPosition>
+		<Visibility>(L:frictionlock_arm, bool) 0 ==</Visibility>
+            <Image id="lever_gearfriction.bmp" Name="lever_gearfriction.bmp">
+                <Transparent>True</Transparent>
+            </Image>
+        </Element>
+        <Element id="Element">
+            <FloatPosition>226.000,131.000</FloatPosition>
+		<Visibility>(L:frictionlock_arm, bool) 1 ==</Visibility>
+            <Image id="lever_gearfriction.bmp" Name="lever_gearfriction.bmp">
+                <Transparent>True</Transparent>
+            </Image>
+        </Element>
+
+        <MouseArea id="MouseArea - Panel">
+			<FloatPosition>0.000,0.000</FloatPosition>
+        	<Size>290,275</Size>
+
+			
+            <MouseArea id="Speed Brake">
+                <FloatPosition>68.000,1.000</FloatPosition>
+                <Size>33,122</Size>
+                <CursorType>Hand</CursorType>
+				<MouseClick id="MouseClick">
+					<Script>1 (&gt;K:SPOILERS_TOGGLE)</Script>
+				</MouseClick>
+	            <Tooltip id="Tooltip">
+ 	               <DefaultScript>Spoiler</DefaultScript>
+                    </Tooltip>
+	         </MouseArea>
+
+            <MouseArea id="Frictionm">
+                <FloatPosition>230.000,4.000</FloatPosition>
+                <Size>22,171</Size>
+                <CursorType>Hand</CursorType>
+				<MouseClick id="MouseClick">
+					<Script>
+			(L:frictionlock_arm, bool)
+			if{ (L:frictionlock_one, precent) 320 * 16283 - (&gt;K:AXIS_THROTTLE1_SET)
+			     (L:frictionlock_two, precent) 320 * 16283 - (&gt;K:AXIS_THROTTLE2_SET)
+			     (L:frictionlock_tre, precent) 320 * 16283 - (&gt;K:AXIS_THROTTLE3_SET)
+			}
+			els{ (A:GENERAL ENG THROTTLE LEVER POSITION:1, percent) (&gt;L:frictionlock_one, precent)
+			     (A:GENERAL ENG THROTTLE LEVER POSITION:2, percent) (&gt;L:frictionlock_two, precent)
+			     (A:GENERAL ENG THROTTLE LEVER POSITION:3, percent) (&gt;L:frictionlock_tre, precent)
+			   }
+			(L:frictionlock_arm, bool) ! (&gt;L:frictionlock_arm, bool)
+					</Script>
+				</MouseClick>
+	            <Tooltip id="Tooltip">
+ 	               <DefaultScript>Friction Lock</DefaultScript>
+                    </Tooltip>
+	         </MouseArea>
+
+            <MouseArea id="Flaps Handle">
+                <FloatPosition>259.000,19.000</FloatPosition>
+                <Size>31,191</Size>
+                <MouseArea id="Dec">
+                    <FloatPosition>0.000,0.000</FloatPosition>
+                    <Size>48,50</Size>
+                    <CursorType>DownArrow</CursorType>
+                    <MouseClick id="MouseClick">
+                        <KeyEvent>FLAPS_DECR</KeyEvent>
+                        <MouseWheelFlip>True</MouseWheelFlip>
+                    </MouseClick>
+                </MouseArea>
+                <MouseArea id="Inc">
+                    <FloatPosition>0.000,50.000</FloatPosition>
+                    <Size>48,50</Size>
+                    <CursorType>UpArrow</CursorType>
+                    <MouseClick id="MouseClick">
+                        <KeyEvent>FLAPS_INCR</KeyEvent>
+                        <MouseWheelFlip>True</MouseWheelFlip>
+                    </MouseClick>
+                </MouseArea>
+	            <Tooltip id="Tooltip">
+ 	               <DefaultScript>Flaps/Slats</DefaultScript>
+                    </Tooltip>
+            </MouseArea>
+            <MouseArea id="Parking Brake">
+                <FloatPosition>77.000,194.000</FloatPosition>
+                <Size>32,49</Size>
+                <CursorType>Hand</CursorType>
+                <MouseClick id="MouseClick">
+                    <KeyEvent>PARKING_BRAKES</KeyEvent>
+                </MouseClick>
+	            <Tooltip id="Tooltip">
+ 	               <DefaultScript>Parking brake</DefaultScript>
+                    </Tooltip>
+			</MouseArea>
+
+            <MouseArea id="Throttle - Left">
+                <FloatPosition>108.000,2.000</FloatPosition>
+                <Size>38,149</Size>
+                <CursorType>Hand</CursorType>
+                <MouseClick id="MouseClick">
+                    <Script>
+ 						(M:Y) 60 - 135 /  0  max 1 min  1 - /-/  1 
+						(A:Throttle lower limit,part) 
+						s0 - * l0 +  16384.0 *  (&gt;K:THROTTLE1_SET)                    
+                   </Script>
+                    <ClickType>LeftSingle+LeftDrag</ClickType>
+                    <MouseWheelFlip>True</MouseWheelFlip>
+                </MouseClick>
+	            <Tooltip id="Tooltip">
+ 	               <DefaultScript>Throttle 1</DefaultScript>
+                    </Tooltip>
+            </MouseArea>
+			<MouseArea id="Throttle - Both">
+				<FloatPosition>166.000,2.000</FloatPosition>
+				<Size>18,149</Size>
+				<CursorType>Hand</CursorType>
+				<MouseClick id="MouseClick">
+					<Script>
+						(M:Y) 60 - 135 /  0  max 1 min  1 - /-/  1 
+						(A:Throttle lower limit,part) 
+						s0 - * l0 +  16384.0 *  d d (&gt;K:THROTTLE1_SET) (&gt;K:THROTTLE2_SET) (&gt;K:THROTTLE3_SET)                 
+				   </Script>
+					<ClickType>LeftSingle+LeftDrag</ClickType>
+					<MouseWheelFlip>True</MouseWheelFlip>
+				</MouseClick>
+	            <Tooltip id="Tooltip">
+ 	               <DefaultScript>Throttle All</DefaultScript>
+                    </Tooltip>
+
+		</MouseArea>
+			<MouseArea id="Throttle - Mid">
+				<FloatPosition>147.000,2.000</FloatPosition>
+				<Size>19,149</Size>
+				<CursorType>Hand</CursorType>
+				<MouseClick id="MouseClick">
+   			                 <Script>
+ 						(M:Y) 60 - 135 /  0  max 1 min  1 - /-/  1 
+						(A:Throttle lower limit,part) 
+						s0 - * l0 +  16384.0 *  (&gt;K:THROTTLE2_SET)                    
+         			          </Script>
+					<ClickType>LeftSingle+LeftDrag</ClickType>
+					<MouseWheelFlip>True</MouseWheelFlip>
+				</MouseClick>
+	            <Tooltip id="Tooltip">
+ 	               <DefaultScript>Throttle 2</DefaultScript>
+                    </Tooltip>
+		</MouseArea>
+
+			<MouseArea id="Throttle - Right">
+				<FloatPosition>188.000,2.000</FloatPosition>
+				<Size>38,149</Size>
+				<CursorType>Hand</CursorType>
+				<MouseClick id="MouseClick">
+   			                 <Script>
+ 						(M:Y) 60 - 135 /  0  max 1 min  1 - /-/  1 
+						(A:Throttle lower limit,part) 
+						s0 - * l0 +  16384.0 *  (&gt;K:THROTTLE3_SET)                    
+         			          </Script>
+					<ClickType>LeftSingle+LeftDrag</ClickType>
+					<MouseWheelFlip>True</MouseWheelFlip>
+				</MouseClick>
+	            <Tooltip id="Tooltip">
+ 	               <DefaultScript>Throttle 3</DefaultScript>
+                    </Tooltip>
+		</MouseArea>
+
+            <MouseArea id="eng0 fuel">
+                <FloatPosition>116.000,179.000</FloatPosition>
+                <Size>25,53</Size>
+                <CursorType>Hand</CursorType>
+                <MouseClick id="MouseClick">
+	            <Script>
+				1 (&gt;K:TOGGLE_FUEL_VALVE_ENG1)                    
+                   </Script>
+                </MouseClick>
+	            <Tooltip id="Tooltip">
+ 	               <DefaultScript>Eng1 main fuel vent</DefaultScript>
+                    </Tooltip>
+			</MouseArea>
+            <MouseArea id="eng0 fuel">
+                <FloatPosition>149.000,179.000</FloatPosition>
+                <Size>25,53</Size>
+                <CursorType>Hand</CursorType>
+                <MouseClick id="MouseClick">
+	            <Script>
+				1 (&gt;K:TOGGLE_FUEL_VALVE_ENG2)                    
+                   </Script>
+                </MouseClick>
+	            <Tooltip id="Tooltip">
+ 	               <DefaultScript>Eng2 main fuel vent</DefaultScript>
+                    </Tooltip>
+			</MouseArea>
+   <MouseArea id="eng0 fuel">
+                <FloatPosition>181.000,179.000</FloatPosition>
+                <Size>25,53</Size>
+                <CursorType>Hand</CursorType>
+                <MouseClick id="MouseClick">
+	            <Script>
+				1 (&gt;K:TOGGLE_FUEL_VALVE_ENG3)                    
+                   </Script>
+                </MouseClick>
+	            <Tooltip id="Tooltip">
+ 	               <DefaultScript>Eng3 main fuel vent</DefaultScript>
+                    </Tooltip>
+			</MouseArea>
+
+
+            <MouseArea id="trim Handle1">
+                <FloatPosition>13.000,3.000</FloatPosition>
+                <Size>46,214</Size>
+                <MouseArea id="Dec">
+                    <FloatPosition>0.000,0.000</FloatPosition>
+                    <Size>46,107</Size>
+                    <CursorType>DownArrow</CursorType>
+                    <MouseClick id="MouseClick">
+	            <Script>
+				100 (&gt;K:ELEV_TRIM_DN)                    
+                   </Script>
+					<ClickType>LeftSingle+LeftDrag</ClickType>
+					<MouseWheelFlip>True</MouseWheelFlip>
+                    </MouseClick>
+                </MouseArea>
+                <MouseArea id="Inc">
+                    <FloatPosition>0.000,107.000</FloatPosition>
+                    <Size>46,107</Size>
+                    <CursorType>UpArrow</CursorType>
+                    <MouseClick id="MouseClick">
+ 	            <Script>
+				100 (&gt;K:ELEV_TRIM_UP)                    
+                   </Script>
+					<ClickType>LeftSingle+LeftDrag</ClickType>
+					<MouseWheelFlip>True</MouseWheelFlip>
+                    </MouseClick>
+                </MouseArea>
+	            <Tooltip id="Tooltip">
+ 	               <DefaultScript>Elevator trim</DefaultScript>
+                    </Tooltip>
+            </MouseArea>
+
+
+      </MouseArea>
+    </SimGauge.Gauge>
+</SimBase.Document>

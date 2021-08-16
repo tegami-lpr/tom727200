@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Gauge Name="sys1 Icon" Version="1.0">
+    <Image Name="Icon_sys1.bmp" ImageSizes="19,19"/>
+    <Mouse>
+        <Cursor Type="Hand"/>
+        <Click>10020 (&gt;K:PANEL_ID_TOGGLE)</Click>
+    </Mouse>
+</Gauge>

@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<SimBase.Document
+        Type="AceXML"
+        version="1,0"
+        id="autopilot">
+    <Descr>AceXML Document</Descr>
+    <Filename>stormscope.xml</Filename>
+    <SimGauge.Gauge id="autopilot" ArtDirectory=".">
+        <FloatPosition>0.000,0.000</FloatPosition>
+        <Image id="stormscope.bmp" Name="stormscope.bmp">
+            <Transparent>True</Transparent>
+        </Image>
+        <Size>183,183</Size>
+
+       <Element id="warn_master">
+            <FloatPosition>0.000,0.000</FloatPosition>
+            <Visibility>(L:wxradar, bool) (A:CIRCUIT GENERAL PANEL ON, bool) &amp;&amp;
+	    </Visibility>
+            <Image id="Image" Name="stormscopeON.bmp">
+		<Bright>True</Bright>
+                <Transparent>True</Transparent>
+            </Image>
+        </Element>
+
+    </SimGauge.Gauge>
+</SimBase.Document>

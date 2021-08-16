@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<SimBase.Document
+        Type="AceXML"
+        version="1,0"
+        id="eng_epr03">
+    <Descr>AceXML Document</Descr>
+    <Filename>eng_epr03.xml</Filename>
+    <SimGauge.Gauge id="Gauge" ArtDirectory=".">
+        <FloatPosition>0.000,0.000</FloatPosition>
+
+        <Image id="eng_epr_back.bmp" Name="eng_epr_back.bmp">
+            <Transparent>True</Transparent>
+        </Image>
+
+        <Element id="Display  text">
+            <FloatPosition>54.000,98.000</FloatPosition>
+            <Visibility>(A:CIRCUIT GENERAL PANEL ON, bool)</Visibility>
+            <GaugeText id="GaugeText">
+                <Bold>True</Bold>
+                <FontColor>White</FontColor>
+                <FontFace>Quartz</FontFace>
+                <FontHeight>13</FontHeight>
+                <GaugeString>%((A:TURB ENG PRESSURE RATIO:3, ratio))%!1.2f!</GaugeString>
+                <HorizontalAlign>RIGHT</HorizontalAlign>
+                <Size>29,29</Size>
+                <Transparent>True</Transparent>
+                <VerticalAlign>CENTER</VerticalAlign>
+            </GaugeText>
+        </Element>
+
+        <Element id="epr_needle">
+            <FloatPosition>69.000,71.000</FloatPosition>
+            <Image id="eng_epr_needle.bmp" Name="eng_epr_needle.bmp">
+                <Transparent>True</Transparent>
+                <Axis>10.000,7.000</Axis>
+            </Image>
+            <Rotation id="Rotation">
+               	    <PointsTo>EAST</PointsTo>
+		    <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>3.000</Maximum>
+                        <Script>(A:TURB ENG PRESSURE RATIO:3, ratio) 1 *</Script>
+		    </Expression>
+		     <NonlinearityTable id="NonlinearityTable">
+						  <NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>1.000</ExpressionResult>
+							<Degrees>1</Degrees>
+						  </NonlinearityEntry>
+						  <NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>2.000</ExpressionResult>
+							<Degrees>166</Degrees>
+						  </NonlinearityEntry>
+						  <NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>3.000</ExpressionResult>
+							<Degrees>332</Degrees>
+						  </NonlinearityEntry>
+		     </NonlinearityTable>
+            </Rotation>
+        </Element>
+
+        <Element id="epr_marker">
+            <FloatPosition>69.000,71.000</FloatPosition>
+            <Image id="eng_epr_marker.bmp" Name="eng_epr_marker.bmp">
+                <Transparent>True</Transparent>
+                <Axis>1.000,1.000</Axis>
+            </Image>
+            <Rotation id="Rotation">
+               	    <PointsTo>WEST</PointsTo>
+		    <Expression id="Expression">
+                    <Minimum>1.000</Minimum>
+                    <Maximum>3.000</Maximum>
+                        <Script>(L:EPRPRESET03, number) 1 *</Script>
+		    </Expression>
+		     <NonlinearityTable id="NonlinearityTable">
+						  <NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>1.000</ExpressionResult>
+							<Degrees>1</Degrees>
+						  </NonlinearityEntry>
+						  <NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>2.000</ExpressionResult>
+							<Degrees>166</Degrees>
+						  </NonlinearityEntry>
+						  <NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>3.000</ExpressionResult>
+							<Degrees>332</Degrees>
+						  </NonlinearityEntry>
+		     </NonlinearityTable>
+            </Rotation>
+        </Element>
+
+        <Element id="epr_button">
+            <FloatPosition>132.000,133.000</FloatPosition>
+            <Image id="eng_epr_button.bmp" Name="eng_epr_button.bmp">
+                <Transparent>True</Transparent>
+                <Axis>16.000,15.000</Axis>
+            </Image>
+            <Rotation id="Rotation">
+               	    <PointsTo>WEST</PointsTo>
+		    <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>20.000</Maximum>
+                        <Script>(L:EPRPRESET03, number) 5.5 *</Script>
+		    </Expression>
+            </Rotation>
+        </Element>
+
+        <MouseArea id="MouseArea">
+            <FloatPosition>0.000,0.000</FloatPosition>
+            <Size>148,149</Size>
+            <MouseArea id="Set Knob">
+                <FloatPosition>113.000,116.000</FloatPosition>
+                <Size>33,32</Size>
+                <MouseArea id="Decrement">
+                    <FloatPosition>0.000,0.000</FloatPosition>
+                    <Size>15,31</Size>
+                    <CursorType>DownArrow</CursorType>
+                    <MouseClick id="MouseClick">
+                        <Script>
+							(L:EPRPRESET03, number) 0.05 - (&gt;L:EPRPRESET03, number)
+							(L:EPRPRESET03, number) 1 &lt;
+								if{ 1 (&gt;L:EPRPRESET03, number) (L:EPRPRESET03, number) }
+								els{ (L:EPRPRESET03, number) }
+                        </Script>
+                        <ClickRepeat>True</ClickRepeat>
+                    </MouseClick>
+                </MouseArea>
+                <MouseArea id="Increment">
+                    <FloatPosition>16.000,0.000</FloatPosition>
+                    <Size>15,31</Size>
+                    <CursorType>UpArrow</CursorType>
+                    <MouseClick id="MouseClick">
+                        <Script>
+							(L:EPRPRESET03, number) 0.05 + (&gt;L:EPRPRESET03, number)
+							(L:EPRPRESET03, number) 3 &gt;
+								if{ 3 (&gt;L:EPRPRESET03, number) (L:EPRPRESET03, number) }
+								els{ (L:EPRPRESET03, number) }
+                        </Script>
+                        <ClickRepeat>True</ClickRepeat>
+                    </MouseClick>
+                </MouseArea>
+	            <Tooltip id="Tooltip">
+              		 <DefaultScript>EPR PRESET:%((L:EPRPRESET03, number))%! 1.2f! </DefaultScript>
+               	    </Tooltip>
+            </MouseArea>
+        <Tooltip id="Tooltip">
+               <DefaultScript>EPR:%((A:TURB ENG PRESSURE RATIO:3, ratio))%! 1.2f! </DefaultScript>
+               </Tooltip>
+        </MouseArea>
+
+    </SimGauge.Gauge>
+</SimBase.Document>

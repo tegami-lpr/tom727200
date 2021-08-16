@@ -1,0 +1,247 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<SimBase.Document
+        Type="AceXML"
+        version="1,0"
+        id="asi">
+    <Descr>AceXML Document</Descr>
+    <Filename>asi.xml</Filename>
+    <SimGauge.Gauge id="Gauge" ArtDirectory=".">
+        <FloatPosition>0.000,0.000</FloatPosition>
+        <Image id="asi_back.bmp" Name="asi_back.bmp">
+            <Transparent>True</Transparent>
+        </Image>
+
+   <Element id="asi_machscale">
+            <FloatPosition>106.000,108.000</FloatPosition>
+            <Image id="asi_machscale.bmp" Name="asi_machscale.bmp">
+                <Transparent>True</Transparent>
+               <Axis>86.000,87.000</Axis>
+            </Image>
+            <Rotation id="Rotation">
+               	    <PointsTo>NORTH</PointsTo>
+		    <Expression id="Expression">
+                        <Script>(A:AIRSPEED BARBER POLE, knots) 250 &gt;
+					if{ (A:AIRSPEED BARBER POLE, knots) 300 &gt;
+						if{ (A:AIRSPEED BARBER POLE, knots) 0.937 * (&gt;L:rotstat, degrees) }
+						els{ (A:AIRSPEED BARBER POLE, knots) 0.996 * (&gt;L:rotstat, degrees) }
+					  }
+					els{ (A:AIRSPEED BARBER POLE, knots) 1.023 * (&gt;L:rotstat, degrees) }
+				(A:BARBER POLE MACH, mach) 0.5 &gt;
+					if{ (A:BARBER POLE MACH, mach) 0.6 &gt;
+						if{ (A:BARBER POLE MACH, mach) 0.7 &gt;
+							if{ (A:BARBER POLE MACH, mach) 0.8 &gt;
+								if{ (A:BARBER POLE MACH, mach) 0.9 &gt;
+									if{ (A:BARBER POLE MACH, mach) 0.5 - 268.043 * (&gt;L:rotmach, degrees) }
+									els{ (A:BARBER POLE MACH, mach) 0.5 - 280 * (&gt;L:rotmach, degrees) }
+								  }
+								els{ (A:BARBER POLE MACH, mach) 0.5 - 291.667 * (&gt;L:rotmach, degrees) }
+							  }
+					                 els{ (A:BARBER POLE MACH, mach) 0.5 - 305 * (&gt;L:rotmach, degrees) }
+					          }
+					        els{ (A:BARBER POLE MACH, mach) 0.5 - 335 * (&gt;L:rotmach, degrees) }
+					  }
+					els{ 0 (&gt;L:rotmach, degrees) }
+				(L:rotstat, degrees) (L:rotmach, degrees) - 230 - dgrd
+			</Script>
+		    </Expression>
+            </Rotation>
+        </Element>
+
+        <Element id="asi_knotscale">
+            <FloatPosition>0.000,0.000</FloatPosition>
+            <Image id="asi_knotscale.bmp" Name="asi_knotscale.bmp">
+                <Transparent>True</Transparent>
+            </Image>
+        </Element>
+
+
+        <Element id="asi_speebug">
+            <FloatPosition>106.000,108.000</FloatPosition>
+            <Image id="asi_speebug.bmp" Name="asi_speebug.bmp">
+                <Transparent>True</Transparent>
+                <Axis>39.000,88.000</Axis>
+            </Image>
+            <Rotation id="Rotation">
+               	    <PointsTo>NORTH</PointsTo>
+		    <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>420.000</Maximum>
+                        <Script>(A:AUTOPILOT AIRSPEED HOLD VAR, knots)</Script>
+		    </Expression>
+		     <NonlinearityTable id="NonlinearityTable">
+						  <NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>0.000</ExpressionResult>
+							<Degrees>0</Degrees>
+						  </NonlinearityEntry>
+						  <NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>60.000</ExpressionResult>
+							<Degrees>15</Degrees>
+						  </NonlinearityEntry>
+						  <NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>160.000</ExpressionResult>
+							<Degrees>166</Degrees>
+						  </NonlinearityEntry>
+						  <NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>200.000</ExpressionResult>
+							<Degrees>205</Degrees>
+						  </NonlinearityEntry>
+						  <NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>250.000</ExpressionResult>
+							<Degrees>242</Degrees>
+						  </NonlinearityEntry>
+						  <NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>300.000</ExpressionResult>
+							<Degrees>276</Degrees>
+						  </NonlinearityEntry>
+						  <NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>420.000</ExpressionResult>
+							<Degrees>335</Degrees>
+						  </NonlinearityEntry>
+		     </NonlinearityTable>
+            </Rotation>
+        </Element>
+
+        <Element id="asi_overspeed">
+            <FloatPosition>106.000,108.000</FloatPosition>
+            <Image id="asi_overspeed.bmp" Name="asi_overspeed.bmp">
+                <Transparent>True</Transparent>
+                <Axis>28.000,81.000</Axis>
+            </Image>
+            <Rotation id="Rotation">
+               	    <PointsTo>NORTH</PointsTo>
+		    <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>420.000</Maximum>
+                        <Script>(A:AIRSPEED BARBER POLE, knots)</Script>
+		    </Expression>
+		     <NonlinearityTable id="NonlinearityTable">
+						  <NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>0.000</ExpressionResult>
+							<Degrees>0</Degrees>
+						  </NonlinearityEntry>
+						  <NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>60.000</ExpressionResult>
+							<Degrees>15</Degrees>
+						  </NonlinearityEntry>
+						  <NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>160.000</ExpressionResult>
+							<Degrees>166</Degrees>
+						  </NonlinearityEntry>
+						  <NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>200.000</ExpressionResult>
+							<Degrees>205</Degrees>
+						  </NonlinearityEntry>
+						  <NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>250.000</ExpressionResult>
+							<Degrees>242</Degrees>
+						  </NonlinearityEntry>
+						  <NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>300.000</ExpressionResult>
+							<Degrees>276</Degrees>
+						  </NonlinearityEntry>
+						  <NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>420.000</ExpressionResult>
+							<Degrees>335</Degrees>
+						  </NonlinearityEntry>
+		     </NonlinearityTable>
+            </Rotation>
+        </Element>
+
+        <Element id="asi_needle">
+            <FloatPosition>106.000,108.000</FloatPosition>
+            <Image id="asi_needle.bmp" Name="asi_needle.bmp">
+                <Transparent>True</Transparent>
+                <Axis>26.000,77.000</Axis>
+            </Image>
+            <Rotation id="Rotation">
+               	    <PointsTo>NORTH</PointsTo>
+		    <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>420.000</Maximum>
+                        <Script>(A:AIRSPEED INDICATED, knots)</Script>
+		    </Expression>
+		     <NonlinearityTable id="NonlinearityTable">
+						  <NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>0.000</ExpressionResult>
+							<Degrees>0</Degrees>
+						  </NonlinearityEntry>
+						  <NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>60.000</ExpressionResult>
+							<Degrees>15</Degrees>
+						  </NonlinearityEntry>
+						  <NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>160.000</ExpressionResult>
+							<Degrees>166</Degrees>
+						  </NonlinearityEntry>
+						  <NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>200.000</ExpressionResult>
+							<Degrees>205</Degrees>
+						  </NonlinearityEntry>
+						  <NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>250.000</ExpressionResult>
+							<Degrees>242</Degrees>
+						  </NonlinearityEntry>
+						  <NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>300.000</ExpressionResult>
+							<Degrees>276</Degrees>
+						  </NonlinearityEntry>
+						  <NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>420.000</ExpressionResult>
+							<Degrees>335</Degrees>
+						  </NonlinearityEntry>
+		     </NonlinearityTable>
+            </Rotation>
+        </Element>
+
+        <Element id="asi_button.bmp">
+            <FloatPosition>30.000,185.000</FloatPosition>
+            <Image id="asi_button.bmp" Name="asi_button.bmp">
+                <Transparent>True</Transparent>
+                <Axis>15.000,15.000</Axis>
+            </Image>
+            <Rotation id="Rotation">
+               	    <PointsTo>WEST</PointsTo>
+		    <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>200.000</Maximum>
+                        <Script>(A:AUTOPILOT AIRSPEED HOLD VAR, knots) 0.04 *</Script>
+		    </Expression>
+            </Rotation>
+        </Element>
+
+        <MouseArea id="MouseArea">
+            <FloatPosition>0.000,0.000</FloatPosition>
+            <Size>209,207</Size>
+            <MouseArea id="Set Knob">
+                <FloatPosition>15.000,170.000</FloatPosition>
+                <Size>30,30</Size>
+                <MouseArea id="Decrement">
+                    <FloatPosition>0.000,0.000</FloatPosition>
+                    <Size>15,30</Size>
+                    <CursorType>DownArrow</CursorType>
+                   <MouseClick id="MouseClick">
+                       <KeyEvent>AP_SPD_VAR_DEC</KeyEvent>
+                        <ClickRepeat>True</ClickRepeat>
+                    </MouseClick>
+                </MouseArea>
+                <MouseArea id="Increment">
+                    <FloatPosition>15.000,0.000</FloatPosition>
+                    <Size>15,30</Size>
+                    <CursorType>UpArrow</CursorType>
+                   <MouseClick id="MouseClick">
+                       <KeyEvent>AP_SPD_VAR_INC</KeyEvent>
+                        <ClickRepeat>True</ClickRepeat>
+                    </MouseClick>
+                </MouseArea>
+	            <Tooltip id="Tooltip">
+              		 <DefaultScript>AP Airspeed:%((A:AUTOPILOT AIRSPEED HOLD VAR, knots))%! 3.0f! knots</DefaultScript>
+               	    </Tooltip>
+            </MouseArea>
+        <Tooltip id="Tooltip">
+               <DefaultScript>IAS:%((A:AIRSPEED INDICATED, knots))%! 3.0f! knots</DefaultScript>
+               </Tooltip>
+        </MouseArea>
+
+    </SimGauge.Gauge>
+</SimBase.Document>

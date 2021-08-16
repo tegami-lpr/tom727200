@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<SimBase.Document
+        Type="AceXML"
+        version="1,0"
+        id="autopilot">
+    <Descr>AceXML Document</Descr>
+    <Filename>switch_beaconlight.xml</Filename>
+    <SimGauge.Gauge id="autopilot" ArtDirectory=".">
+        <FloatPosition>0.000,0.000</FloatPosition>
+        <Size>11,40</Size>
+
+       <Element id="warn_press">
+            <FloatPosition>0.000,0.000</FloatPosition>
+            <Visibility>(A:LIGHT BEACON, bool) !
+	    </Visibility>
+            <Image id="switch_up.bmp" Name="switch_up.bmp">
+                <Transparent>True</Transparent>
+            </Image>
+        </Element>
+
+       <Element id="warn_press">
+            <FloatPosition>0.000,0.000</FloatPosition>
+            <Visibility>(A:LIGHT BEACON, bool) 
+	    </Visibility>
+            <Image id="switch_dn.bmp" Name="switch_dn.bmp">
+                <Transparent>True</Transparent>
+            </Image>
+        </Element>
+
+        <MouseArea id="MouseArea">
+            <FloatPosition>0.000,0.000</FloatPosition>
+            <Size>11,40</Size>
+ 
+                <MouseArea id="Increment">
+                    <FloatPosition>0.000,0.000</FloatPosition>
+                    <Size>11,40</Size>
+                    <CursorType>Hand</CursorType>
+                    <MouseClick id="MouseClick">
+                        <Script>			1 (&gt;K:TOGGLE_BEACON_LIGHTS)
+                        </Script>
+                    </MouseClick>
+                </MouseArea>
+            <Tooltip id="Tooltip">
+                <DefaultScript>Beacon Lights</DefaultScript>
+            </Tooltip>
+        </MouseArea>
+
+    </SimGauge.Gauge>
+</SimBase.Document>

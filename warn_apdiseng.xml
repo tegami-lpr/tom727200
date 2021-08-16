@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<SimBase.Document
+        Type="AceXML"
+        version="1,0"
+        id="autopilot">
+    <Descr>AceXML Document</Descr>
+    <Filename>warn_apdiseng.xml</Filename>
+    <SimGauge.Gauge id="autopilot" ArtDirectory=".">
+        <FloatPosition>0.000,0.000</FloatPosition>
+        <Image id="warn_apdiseng.bmp" Name="warn_apdiseng.bmp">
+            <Transparent>True</Transparent>
+        </Image>
+        <Size>51,51</Size>
+
+       <Element id="warn_apdiseng">
+            <FloatPosition>0.000,0.000</FloatPosition>
+            <Visibility>(A:AUTOPILOT MASTER, bool) ! (A:CIRCUIT GENERAL PANEL ON, bool) &amp;&amp;
+	    </Visibility>
+            <Image id="Image" Name="warn_apdisengON.bmp">
+		<Bright>True</Bright>
+                <Transparent>True</Transparent>
+            </Image>
+        </Element>
+
+    </SimGauge.Gauge>
+</SimBase.Document>

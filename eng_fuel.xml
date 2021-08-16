@@ -1,0 +1,837 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<SimBase.Document
+        Type="AceXML"
+        version="1,0"
+        id="hsi_backup">
+    <Descr>AceXML Document</Descr>
+    <Filename>A300 fuel.xml</Filename>
+    <SimGauge.Gauge id="eng_fuel" ArtDirectory=".">
+        <FloatPosition>0.000,0.000</FloatPosition>
+        <Size>532,360</Size>
+
+
+
+
+        <Element id="leftaux1">
+            <FloatPosition>59.000,303.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Script>(A:GENERAL ENG FUEL VALVE:1,bool)</Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>1.000</ExpressionResult>
+                    <Image id="Image" Name="switch_up.bmp">
+                        <Transparent>True</Transparent>
+                    </Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>0.000</ExpressionResult>
+                    <Image id="Image" Name="switch_dn.bmp">
+                        <Transparent>True</Transparent>
+                    </Image>
+                </Case>
+            </Select>
+        </Element>
+        <Element id="leftaux2">
+            <FloatPosition>265.000,303.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Script>(A:GENERAL ENG FUEL VALVE:2,bool)</Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>1.000</ExpressionResult>
+                    <Image id="Image" Name="switch_up.bmp">
+                        <Transparent>True</Transparent>
+                    </Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>0.000</ExpressionResult>
+                    <Image id="Image" Name="switch_dn.bmp">
+                        <Transparent>True</Transparent>
+                    </Image>
+                </Case>
+            </Select>
+        </Element>
+        <Element id="leftaux1">
+            <FloatPosition>468.000,303.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Script>(A:GENERAL ENG FUEL VALVE:3,bool)</Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>1.000</ExpressionResult>
+                    <Image id="Image" Name="switch_up.bmp">
+                        <Transparent>True</Transparent>
+                    </Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>0.000</ExpressionResult>
+                    <Image id="Image" Name="switch_dn.bmp">
+                        <Transparent>True</Transparent>
+                    </Image>
+                </Case>
+            </Select>
+        </Element>
+
+        <Element id="pump1">
+            <FloatPosition>31.000,111.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Script>(A:GENERAL ENG FUEL PUMP SWITCH:1,bool)</Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>1.000</ExpressionResult>
+                    <Image id="Image" Name="switch_up.bmp">
+                        <Transparent>True</Transparent>
+                    </Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>0.000</ExpressionResult>
+                    <Image id="Image" Name="switch_dn.bmp">
+                        <Transparent>True</Transparent>
+                    </Image>
+                </Case>
+            </Select>
+        </Element>
+        <Element id="pump1">
+            <FloatPosition>92.000,111.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Script>(A:GENERAL ENG FUEL PUMP SWITCH:1,bool)</Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>1.000</ExpressionResult>
+                    <Image id="Image" Name="switch_up.bmp">
+                        <Transparent>True</Transparent>
+                    </Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>0.000</ExpressionResult>
+                    <Image id="Image" Name="switch_dn.bmp">
+                        <Transparent>True</Transparent>
+                    </Image>
+                </Case>
+            </Select>
+        </Element>
+        <Element id="pump1">
+            <FloatPosition>438.000,114.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Script>(A:GENERAL ENG FUEL PUMP SWITCH:3,bool)</Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>1.000</ExpressionResult>
+                    <Image id="Image" Name="switch_up.bmp">
+                        <Transparent>True</Transparent>
+                    </Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>0.000</ExpressionResult>
+                    <Image id="Image" Name="switch_dn.bmp">
+                        <Transparent>True</Transparent>
+                    </Image>
+                </Case>
+            </Select>
+        </Element>
+        <Element id="pump1">
+            <FloatPosition>503.000,114.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Script>(A:GENERAL ENG FUEL PUMP SWITCH:3,bool)</Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>1.000</ExpressionResult>
+                    <Image id="Image" Name="switch_up.bmp">
+                        <Transparent>True</Transparent>
+                    </Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>0.000</ExpressionResult>
+                    <Image id="Image" Name="switch_dn.bmp">
+                        <Transparent>True</Transparent>
+                    </Image>
+                </Case>
+            </Select>
+        </Element>
+
+        <Element id="pump1">
+            <FloatPosition>152.000,81.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Script>(A:GENERAL ENG FUEL PUMP SWITCH:2,bool)</Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>1.000</ExpressionResult>
+                    <Image id="Image" Name="switch_up.bmp">
+                        <Transparent>True</Transparent>
+                    </Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>0.000</ExpressionResult>
+                    <Image id="Image" Name="switch_dn.bmp">
+                        <Transparent>True</Transparent>
+                    </Image>
+                </Case>
+            </Select>
+        </Element>
+        <Element id="pump1">
+            <FloatPosition>382.000,83.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Script>(A:GENERAL ENG FUEL PUMP SWITCH:2,bool)</Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>1.000</ExpressionResult>
+                    <Image id="Image" Name="switch_up.bmp">
+                        <Transparent>True</Transparent>
+                    </Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>0.000</ExpressionResult>
+                    <Image id="Image" Name="switch_dn.bmp">
+                        <Transparent>True</Transparent>
+                    </Image>
+                </Case>
+            </Select>
+        </Element>
+        <Element id="pump1">
+            <FloatPosition>239.000,102.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Script>(A:GENERAL ENG FUEL PUMP SWITCH:2,bool)</Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>1.000</ExpressionResult>
+                    <Image id="Image" Name="switch_up.bmp">
+                        <Transparent>True</Transparent>
+                    </Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>0.000</ExpressionResult>
+                    <Image id="Image" Name="switch_dn.bmp">
+                        <Transparent>True</Transparent>
+                    </Image>
+                </Case>
+            </Select>
+        </Element>
+        <Element id="pump1">
+            <FloatPosition>294.000,102.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Script>(A:GENERAL ENG FUEL PUMP SWITCH:2,bool)</Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>1.000</ExpressionResult>
+                    <Image id="Image" Name="switch_up.bmp">
+                        <Transparent>True</Transparent>
+                    </Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>0.000</ExpressionResult>
+                    <Image id="Image" Name="switch_dn.bmp">
+                        <Transparent>True</Transparent>
+                    </Image>
+                </Case>
+            </Select>
+        </Element>
+        <Element id="pump1">
+            <FloatPosition>209.000,173.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Script>(A:GENERAL ENG FUEL PUMP SWITCH:2,bool)</Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>1.000</ExpressionResult>
+                    <Image id="Image" Name="switch_up.bmp">
+                        <Transparent>True</Transparent>
+                    </Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>0.000</ExpressionResult>
+                    <Image id="Image" Name="switch_dn.bmp">
+                        <Transparent>True</Transparent>
+                    </Image>
+                </Case>
+            </Select>
+        </Element>
+        <Element id="pump1">
+            <FloatPosition>322.000,172.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Script>(A:GENERAL ENG FUEL PUMP SWITCH:2,bool)</Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>1.000</ExpressionResult>
+                    <Image id="Image" Name="switch_up.bmp">
+                        <Transparent>True</Transparent>
+                    </Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>0.000</ExpressionResult>
+                    <Image id="Image" Name="switch_dn.bmp">
+                        <Transparent>True</Transparent>
+                    </Image>
+                </Case>
+            </Select>
+        </Element>
+        <Element id="pump1">
+            <FloatPosition>160.000,201.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Script>(A:GENERAL ENG FUEL PUMP SWITCH:2,bool)</Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>1.000</ExpressionResult>
+                    <Image id="Image" Name="switch_up.bmp">
+                        <Transparent>True</Transparent>
+                    </Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>0.000</ExpressionResult>
+                    <Image id="Image" Name="switch_dn.bmp">
+                        <Transparent>True</Transparent>
+                    </Image>
+                </Case>
+            </Select>
+        </Element>
+        <Element id="pump1">
+            <FloatPosition>371.000,201.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Script>(A:GENERAL ENG FUEL PUMP SWITCH:2,bool)</Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>1.000</ExpressionResult>
+                    <Image id="Image" Name="switch_up.bmp">
+                        <Transparent>True</Transparent>
+                    </Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>0.000</ExpressionResult>
+                    <Image id="Image" Name="switch_dn.bmp">
+                        <Transparent>True</Transparent>
+                    </Image>
+                </Case>
+            </Select>
+        </Element>
+
+    <Element id="Element">
+            <FloatPosition>86.000,244.000</FloatPosition>
+            <Image id="fuel_needle.bmp" Name="fuel_needle.bmp">
+                <Transparent>True</Transparent>
+                <Axis>19.000,5.000</Axis>
+            </Image>
+            <Rotation id="Rotation">
+                <PointsTo>WEST</PointsTo>
+                <Expression id="Expression">
+                    <Script>(A:CIRCUIT GENERAL PANEL ON, bool) 1 == if{ (A:FUEL TANK LEFT MAIN LEVEL, percent) 2.6 * dgrd }
+						                els{ 0 }</Script>
+                </Expression>
+            </Rotation>
+        </Element>
+    <Element id="Element">
+            <FloatPosition>493.000,246.000</FloatPosition>
+            <Image id="fuel_needle.bmp" Name="fuel_needle.bmp">
+                <Transparent>True</Transparent>
+                <Axis>19.000,5.000</Axis>
+            </Image>
+            <Rotation id="Rotation">
+                <PointsTo>WEST</PointsTo>
+                <Expression id="Expression">
+                    <Script>(A:CIRCUIT GENERAL PANEL ON, bool) 1 == if{ (A:FUEL TANK RIGHT MAIN LEVEL, percent) 2.6 * dgrd }
+						                els{ 0 }</Script>
+                </Expression>
+            </Rotation>
+        </Element>
+    <Element id="Element">
+            <FloatPosition>272.000,191.000</FloatPosition>
+            <Image id="fuel_needle.bmp" Name="fuel_needle.bmp">
+                <Transparent>True</Transparent>
+                <Axis>19.000,5.000</Axis>
+            </Image>
+            <Rotation id="Rotation">
+                <PointsTo>WEST</PointsTo>
+                <Expression id="Expression">
+                    <Script>(A:CIRCUIT GENERAL PANEL ON, bool) 1 == if{ (A:FUEL TANK CENTER LEVEL, percent) 2.6 * dgrd }
+						                els{ 0 }</Script>
+                </Expression>
+            </Rotation>
+        </Element>
+    <Element id="Element">
+            <FloatPosition>228.000,46.000</FloatPosition>
+            <Image id="fuel_needle.bmp" Name="fuel_needle.bmp">
+                <Transparent>True</Transparent>
+                <Axis>19.000,5.000</Axis>
+            </Image>
+            <Rotation id="Rotation">
+                <PointsTo>WEST</PointsTo>
+                <Expression id="Expression">
+                    <Script>(A:CIRCUIT GENERAL PANEL ON, bool) 1 == if{ (A:FUEL TANK CENTER2 LEVEL, percent) 2.6 * dgrd }
+						                els{ 0 }</Script>
+                </Expression>
+            </Rotation>
+        </Element>
+    <Element id="Element">
+            <FloatPosition>312.000,46.000</FloatPosition>
+            <Image id="fuel_needle.bmp" Name="fuel_needle.bmp">
+                <Transparent>True</Transparent>
+                <Axis>19.000,5.000</Axis>
+            </Image>
+            <Rotation id="Rotation">
+                <PointsTo>WEST</PointsTo>
+                <Expression id="Expression">
+                    <Script>(A:CIRCUIT GENERAL PANEL ON, bool) 1 == if{ (A:FUEL TANK CENTER3 LEVEL, percent) 2.6 * dgrd }
+						                els{ 0 }</Script>
+                </Expression>
+            </Rotation>
+        </Element>
+
+
+        <Element id="gen1off">
+            <FloatPosition>25.000,169.000</FloatPosition>
+            <Visibility>(A:GENERAL ENG FUEL PRESSURE:1, Psi) 10 &lt;  (A:CIRCUIT GENERAL PANEL ON, bool) &amp;&amp;</Visibility>
+            <Image id="lamp_redsmallON.bmp" Name="lamp_redsmallON.bmp">
+                <Transparent>True</Transparent>
+                <Bright>True</Bright>
+            </Image>
+        </Element>
+        <Element id="gen1off">
+            <FloatPosition>89.000,169.000</FloatPosition>
+            <Visibility>(A:GENERAL ENG FUEL PRESSURE:1, Psi) 10 &lt;  (A:CIRCUIT GENERAL PANEL ON, bool) &amp;&amp;</Visibility>
+            <Image id="lamp_redsmallON.bmp" Name="lamp_redsmallON.bmp">
+                <Transparent>True</Transparent>
+                <Bright>True</Bright>
+            </Image>
+        </Element>
+        <Element id="gen1off">
+            <FloatPosition>433.000,171.000</FloatPosition>
+            <Visibility>(A:GENERAL ENG FUEL PRESSURE:3, Psi) 10 &lt;  (A:CIRCUIT GENERAL PANEL ON, bool) &amp;&amp;</Visibility>
+            <Image id="lamp_redsmallON.bmp" Name="lamp_redsmallON.bmp">
+                <Transparent>True</Transparent>
+                <Bright>True</Bright>
+            </Image>
+        </Element>
+        <Element id="gen1off">
+            <FloatPosition>496.000,171.000</FloatPosition>
+            <Visibility>(A:GENERAL ENG FUEL PRESSURE:3, Psi) 10 &lt;  (A:CIRCUIT GENERAL PANEL ON, bool) &amp;&amp;</Visibility>
+            <Image id="lamp_redsmallON.bmp" Name="lamp_redsmallON.bmp">
+                <Transparent>True</Transparent>
+                <Bright>True</Bright>
+            </Image>
+        </Element>
+
+        <Element id="gen1off">
+            <FloatPosition>198.000,109.000</FloatPosition>
+            <Visibility>(A:GENERAL ENG FUEL PRESSURE:2, Psi) 10 &lt;  (A:CIRCUIT GENERAL PANEL ON, bool) &amp;&amp;</Visibility>
+            <Image id="lamp_redsmallON.bmp" Name="lamp_redsmallON.bmp">
+                <Transparent>True</Transparent>
+                <Bright>True</Bright>
+            </Image>
+        </Element>
+        <Element id="gen1off">
+            <FloatPosition>324.000,109.000</FloatPosition>
+            <Visibility>(A:GENERAL ENG FUEL PRESSURE:2, Psi) 10 &lt;  (A:CIRCUIT GENERAL PANEL ON, bool) &amp;&amp;</Visibility>
+            <Image id="lamp_redsmallON.bmp" Name="lamp_redsmallON.bmp">
+                <Transparent>True</Transparent>
+                <Bright>True</Bright>
+            </Image>
+        </Element>
+        <Element id="gen1off">
+            <FloatPosition>146.000,145.000</FloatPosition>
+            <Visibility>(A:GENERAL ENG FUEL PRESSURE:2, Psi) 10 &lt;  (A:CIRCUIT GENERAL PANEL ON, bool) &amp;&amp;</Visibility>
+            <Image id="lamp_redsmallON.bmp" Name="lamp_redsmallON.bmp">
+                <Transparent>True</Transparent>
+                <Bright>True</Bright>
+            </Image>
+        </Element>
+        <Element id="gen1off">
+            <FloatPosition>378.000,145.000</FloatPosition>
+            <Visibility>(A:GENERAL ENG FUEL PRESSURE:2, Psi) 10 &lt;  (A:CIRCUIT GENERAL PANEL ON, bool) &amp;&amp;</Visibility>
+            <Image id="lamp_redsmallON.bmp" Name="lamp_redsmallON.bmp">
+                <Transparent>True</Transparent>
+                <Bright>True</Bright>
+            </Image>
+        </Element>
+        <Element id="gen1off">
+            <FloatPosition>203.000,235.000</FloatPosition>
+            <Visibility>(A:GENERAL ENG FUEL PRESSURE:2, Psi) 10 &lt;  (A:CIRCUIT GENERAL PANEL ON, bool) &amp;&amp;</Visibility>
+            <Image id="lamp_redsmallON.bmp" Name="lamp_redsmallON.bmp">
+                <Transparent>True</Transparent>
+                <Bright>True</Bright>
+            </Image>
+        </Element>
+        <Element id="gen1off">
+            <FloatPosition>319.000,234.000</FloatPosition>
+            <Visibility>(A:GENERAL ENG FUEL PRESSURE:2, Psi) 10 &lt;  (A:CIRCUIT GENERAL PANEL ON, bool) &amp;&amp;</Visibility>
+            <Image id="lamp_redsmallON.bmp" Name="lamp_redsmallON.bmp">
+                <Transparent>True</Transparent>
+                <Bright>True</Bright>
+            </Image>
+        </Element>
+        <Element id="gen1off">
+            <FloatPosition>156.000,262.000</FloatPosition>
+            <Visibility>(A:GENERAL ENG FUEL PRESSURE:2, Psi) 10 &lt;  (A:CIRCUIT GENERAL PANEL ON, bool) &amp;&amp;</Visibility>
+            <Image id="lamp_redsmallON.bmp" Name="lamp_redsmallON.bmp">
+                <Transparent>True</Transparent>
+                <Bright>True</Bright>
+            </Image>
+        </Element>
+        <Element id="gen1off">
+            <FloatPosition>368.000,261.000</FloatPosition>
+            <Visibility>(A:GENERAL ENG FUEL PRESSURE:2, Psi) 10 &lt;  (A:CIRCUIT GENERAL PANEL ON, bool) &amp;&amp;</Visibility>
+            <Image id="lamp_redsmallON.bmp" Name="lamp_redsmallON.bmp">
+                <Transparent>True</Transparent>
+                <Bright>True</Bright>
+            </Image>
+        </Element>
+
+
+        <Element id="fuelleft">
+            <FloatPosition>9.000,297.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Script>(A:TURB ENG TANK SELECTOR:1, enum) 2 == if{ 1 }
+                                                                    els{ (A:TURB ENG TANK SELECTOR:1, enum) 1 == }
+                     </Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>1.000</ExpressionResult>
+                    <Image id="Image" Name="switch_turn0.bmp">
+                        <Transparent>True</Transparent>
+                    </Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>0.000</ExpressionResult>
+                    <Image id="Image" Name="switch_turn270.bmp">
+                        <Transparent>True</Transparent>
+                    </Image>
+                </Case>
+            </Select>
+        </Element>
+        <Element id="fuelctr">
+            <FloatPosition>205.000,292.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Script>(A:TURB ENG TANK SELECTOR:1, enum) 6 == if{ 1 }
+                                                                    els{ (A:TURB ENG TANK SELECTOR:1, enum) 1 == }
+                     </Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>1.000</ExpressionResult>
+                    <Image id="Image" Name="switch_turn0.bmp">
+                        <Transparent>True</Transparent>
+                    </Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>0.000</ExpressionResult>
+                    <Image id="Image" Name="switch_turn270.bmp">
+                        <Transparent>True</Transparent>
+                    </Image>
+                </Case>
+            </Select>
+        </Element>
+        <Element id="fuelright">
+            <FloatPosition>419.000,297.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Script>(A:TURB ENG TANK SELECTOR:1, enum) 3 == if{ 1 }
+                                                                    els{ (A:TURB ENG TANK SELECTOR:1, enum) 1 == }
+                     </Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>1.000</ExpressionResult>
+                    <Image id="Image" Name="switch_turn0.bmp">
+                        <Transparent>True</Transparent>
+                    </Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>0.000</ExpressionResult>
+                    <Image id="Image" Name="switch_turn270.bmp">
+                        <Transparent>True</Transparent>
+                    </Image>
+                </Case>
+            </Select>
+        </Element>
+
+
+     <MouseArea id="MouseArea">
+            <FloatPosition>0.000,0.000</FloatPosition>
+            <Size>532,360</Size>
+
+            <MouseArea id="gen1">
+                <FloatPosition>31.000,112.000</FloatPosition>
+                 <Size>11,40</Size>
+                <CursorType>Hand</CursorType>
+                <MouseClick id="MouseClick">
+                    <Script>1 (&gt;K:TOGGLE_ELECT_FUEL_PUMP1)</Script>
+                    <ClickType>LeftSingle</ClickType>
+                </MouseClick>
+	            <Tooltip id="Tooltip">
+ 	               <DefaultScript>Fuel Pump 1</DefaultScript>
+                    </Tooltip>
+            </MouseArea>
+            <MouseArea id="gen1">
+                <FloatPosition>92.000,112.000</FloatPosition>
+                 <Size>11,40</Size>
+                <CursorType>Hand</CursorType>
+                <MouseClick id="MouseClick">
+                    <Script>1 (&gt;K:TOGGLE_ELECT_FUEL_PUMP1)</Script>
+                    <ClickType>LeftSingle</ClickType>
+                </MouseClick>
+	            <Tooltip id="Tooltip">
+ 	               <DefaultScript>Fuel Pump 1</DefaultScript>
+                    </Tooltip>
+            </MouseArea>
+            <MouseArea id="gen1">
+                <FloatPosition>439.000,114.000</FloatPosition>
+                 <Size>11,40</Size>
+                <CursorType>Hand</CursorType>
+                <MouseClick id="MouseClick">
+                    <Script>1 (&gt;K:TOGGLE_ELECT_FUEL_PUMP3)</Script>
+                    <ClickType>LeftSingle</ClickType>
+                </MouseClick>
+	            <Tooltip id="Tooltip">
+ 	               <DefaultScript>Fuel Pump 3</DefaultScript>
+                    </Tooltip>
+            </MouseArea>
+            <MouseArea id="gen1">
+                <FloatPosition>503.000,114.000</FloatPosition>
+                 <Size>11,40</Size>
+                <CursorType>Hand</CursorType>
+                <MouseClick id="MouseClick">
+                    <Script>1 (&gt;K:TOGGLE_ELECT_FUEL_PUMP3)</Script>
+                    <ClickType>LeftSingle</ClickType>
+                </MouseClick>
+	            <Tooltip id="Tooltip">
+ 	               <DefaultScript>Fuel Pump 3</DefaultScript>
+                    </Tooltip>
+            </MouseArea>
+
+            <MouseArea id="gen1">
+                <FloatPosition>153.000,81.000</FloatPosition>
+                 <Size>11,40</Size>
+                <CursorType>Hand</CursorType>
+                <MouseClick id="MouseClick">
+                    <Script>1 (&gt;K:TOGGLE_ELECT_FUEL_PUMP2)</Script>
+                    <ClickType>LeftSingle</ClickType>
+                </MouseClick>
+	            <Tooltip id="Tooltip">
+ 	               <DefaultScript>Fuel Pump 2</DefaultScript>
+                    </Tooltip>
+            </MouseArea>
+            <MouseArea id="gen1">
+                <FloatPosition>383.000,84.000</FloatPosition>
+                 <Size>11,40</Size>
+                <CursorType>Hand</CursorType>
+                <MouseClick id="MouseClick">
+                    <Script>1 (&gt;K:TOGGLE_ELECT_FUEL_PUMP2)</Script>
+                    <ClickType>LeftSingle</ClickType>
+                </MouseClick>
+	            <Tooltip id="Tooltip">
+ 	               <DefaultScript>Fuel Pump 2</DefaultScript>
+                    </Tooltip>
+            </MouseArea>
+            <MouseArea id="gen1">
+                <FloatPosition>240.000,102.000</FloatPosition>
+                 <Size>11,40</Size>
+                <CursorType>Hand</CursorType>
+                <MouseClick id="MouseClick">
+                    <Script>1 (&gt;K:TOGGLE_ELECT_FUEL_PUMP2)</Script>
+                    <ClickType>LeftSingle</ClickType>
+                </MouseClick>
+	            <Tooltip id="Tooltip">
+ 	               <DefaultScript>Fuel Pump 2</DefaultScript>
+                    </Tooltip>
+            </MouseArea>
+            <MouseArea id="gen1">
+                <FloatPosition>295.000,102.000</FloatPosition>
+                 <Size>11,40</Size>
+                <CursorType>Hand</CursorType>
+                <MouseClick id="MouseClick">
+                    <Script>1 (&gt;K:TOGGLE_ELECT_FUEL_PUMP2)</Script>
+                    <ClickType>LeftSingle</ClickType>
+                </MouseClick>
+	            <Tooltip id="Tooltip">
+ 	               <DefaultScript>Fuel Pump 2</DefaultScript>
+                    </Tooltip>
+            </MouseArea>
+            <MouseArea id="gen1">
+                <FloatPosition>209.000,173.000</FloatPosition>
+                 <Size>11,40</Size>
+                <CursorType>Hand</CursorType>
+                <MouseClick id="MouseClick">
+                    <Script>1 (&gt;K:TOGGLE_ELECT_FUEL_PUMP2)</Script>
+                    <ClickType>LeftSingle</ClickType>
+                </MouseClick>
+	            <Tooltip id="Tooltip">
+ 	               <DefaultScript>Fuel Pump 2</DefaultScript>
+                    </Tooltip>
+            </MouseArea>
+            <MouseArea id="gen1">
+                <FloatPosition>323.000,172.000</FloatPosition>
+                 <Size>11,40</Size>
+                <CursorType>Hand</CursorType>
+                <MouseClick id="MouseClick">
+                    <Script>1 (&gt;K:TOGGLE_ELECT_FUEL_PUMP2)</Script>
+                    <ClickType>LeftSingle</ClickType>
+                </MouseClick>
+	            <Tooltip id="Tooltip">
+ 	               <DefaultScript>Fuel Pump 2</DefaultScript>
+                    </Tooltip>
+            </MouseArea>
+            <MouseArea id="gen1">
+                <FloatPosition>159.000,200.000</FloatPosition>
+                 <Size>11,40</Size>
+                <CursorType>Hand</CursorType>
+                <MouseClick id="MouseClick">
+                    <Script>1 (&gt;K:TOGGLE_ELECT_FUEL_PUMP2)</Script>
+                    <ClickType>LeftSingle</ClickType>
+                </MouseClick>
+	            <Tooltip id="Tooltip">
+ 	               <DefaultScript>Fuel Pump 2</DefaultScript>
+                    </Tooltip>
+            </MouseArea>
+            <MouseArea id="gen1">
+                <FloatPosition>372.000,201.000</FloatPosition>
+                 <Size>11,40</Size>
+                <CursorType>Hand</CursorType>
+                <MouseClick id="MouseClick">
+                    <Script>1 (&gt;K:TOGGLE_ELECT_FUEL_PUMP2)</Script>
+                    <ClickType>LeftSingle</ClickType>
+                </MouseClick>
+	            <Tooltip id="Tooltip">
+ 	               <DefaultScript>Fuel Pump 2</DefaultScript>
+                    </Tooltip>
+            </MouseArea>
+
+            <MouseArea id="gen1">
+                <FloatPosition>60.000,305.000</FloatPosition>
+                 <Size>11,40</Size>
+                <CursorType>Hand</CursorType>
+                <MouseClick id="MouseClick">
+                    <Script>1 (&gt;K:TOGGLE_FUEL_VALVE_ENG1)</Script>
+                    <ClickType>LeftSingle</ClickType>
+                </MouseClick>
+	            <Tooltip id="Tooltip">
+ 	               <DefaultScript>Fuel Valve 1</DefaultScript>
+                    </Tooltip>
+            </MouseArea>
+            <MouseArea id="gen1">
+                <FloatPosition>266.000,305.000</FloatPosition>
+                 <Size>11,40</Size>
+                <CursorType>Hand</CursorType>
+                <MouseClick id="MouseClick">
+                    <Script>1 (&gt;K:TOGGLE_FUEL_VALVE_ENG2)</Script>
+                    <ClickType>LeftSingle</ClickType>
+                </MouseClick>
+	            <Tooltip id="Tooltip">
+ 	               <DefaultScript>Fuel Valve 2</DefaultScript>
+                    </Tooltip>
+            </MouseArea>
+            <MouseArea id="gen1">
+                <FloatPosition>469.000,305.000</FloatPosition>
+                 <Size>11,40</Size>
+                <CursorType>Hand</CursorType>
+                <MouseClick id="MouseClick">
+                    <Script>1 (&gt;K:TOGGLE_FUEL_VALVE_ENG3)</Script>
+                    <ClickType>LeftSingle</ClickType>
+                </MouseClick>
+	            <Tooltip id="Tooltip">
+ 	               <DefaultScript>Fuel Valve 3</DefaultScript>
+                    </Tooltip>
+            </MouseArea>
+
+            <MouseArea id="gen1">
+                <FloatPosition>9.000,298.000</FloatPosition>
+                 <Size>40,40</Size>
+                <CursorType>Hand</CursorType>
+                <MouseClick id="MouseClick">
+                    <Script>(A:TURB ENG TANK SELECTOR:1, enum) 2 ==
+					if{ 1 (&gt;K:FUEL_SELECTOR_SET) }
+					els{ 2 (&gt;K:FUEL_SELECTOR_SET) }
+		    </Script>
+                    <ClickType>LeftSingle</ClickType>
+                </MouseClick>
+	            <Tooltip id="Tooltip">
+ 	               <DefaultScript>Fuel selector Left Wing Tank</DefaultScript>
+                    </Tooltip>
+            </MouseArea>
+            <MouseArea id="gen1">
+                <FloatPosition>205.000,291.000</FloatPosition>
+                 <Size>40,40</Size>
+                <CursorType>Hand</CursorType>
+                <MouseClick id="MouseClick">
+                    <Script>(A:TURB ENG TANK SELECTOR:1, enum) 6 ==
+					if{ 1 (&gt;K:FUEL_SELECTOR_SET) }
+					els{ 6 (&gt;K:FUEL_SELECTOR_SET) }
+		    </Script>
+                    <ClickType>LeftSingle</ClickType>
+                </MouseClick>
+	            <Tooltip id="Tooltip">
+ 	               <DefaultScript>Fuel selector Center Tanks</DefaultScript>
+                    </Tooltip>
+            </MouseArea>
+            <MouseArea id="gen1">
+                <FloatPosition>419.000,298.000</FloatPosition>
+                 <Size>40,40</Size>
+                <CursorType>Hand</CursorType>
+                <MouseClick id="MouseClick">
+                    <Script>(A:TURB ENG TANK SELECTOR:1, enum) 3 ==
+					if{ 1 (&gt;K:FUEL_SELECTOR_SET) }
+					els{ 3 (&gt;K:FUEL_SELECTOR_SET) }
+		    </Script>
+                    <ClickType>LeftSingle</ClickType>
+                </MouseClick>
+	            <Tooltip id="Tooltip">
+ 	               <DefaultScript>Fuel selector Right Wing Tank</DefaultScript>
+                    </Tooltip>
+            </MouseArea>
+
+
+
+            <MouseArea id="qtyleft">
+                <FloatPosition>58.000,214.000</FloatPosition>
+                 <Size>60,60</Size>
+                <CursorType>Hand</CursorType>
+	            <Tooltip id="Tooltip">
+ 	               <DefaultScript>´Pounds:%((A:FUEL TANK LEFT MAIN QUANTITY, gallons) (A:Fuel weight per gallon, pounds) *)%!05d! %((A:FUEL TANK LEFT MAIN LEVEL, percent))%!03d! percent</DefaultScript>
+                    </Tooltip>
+            </MouseArea>
+            <MouseArea id="qtyrgt">
+                <FloatPosition>465.000,214.000</FloatPosition>
+                 <Size>60,60</Size>
+                <CursorType>Hand</CursorType>
+	            <Tooltip id="Tooltip">
+ 	               <DefaultScript>´Pounds:%((A:FUEL TANK RIGHT MAIN QUANTITY, gallons) (A:Fuel weight per gallon, pounds) *)%!05d! %((A:FUEL TANK RIGHT MAIN LEVEL, percent))%!03d! percent</DefaultScript>
+                    </Tooltip>
+            </MouseArea>
+            <MouseArea id="qtyctr">
+                <FloatPosition>244.000,161.000</FloatPosition>
+                 <Size>60,60</Size>
+                <CursorType>Hand</CursorType>
+	            <Tooltip id="Tooltip">
+ 	               <DefaultScript>´Pounds:%((A:FUEL TANK CENTER QUANTITY, gallons) (A:Fuel weight per gallon, pounds) *)%!05d! %((A:FUEL TANK CENTER LEVEL, percent))%!03d! percent</DefaultScript>
+                    </Tooltip>
+            </MouseArea>
+            <MouseArea id="qtyctr">
+                <FloatPosition>201.000,16.000</FloatPosition>
+                 <Size>60,60</Size>
+                <CursorType>Hand</CursorType>
+	            <Tooltip id="Tooltip">
+ 	               <DefaultScript>´Pounds:%((A:FUEL TANK CENTER2 QUANTITY, gallons) (A:Fuel weight per gallon, pounds) *)%!05d! %((A:FUEL TANK CENTER2 LEVEL, percent))%!03d! percent</DefaultScript>
+                    </Tooltip>
+            </MouseArea>
+            <MouseArea id="qtyctr">
+                <FloatPosition>283.000,16.000</FloatPosition>
+                 <Size>60,60</Size>
+                <CursorType>Hand</CursorType>
+	            <Tooltip id="Tooltip">
+ 	               <DefaultScript>´Pounds:%((A:FUEL TANK CENTER3 QUANTITY, gallons) (A:Fuel weight per gallon, pounds) *)%!05d! %((A:FUEL TANK CENTER3 LEVEL, percent))%!03d! percent</DefaultScript>
+                    </Tooltip>
+            </MouseArea>
+
+        </MouseArea>
+
+    </SimGauge.Gauge>
+</SimBase.Document>

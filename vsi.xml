@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<SimBase.Document
+        Type="AceXML"
+        version="1,0"
+        id="vsi">
+    <Descr>AceXML Document</Descr>
+    <Filename>vsi.xml</Filename>
+    <SimGauge.Gauge id="vsi" ArtDirectory=".">
+        <FloatPosition>0.000,0.000</FloatPosition>
+        <Size>209,207</Size>
+        <Element id="Background">
+            <FloatPosition>0.000,0.000</FloatPosition>
+            <Image id="vsi_back.bmp" Name="vsi_back.bmp">
+                <Transparent>True</Transparent>
+            </Image>
+        </Element>
+        <Element id="Element">
+            <FloatPosition>110.000,103.000</FloatPosition>
+            <Image id="vsi_needle.bmp" Name="vsi_needle.bmp">
+                <Transparent>True</Transparent>
+                <Axis>85.000,8.000</Axis>
+            </Image>
+            <Rotation id="Rotation">
+                <PointsTo>WEST</PointsTo>
+                <Expression id="Expression">
+                    <Minimum>-6000.000</Minimum>
+                    <Maximum>6000.000</Maximum>
+                    <Script>(A:Vertical speed,feet per minute)</Script>
+                </Expression>
+                <NonlinearityTable id="NonlinearityTable">
+                    <NonlinearityEntry id="NonlinearityEntry">
+                        <ExpressionResult>-6000.000</ExpressionResult>
+                        <Degrees>-169.000</Degrees>
+                        <FloatPosition>0.000,0.000</FloatPosition>
+                    </NonlinearityEntry>
+                    <NonlinearityEntry id="NonlinearityEntry">
+                        <ExpressionResult>-3000.000</ExpressionResult>
+                        <Degrees>-104.000</Degrees>
+                        <FloatPosition>0.000,0.000</FloatPosition>
+                    </NonlinearityEntry>
+                    <NonlinearityEntry id="NonlinearityEntry">
+                        <ExpressionResult>-2000.000</ExpressionResult>
+                        <Degrees>-78.000</Degrees>
+                        <FloatPosition>0.000,0.000</FloatPosition>
+                    </NonlinearityEntry>
+                    <NonlinearityEntry id="NonlinearityEntry">
+                        <ExpressionResult>-1000.000</ExpressionResult>
+                        <Degrees>-44.000</Degrees>
+                        <FloatPosition>0.000,0.000</FloatPosition>
+                    </NonlinearityEntry>
+                    <NonlinearityEntry id="NonlinearityEntry">
+                        <ExpressionResult>0.000</ExpressionResult>
+                        <Degrees>0.000</Degrees>
+                        <FloatPosition>0.000,0.000</FloatPosition>
+                    </NonlinearityEntry>
+                    <NonlinearityEntry id="NonlinearityEntry">
+                        <ExpressionResult>1000.000</ExpressionResult>
+                        <Degrees>44.000</Degrees>
+                        <FloatPosition>0.000,0.000</FloatPosition>
+                    </NonlinearityEntry>
+                    <NonlinearityEntry id="NonlinearityEntry">
+                        <ExpressionResult>2000.000</ExpressionResult>
+                        <Degrees>78.000</Degrees>
+                        <FloatPosition>0.000,0.000</FloatPosition>
+                    </NonlinearityEntry>
+                    <NonlinearityEntry id="NonlinearityEntry">
+                        <ExpressionResult>3000.000</ExpressionResult>
+                        <Degrees>104.000</Degrees>
+                        <FloatPosition>0.000,0.000</FloatPosition>
+                    </NonlinearityEntry>
+                    <NonlinearityEntry id="NonlinearityEntry">
+                        <ExpressionResult>6000.000</ExpressionResult>
+                        <Degrees>169.000</Degrees>
+                        <FloatPosition>0.000,0.000</FloatPosition>
+                    </NonlinearityEntry>
+                </NonlinearityTable>
+            </Rotation>
+        </Element>
+    </SimGauge.Gauge>
+</SimBase.Document>

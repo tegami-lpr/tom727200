@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<SimBase.Document
+        Type="AceXML"
+        version="1,0"
+        id="autopilot">
+    <Descr>AceXML Document</Descr>
+    <Filename>ohead_askid.xml</Filename>
+    <SimGauge.Gauge id="autopilot" ArtDirectory=".">
+        <FloatPosition>0.000,0.000</FloatPosition>
+        <Image id="oheadlamp_askid.bmp" Name="oheadlamp_askid.bmp">
+            <Transparent>True</Transparent>
+        </Image>
+        <Size>21,21</Size>
+
+       <Element id="ohead_askid">
+            <FloatPosition>0.000,0.000</FloatPosition>
+            <Visibility>(A:ANTISKID BRAKES ACTIVE, bool) (A:CIRCUIT GENERAL PANEL ON, bool) &amp;&amp;
+	    </Visibility>
+            <Image id="Image" Name="oheadlamp_askidON.bmp">
+		<Bright>True</Bright>
+                <Transparent>True</Transparent>
+            </Image>
+        </Element>
+
+    </SimGauge.Gauge>
+</SimBase.Document>

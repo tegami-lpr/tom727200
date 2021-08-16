@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<SimBase.Document
+        Type="AceXML"
+        version="1,0"
+        id="vsi">
+    <Descr>AceXML Document</Descr>
+    <Filename>ins_dummy.xml</Filename>
+    <SimGauge.Gauge id="ins" ArtDirectory=".">
+        <FloatPosition>0.000,0.000</FloatPosition>
+        <Size>406,422</Size>
+        <Element id="Background">
+            <FloatPosition>0.000,0.000</FloatPosition>
+            <Image id="ins_dummyback.bmp" Name="ins_dummyback.bmp">
+                <Transparent>True</Transparent>
+            </Image>
+        </Element>
+    </SimGauge.Gauge>
+</SimBase.Document>

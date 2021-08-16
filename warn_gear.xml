@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<SimBase.Document
+        Type="AceXML"
+        version="1,0"
+        id="autopilot">
+    <Descr>AceXML Document</Descr>
+    <Filename>warn_gear.xml</Filename>
+    <SimGauge.Gauge id="autopilot" ArtDirectory=".">
+        <FloatPosition>0.000,0.000</FloatPosition>
+        <Image id="warn_gear.bmp" Name="warn_gear.bmp">
+            <Transparent>True</Transparent>
+        </Image>
+        <Size>149,153</Size>
+
+       <Element id="warn_gearDOORS">
+            <FloatPosition>0.000,0.000</FloatPosition>
+            <Visibility>(A:Gear left position,percent) s0 100 &lt; s1 l0 0 &gt; l1 &amp;&amp; (A:CIRCUIT GENERAL PANEL ON, bool) &amp;&amp;
+	    </Visibility>
+            <Image id="Image" Name="warn_gearDOORS.bmp">
+		<Bright>True</Bright>
+                <Transparent>True</Transparent>
+            </Image>
+        </Element>
+
+       <Element id="warn_gearNOSEred">
+            <FloatPosition>0.000,0.000</FloatPosition>
+            <Visibility>(A:Gear center position,percent) s0 100 &lt; s1 l0 20 &gt; l1 &amp;&amp; (A:CIRCUIT GENERAL PANEL ON, bool) &amp;&amp;
+	    </Visibility>
+            <Image id="Image" Name="warn_gearNOSEred.bmp">
+		<Bright>True</Bright>
+                <Transparent>True</Transparent>
+            </Image>
+        </Element>
+
+       <Element id="warn_gearLEFTred">
+            <FloatPosition>0.000,0.000</FloatPosition>
+            <Visibility>(A:Gear left position,percent) s0 100 &lt; s1 l0 20 &gt; l1 &amp;&amp; (A:CIRCUIT GENERAL PANEL ON, bool) &amp;&amp;
+	    </Visibility>
+            <Image id="Image" Name="warn_gearLEFTred.bmp">
+		<Bright>True</Bright>
+                <Transparent>True</Transparent>
+            </Image>
+        </Element>
+
+       <Element id="warn_gearRIGHTred">
+            <FloatPosition>0.000,0.000</FloatPosition>
+            <Visibility>(A:Gear right position,percent) s0 100 &lt; s1 l0 20 &gt; l1 &amp;&amp; (A:CIRCUIT GENERAL PANEL ON, bool) &amp;&amp;
+	    </Visibility>
+            <Image id="Image" Name="warn_gearRIGHTred.bmp">
+		<Bright>True</Bright>
+                <Transparent>True</Transparent>
+            </Image>
+        </Element>
+
+       <Element id="warn_gearNOSEgreen">
+            <FloatPosition>0.000,0.000</FloatPosition>
+            <Visibility>(A:Gear center position,percent) near 100 == (A:CIRCUIT GENERAL PANEL ON, bool) &amp;&amp;
+	    </Visibility>
+            <Image id="Image" Name="warn_gearNOSEgreen.bmp">
+		<Bright>True</Bright>
+                <Transparent>True</Transparent>
+            </Image>
+        </Element>
+
+       <Element id="warn_gearLEFTgreen">
+            <FloatPosition>0.000,0.000</FloatPosition>
+            <Visibility>(A:Gear left position,percent) near 100 == (A:CIRCUIT GENERAL PANEL ON, bool) &amp;&amp;
+	    </Visibility>
+            <Image id="Image" Name="warn_gearLEFTgreen.bmp">
+		<Bright>True</Bright>
+                <Transparent>True</Transparent>
+            </Image>
+        </Element>
+
+       <Element id="warn_gearRIGHTgreen">
+            <FloatPosition>0.000,0.000</FloatPosition>
+            <Visibility>(A:Gear right position,percent) near 100 == (A:CIRCUIT GENERAL PANEL ON, bool) &amp;&amp;
+	    </Visibility>
+            <Image id="Image" Name="warn_gearRIGHTgreen.bmp">
+		<Bright>True</Bright>
+                <Transparent>True</Transparent>
+            </Image>
+        </Element>
+
+    </SimGauge.Gauge>
+</SimBase.Document>

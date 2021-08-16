@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<SimBase.Document
+        Type="AceXML"
+        version="1,0"
+        id="autopilot">
+    <Descr>AceXML Document</Descr>
+    <Filename>panelclose_overhead.xml</Filename>
+    <SimGauge.Gauge id="autopilot" ArtDirectory=".">
+        <FloatPosition>0.000,0.000</FloatPosition>
+            <Image id="panelclose.bmp" Name="panelclose.bmp">
+                <Transparent>True</Transparent>
+            </Image>
+        <Size>24,22</Size>
+
+        <MouseArea id="MouseArea">
+            <FloatPosition>0.000,0.000</FloatPosition>
+            <Size>24,22</Size>
+ 
+                <MouseArea id="Increment">
+                    <FloatPosition>0.000,0.000</FloatPosition>
+                    <Size>24,22</Size>
+                    <CursorType>Hand</CursorType>
+                    <MouseClick id="MouseClick">
+                        <Script> 250 (&gt;K:PANEL_ID_TOGGLE)
+                        </Script>
+                    </MouseClick>
+                </MouseArea>
+            <Tooltip id="Tooltip">
+                <DefaultScript>Overhead Close</DefaultScript>
+            </Tooltip>
+        </MouseArea>
+
+    </SimGauge.Gauge>
+</SimBase.Document>

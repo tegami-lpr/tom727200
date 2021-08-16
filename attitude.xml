@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<SimBase.Document
+        Type="AceXML"
+        version="1,0"
+        id="asi">
+    <Descr>AceXML Document</Descr>
+    <Filename>attitude.xml</Filename>
+    <SimGauge.Gauge id="Gauge" ArtDirectory=".">
+        <FloatPosition>0.000,0.000</FloatPosition>
+        <Image id="attitude_back.bmp" Name="attitude_back.bmp">
+            <Transparent>True</Transparent>
+        </Image>
+         
+        <Element id="Element">
+            <FloatPosition>37.000,45.000</FloatPosition>
+            <Image id="attitude_strip.bmp" Name="attitude_strip.bmp">
+                <Transparent>True</Transparent>
+                <Axis>105.000,119.000</Axis>
+            </Image>
+            <MaskImage id="attitude_strip_mask.bmp" Name="attitude_strip_mask.bmp">
+                <Axis>99.000,99.000</Axis>
+            </MaskImage>
+            <Shift id="Shift">
+                <Scale>0.000,-3.150</Scale>
+                <Expression id="Expression">
+                    <Minimum>-30.000</Minimum>
+                    <Maximum>30.000</Maximum>
+                    <Script>(A:Attitude indicator pitch degrees,degrees)</Script>
+                </Expression>
+                <FailureTable id="FailureTable">
+                    <Failure id="Vacuum">
+                        <Fail_Key>SYSTEM_VACUUM</Fail_Key>
+                        <Fail_Action>Zero</Fail_Action>
+                    </Failure>
+                    <Failure id="Gauge">
+                        <Fail_Key>GAUGE_ATTITUDE</Fail_Key>
+                        <Fail_Action>Freeze</Fail_Action>
+                    </Failure>
+                </FailureTable>
+            </Shift>
+            <Rotation id="Rotation">
+                <Expression id="Expression">
+                    <Script>(A:Attitude indicator bank degrees,radians)</Script>
+                </Expression>
+                <FailureTable id="FailureTable">
+                    <Failure id="Vacuum">
+                        <Fail_Key>SYSTEM_VACUUM</Fail_Key>
+                        <Fail_Action>Zero</Fail_Action>
+                    </Failure>
+                    <Failure id="Gauge">
+                        <Fail_Key>GAUGE_ATTITUDE</Fail_Key>
+                        <Fail_Action>Freeze</Fail_Action>
+                    </Failure>
+                </FailureTable>
+            </Rotation>
+        </Element>
+
+
+       <Element id="Shadow">
+            <FloatPosition>0.000,0.000</FloatPosition>
+            <Image id="attitude_shadow.bmp" Alpha="True" Name="attitude_shadow.bmp">
+                <Transparent>True</Transparent>
+            </Image>
+        </Element>
+
+        <Element id="rollind">
+            <FloatPosition>135.000,143.000</FloatPosition>
+            <Image id="attitude_rollind.bmp" Name="attitude_rollind.bmp">
+                <Transparent>True</Transparent>
+                <Axis>99.000,99.000</Axis>
+            </Image>
+            <Rotation id="Rotation">
+                <Expression id="Expression">
+                    <Script>(A:Attitude indicator bank degrees,radians)</Script>
+                </Expression>
+                <FailureTable id="FailureTable">
+                    <Failure id="Vacuum">
+                        <Fail_Key>SYSTEM_VACUUM</Fail_Key>
+                        <Fail_Action>Zero</Fail_Action>
+                    </Failure>
+                    <Failure id="Gauge">
+                        <Fail_Key>GAUGE_ATTITUDE</Fail_Key>
+                        <Fail_Action>Freeze</Fail_Action>
+                    </Failure>
+                </FailureTable>
+            </Rotation>
+        </Element>
+
+        <Element id="speedind">
+            <FloatPosition>16.000,143.000</FloatPosition>
+            <Image id="attitude_speedind.bmp" Alpha="True" Name="attitude_speedind.bmp">
+                <Transparent>True</Transparent>
+            </Image>
+            <Shift id="Shift">
+                <Scale>0.000,0.323</Scale>
+                <Expression id="Expression">
+                    <Minimum>-120.000</Minimum>
+                    <Maximum>120.000</Maximum>
+                    <Script>(A:AUTOPILOT AIRSPEED HOLD VAR, knots) (A:AIRSPEED INDICATED, knots) - </Script>
+                </Expression>
+            </Shift>
+        </Element>
+
+        <Element id="gsind">
+            <FloatPosition>233.000,136.000</FloatPosition>
+            <Visibility>(A:HSI GSI needle valid, bool) (A:CIRCUIT GENERAL PANEL ON, bool) &amp;&amp;</Visibility>
+            <Image id="attitude_gsind.bmp" Alpha="True" Name="attitude_gsind.bmp">
+                <Transparent>True</Transparent>
+            </Image>
+            <Shift id="Shift">
+                <Scale>0.000,0.323</Scale>
+                <Expression id="Expression">
+                    <Minimum>-120.000</Minimum>
+                    <Maximum>220.000</Maximum>
+                    <Script>(A:HSI GSI needle, number)</Script>
+                </Expression>
+            </Shift>
+        </Element>
+
+        <Element id="locind">
+            <FloatPosition>127.000,222.000</FloatPosition>
+            <Visibility>(A:HSI CDI needle valid, bool) (A:CIRCUIT GENERAL PANEL ON, bool) &amp;&amp;</Visibility>
+            <Image id="attitude_locind.bmp" Alpha="True" Name="attitude_locind.bmp">
+                <Transparent>True</Transparent>
+            </Image>
+            <Shift id="Shift">
+                <Scale>0.223,0.000</Scale>
+                <Expression id="Expression">
+                    <Minimum>-120.000</Minimum>
+                    <Maximum>220.000</Maximum>
+                    <Script>(A:HSI CDI needle, number)</Script>
+                </Expression>
+            </Shift>
+        </Element>
+
+        <Element id="commpitch">
+            <FloatPosition>85.000,142.000</FloatPosition>
+            <Visibility>(A:AUTOPILOT MASTER, bool) (A:CIRCUIT GENERAL PANEL ON, bool) &amp;&amp;</Visibility>
+            <Image id="attitude_commpitch" Alpha="True" Name="attitude_commpitch.bmp">
+                <Transparent>True</Transparent>
+            </Image>
+            <Shift id="Shift">
+                <Scale>0.000,0.223</Scale>
+                <Expression id="Expression">
+                    <Minimum>-200.000</Minimum>
+                    <Maximum>200.000</Maximum>
+                    <Script>(A:AUTOPILOT FLIGHT DIRECTOR PITCH, degrees) -5 *</Script>
+                </Expression>
+            </Shift>
+        </Element>
+
+        <Element id="commroll">
+            <FloatPosition>114.000,21.000</FloatPosition>
+            <Visibility>(A:AUTOPILOT MASTER, bool) (A:CIRCUIT GENERAL PANEL ON, bool) &amp;&amp;</Visibility>
+            <Image id="attitude_commroll" Alpha="True" Name="attitude_commroll.bmp">
+                <Transparent>True</Transparent>
+            </Image>
+            <Shift id="Shift">
+                <Scale>0.223,0.000</Scale>
+                <Expression id="Expression">
+                    <Minimum>-200.000</Minimum>
+                    <Maximum>200.000</Maximum>
+                    <Script>(A:AUTOPILOT FLIGHT DIRECTOR BANK, degrees) -5 *</Script>
+                </Expression>
+            </Shift>
+        </Element>
+
+        <Element id="radaralt">
+            <FloatPosition>33.000,143.000</FloatPosition>
+            <Visibility>(A:RADIO HEIGHT, feet) 300 &lt;</Visibility>
+            <Image id="attitude_radaralt.bmp" Alpha="True" Name="attitude_radaralt.bmp">
+                <Transparent>True</Transparent>
+            </Image>
+            <Shift id="Shift">
+                <Scale>0.000,0.323</Scale>
+                <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>210.000</Maximum>
+                    <Script>(A:RADIO HEIGHT, feet) 0.33 *</Script>
+                </Expression>
+            </Shift>
+        </Element>
+
+        <Element id="aircraft">
+            <FloatPosition>32.000,142.000</FloatPosition>
+            <Image id="attitude_aircraft.bmp" Name="attitude_aircraft.bmp">
+                <Transparent>True</Transparent>
+            </Image>
+			<Shift id="Shift">
+				<Scale>0.000,-1.000</Scale>
+				<Expression id="Expression">
+					<Minimum>-12.000</Minimum>
+					<Maximum>12.000</Maximum>
+					<Script>(G:Var3,number)</Script>
+				</Expression>
+			</Shift>
+        </Element>
+
+       <Element id="failgs">
+            <FloatPosition>180.000,185.000</FloatPosition>
+            <Visibility>(A:HSI GSI needle valid, bool) ! (A:AUTOPILOT GLIDESLOPE HOLD, bool) &amp;&amp; (A:CIRCUIT GENERAL PANEL ON, bool) &amp;&amp;</Visibility>
+            <Image id="attitude_failgs.bmp" Alpha="True" Name="attitude_failgs.bmp">
+               <Transparent>True</Transparent>
+            </Image>
+        </Element>
+
+       <Element id="failatt">
+            <FloatPosition>27.000,34.000</FloatPosition>
+            <Visibility>(A:ATTITUDE INDICATOR PITCH DEGREES, degrees) abs 20 &gt; 
+				if{ (A:CIRCUIT GENERAL PANEL ON, bool) }
+				els{ (A:Attitude indicator bank degrees, degrees) abs 45 &gt; (A:CIRCUIT GENERAL PANEL ON, bool) &amp;&amp; }</Visibility>
+            <Image id="attitude_failatt.bmp" Alpha="True" Name="attitude_failatt.bmp">
+               <Transparent>True</Transparent>
+            </Image>
+        </Element>
+
+       <Element id="failfd">
+            <FloatPosition>169.000,35.000</FloatPosition>
+            <Visibility>(A:AUTOPILOT FLIGHT DIRECTOR ACTIVE, bool) ! (A:AUTOPILOT MASTER, bool) &amp;&amp; (A:CIRCUIT GENERAL PANEL ON, bool) &amp;&amp;</Visibility>
+            <Image id="attitude_failfd.bmp" Alpha="True" Name="attitude_failfd.bmp">
+               <Transparent>True</Transparent>
+            </Image>
+        </Element>
+
+       <Element id="front">
+            <FloatPosition>0.000,0.000</FloatPosition>
+             <Image id="attitude_front.bmp" Name="attitude_front.bmp">
+                <Transparent>True</Transparent>
+            </Image>
+        </Element>
+
+       <Element id="turncoord">
+            <FloatPosition>128.000,265.000</FloatPosition>
+            <Image id="attitude_turncoord.bmp" Alpha="True" Name="attitude_turncoord.bmp">
+                <Transparent>True</Transparent>
+            </Image>
+
+            <Shift id="Shift">
+                <Scale>0.313,0.000</Scale>
+                <Expression id="Expression">
+                    <Minimum>-127.000</Minimum>
+                    <Maximum>127.000</Maximum>
+                    <Script>(A:CIRCUIT GENERAL PANEL ON, bool) if{ (A:TURN COORDINATOR BALL, position) } els{ 0 }</Script>
+                </Expression>
+            </Shift>
+
+        </Element>
+
+        <Element id="dh">
+            <FloatPosition>243.000,7.000</FloatPosition>
+            <Visibility>(A:DECISION HEIGHT, feet) (A:RADIO HEIGHT, feet) &gt; 
+				if{ (A:VERTICAL SPEED, feet per second) -0.1 &lt; (A:CIRCUIT GENERAL PANEL ON, bool) &amp;&amp; }
+				els{ 0 }</Visibility>
+            <Image id="attitude_dh.bmp" Alpha="True" Name="attitude_dh.bmp">
+                <Transparent>True</Transparent>
+                <Bright>True</Bright>
+            </Image>
+        </Element>
+
+        <Element id="ga">
+            <FloatPosition>7.000,5.000</FloatPosition>
+            <Visibility>(A:AUTOPILOT TAKEOFF POWER ACTIVE, bool) (A:CIRCUIT GENERAL PANEL ON, bool) &amp;&amp;</Visibility>
+            <Image id="attitude_ga.bmp" Alpha="True" Name="attitude_ga.bmp">
+                <Transparent>True</Transparent>
+                <Bright>True</Bright>
+            </Image>
+        </Element>
+
+        <Element id="Calibration Knob">
+            <FloatPosition>258.000,267.000</FloatPosition>
+            <Image id="attitude_gnobturn.bmp" Name="attitude_gnobturn.bmp">
+                <Transparent>True</Transparent>
+                <Axis>22.500,23.000</Axis>
+            </Image>
+            <Rotation id="Rotation">
+                <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>360.000</Maximum>
+                    <Script>(G:Var3, number) dgrd</Script>
+                </Expression>
+            </Rotation>
+        </Element>
+
+       <MouseArea id="MouseArea">
+            <FloatPosition>0.000,0.000</FloatPosition>
+            <Size>285,308</Size>
+			<MouseArea id="Calibration Knob">
+				<FloatPosition>237.000,245.000</FloatPosition>
+				<Size>44,45</Size>
+                <MouseArea id="Decrement">
+                    <FloatPosition>0.000,0.000</FloatPosition>
+                    <Size>22,45</Size>
+                    <CursorType>DownArrow</CursorType>
+                    <MouseClick id="MouseClick">
+                        <Script>
+                        	(G:Var3) 1 - s1 -8 &lt; if{ -8 } els{ l1 } (&gt;G:Var3) 
+                        	(G:Var3) -8 &gt;
+                        	if{ (G:Var2) 10 - s0 0 &lt; if{ 340 } els{ l0 } (&gt;G:Var2) c }
+                        </Script>
+                        <ClickRepeat>True</ClickRepeat>
+                    </MouseClick>
+                </MouseArea>
+                <MouseArea id="Increment">
+                    <FloatPosition>22.000,0.000</FloatPosition>
+                    <Size>22,45</Size>
+                    <CursorType>UpArrow</CursorType>
+                    <MouseClick id="MouseClick">
+                        <Script>
+                        	(G:Var3) 1 + s1 8 &gt; if{ 8 } els{ l1 } (&gt;G:Var3)
+                        	(G:Var3) 8 &lt;
+                        	if{	(G:Var2) 10 + s0 360 &gt; if{ 0 (&gt;G:Var2) } els{ l0 } (&gt;G:Var2) c }
+                        </Script>
+                        <ClickRepeat>True</ClickRepeat>
+                    </MouseClick>
+                </MouseArea>
+            </MouseArea>
+            <Tooltip id="Tooltip">
+                <DefaultId>TOOLTIPTEXT_ATTITUDE_INDICATOR_BANK_PITCH</DefaultId>
+            </Tooltip>
+        </MouseArea>
+
+    </SimGauge.Gauge>
+</SimBase.Document>

@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<SimBase.Document
+        Type="AceXML"
+        version="1,0"
+        id="autopilot">
+    <Descr>AceXML Document</Descr>
+    <Filename>ohead_ice.xml</Filename>
+    <SimGauge.Gauge id="autopilot" ArtDirectory=".">
+        <FloatPosition>0.000,0.000</FloatPosition>
+        <Image id="oheadlamp_six.bmp" Name="oheadlamp_six.bmp">
+            <Transparent>True</Transparent>
+        </Image>
+        <Size>69,46</Size>
+
+       <Element id="ohead_pitot1">
+            <FloatPosition>0.000,0.000</FloatPosition>
+            <Visibility>(A:STRUCTURAL DEICE SWITCH, bool) (A:CIRCUIT GENERAL PANEL ON, bool) &amp;&amp;
+	    </Visibility>
+            <Image id="Image" Name="oheadlamp_greenON.bmp">
+		<Bright>True</Bright>
+                <Transparent>True</Transparent>
+            </Image>
+        </Element>
+       <Element id="ohead_pitot2">
+            <FloatPosition>23.000,0.000</FloatPosition>
+            <Visibility>(A:STRUCTURAL DEICE SWITCH, bool) (A:CIRCUIT GENERAL PANEL ON, bool) &amp;&amp;
+	    </Visibility>
+            <Image id="Image" Name="oheadlamp_greenON.bmp">
+		<Bright>True</Bright>
+                <Transparent>True</Transparent>
+            </Image>
+        </Element>
+       <Element id="ohead_pitot3">
+            <FloatPosition>46.000,0.000</FloatPosition>
+            <Visibility>(A:PANEL ANTI ICE SWITCH, bool) (A:CIRCUIT GENERAL PANEL ON, bool) &amp;&amp;
+	    </Visibility>
+            <Image id="Image" Name="oheadlamp_redON.bmp">
+		<Bright>True</Bright>
+                <Transparent>True</Transparent>
+            </Image>
+        </Element>
+       <Element id="ohead_pitot4">
+            <FloatPosition>0.000,23.000</FloatPosition>
+            <Visibility>(A:GENERAL ENG ANTI ICE POSITION:1, bool) (A:CIRCUIT GENERAL PANEL ON, bool) &amp;&amp;
+	    </Visibility>
+            <Image id="Image" Name="oheadlamp_greenON.bmp">
+		<Bright>True</Bright>
+                <Transparent>True</Transparent>
+            </Image>
+        </Element>
+       <Element id="ohead_pitot5">
+            <FloatPosition>23.000,23.000</FloatPosition>
+            <Visibility>(A:GENERAL ENG ANTI ICE POSITION:2, bool) (A:CIRCUIT GENERAL PANEL ON, bool) &amp;&amp;
+	    </Visibility>
+            <Image id="Image" Name="oheadlamp_greenON.bmp">
+		<Bright>True</Bright>
+                <Transparent>True</Transparent>
+            </Image>
+        </Element>
+       <Element id="ohead_pitot6">
+            <FloatPosition>46.000,23.000</FloatPosition>
+            <Visibility>(A:GENERAL ENG ANTI ICE POSITION:3, bool) (A:CIRCUIT GENERAL PANEL ON, bool) &amp;&amp;
+	    </Visibility>
+            <Image id="Image" Name="oheadlamp_greenON.bmp">
+		<Bright>True</Bright>
+                <Transparent>True</Transparent>
+            </Image>
+        </Element>
+
+    </SimGauge.Gauge>
+</SimBase.Document>

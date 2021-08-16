@@ -1,0 +1,211 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<SimBase.Document
+        Type="AceXML"
+        version="1,0"
+        id="clock">
+    <Descr>AceXML Document</Descr>
+    <Filename>clock.xml</Filename>
+    <SimGauge.Gauge id="Gauge" ArtDirectory=".">
+        <FloatPosition>0.000,0.000</FloatPosition>
+
+        <Image id="clock_back.bmp" Name="clock_back.bmp">
+            <Transparent>True</Transparent>
+        </Image>
+
+        <Element id="clock_seconds">
+            <FloatPosition>105.000,104.000</FloatPosition>
+            <Image id="clock_seconds.bmp" Name="clock_seconds.bmp">
+                <Transparent>True</Transparent>
+                <Axis>8.000,78.000</Axis>
+            </Image>
+            <Rotation id="Rotation">
+               	    <PointsTo>NORTH</PointsTo>
+		    <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>60.000</Maximum>
+                        <Script>
+								(L:clockmode, number) 0 ==
+									if{ 0 }
+									els{ (L:clockmode, number) 1 ==
+									      if{ (P:Absolute time, seconds) (L:clocktime, seconds) - 60 % flr }
+								          els{ (L:clocktime, seconds) 60 % flr }
+									   }
+			</Script>
+		    </Expression>
+		     <NonlinearityTable id="NonlinearityTable">
+						  <NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>0.000</ExpressionResult>
+							<Degrees>0</Degrees>
+						  </NonlinearityEntry>
+						  <NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>15.000</ExpressionResult>
+							<Degrees>90</Degrees>
+						  </NonlinearityEntry>
+						  <NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>30.000</ExpressionResult>
+							<Degrees>180</Degrees>
+						  </NonlinearityEntry>
+				  		  <NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>45.000</ExpressionResult>
+							<Degrees>270</Degrees>
+						  </NonlinearityEntry>
+				  		  <NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>60.000</ExpressionResult>
+							<Degrees>360</Degrees>
+						  </NonlinearityEntry>
+		     </NonlinearityTable>
+            </Rotation>
+        </Element>
+
+        <Element id="clock_minutes">
+            <FloatPosition>105.000,104.000</FloatPosition>
+            <Image id="clock_minutes.bmp" Name="clock_minutes.bmp">
+                <Transparent>True</Transparent>
+                <Axis>7.000,84.000</Axis>
+            </Image>
+            <Rotation id="Rotation">
+               	    <PointsTo>NORTH</PointsTo>
+		    <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>60.000</Maximum>
+                        <Script>(P:Zulu time, minutes) (L:clockdeflect, number) + 60 % flr</Script>
+		    </Expression>
+		     <NonlinearityTable id="NonlinearityTable">
+						  <NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>0.000</ExpressionResult>
+							<Degrees>0</Degrees>
+						  </NonlinearityEntry>
+						  <NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>15.000</ExpressionResult>
+							<Degrees>90</Degrees>
+						  </NonlinearityEntry>
+						  <NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>30.000</ExpressionResult>
+							<Degrees>180</Degrees>
+						  </NonlinearityEntry>
+				  		  <NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>45.000</ExpressionResult>
+							<Degrees>270</Degrees>
+						  </NonlinearityEntry>
+				  		  <NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>60.000</ExpressionResult>
+							<Degrees>360</Degrees>
+						  </NonlinearityEntry>
+		     </NonlinearityTable>
+            </Rotation>
+        </Element>
+
+        <Element id="clock_hours">
+            <FloatPosition>105.000,104.000</FloatPosition>
+            <Image id="clock_hours.bmp" Name="clock_hours.bmp">
+                <Transparent>True</Transparent>
+                <Axis>8.000,62.000</Axis>
+            </Image>
+            <Rotation id="Rotation">
+               	    <PointsTo>NORTH</PointsTo>
+		    <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>24.000</Maximum>
+                        <Script>(L:clockdeflect, number) 60 / (P:Zulu time, hours) + 24 % flr</Script>
+		    </Expression>
+		     <NonlinearityTable id="NonlinearityTable">
+						  <NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>0.000</ExpressionResult>
+							<Degrees>0</Degrees>
+						  </NonlinearityEntry>
+						  <NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>6.000</ExpressionResult>
+							<Degrees>90</Degrees>
+						  </NonlinearityEntry>
+						  <NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>12.000</ExpressionResult>
+							<Degrees>180</Degrees>
+						  </NonlinearityEntry>
+				  		  <NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>18.000</ExpressionResult>
+							<Degrees>270</Degrees>
+						  </NonlinearityEntry>
+				  		  <NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>24.000</ExpressionResult>
+							<Degrees>360</Degrees>
+						  </NonlinearityEntry>
+		     </NonlinearityTable>
+            </Rotation>
+        </Element>
+
+
+
+        <Element id="clock_wind">
+            <FloatPosition>29.000,168.000</FloatPosition>
+            <Image id="clock_wind.bmp" Name="clock_wind.bmp">
+                <Transparent>True</Transparent>
+                <Axis>14.000,14.000</Axis>
+            </Image>
+            <Rotation id="Rotation">
+               	    <PointsTo>WEST</PointsTo>
+		    <Expression id="Expression">
+                    <Minimum>-100.000</Minimum>
+                    <Maximum>100.000</Maximum>
+                        <Script>(L:clockdeflect, number) 1 *</Script>
+		    </Expression>
+            </Rotation>
+        </Element>
+
+        <MouseArea id="MouseArea">
+            <FloatPosition>0.000,0.000</FloatPosition>
+            <Size>209,207</Size>
+
+            <MouseArea id="Set Knob">
+                <FloatPosition>15.000,154.000</FloatPosition>
+                <Size>28,28</Size>
+                <MouseArea id="Decrement">
+                    <FloatPosition>0.000,0.000</FloatPosition>
+                    <Size>14,28</Size>
+                    <CursorType>DownArrow</CursorType>
+                    <MouseClick id="MouseClick">
+                        <Script>
+							(L:clockdeflect, number) 1 - (&gt;L:clockdeflect, number)
+                        </Script>
+                        <ClickRepeat>True</ClickRepeat>
+                    </MouseClick>
+                </MouseArea>
+                <MouseArea id="Increment">
+                    <FloatPosition>14.000,0.000</FloatPosition>
+                    <Size>14,28</Size>
+                    <CursorType>UpArrow</CursorType>
+                    <MouseClick id="MouseClick">
+                        <Script>
+							(L:clockdeflect, number) 1 + (&gt;L:clockdeflect, number)
+                        </Script>
+                        <ClickRepeat>True</ClickRepeat>
+                    </MouseClick>
+                </MouseArea>
+	            <Tooltip id="Tooltip">
+              		 <DefaultScript>Clock set</DefaultScript>
+               	    </Tooltip>
+            </MouseArea>
+
+            <MouseArea id="stopwatch Knob">
+                <FloatPosition>170.000,158.000</FloatPosition>
+                <Size>28,28</Size>
+                <CursorType>Hand</CursorType>
+                <MouseClick id="MouseClick">
+                        <Script>
+								(L:clockmode, number) 0 ==
+									 if{ (P:Absolute time, seconds) (&gt;L:clocktime, seconds) 1 (&gt;L:clockmode, number) g1 }
+									els{ (L:clockmode, number) 1 ==
+									      if{ (P:Absolute time, seconds) (&gt;L:clocktime, seconds) 2 (&gt;L:clockmode, number) g1 }
+								         els{ (P:Absolute time, seconds) (L:clocktime, seconds) - (&gt;L:clocktime, seconds) 0 (&gt;L:clockmode, number) g1 }
+									}
+                        </Script>
+                    </MouseClick>
+	            <Tooltip id="Tooltip">
+              		 <DefaultScript>Stopwatch</DefaultScript>
+               	    </Tooltip>
+            </MouseArea>
+
+        </MouseArea>
+
+    </SimGauge.Gauge>
+</SimBase.Document>

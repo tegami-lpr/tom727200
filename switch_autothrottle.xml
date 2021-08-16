@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<SimBase.Document
+        Type="AceXML"
+        version="1,0"
+        id="autopilot">
+    <Descr>AceXML Document</Descr>
+    <Filename>switch_autothrottle.xml</Filename>
+    <SimGauge.Gauge id="autopilot" ArtDirectory=".">
+        <FloatPosition>0.000,0.000</FloatPosition>
+        <Size>40,11</Size>
+
+       <Element id="warn_press">
+            <FloatPosition>0.000,0.000</FloatPosition>
+            <Visibility>(L:switchat, bool)
+	    </Visibility>
+            <Image id="switch_left.bmp" Name="switch_left.bmp">
+                <Transparent>True</Transparent>
+            </Image>
+        </Element>
+
+       <Element id="warn_press">
+            <FloatPosition>0.000,0.000</FloatPosition>
+            <Visibility>(L:switchat, bool) !
+	    </Visibility>
+            <Image id="switch_midside.bmp" Name="switch_midside.bmp">
+                <Transparent>True</Transparent>
+            </Image>
+        </Element>
+
+        <MouseArea id="MouseArea">
+            <FloatPosition>0.000,0.000</FloatPosition>
+            <Size>40,11</Size>
+ 
+                <MouseArea id="Increment">
+                    <FloatPosition>0.000,0.000</FloatPosition>
+                    <Size>40,11</Size>
+                    <CursorType>Hand</CursorType>
+                    <MouseClick id="MouseClick">
+                        <Script>
+			(L:switchat, bool) ! (&gt;L:switchat, bool) 
+				(L:switchat, bool) if{ (&gt;K:AUTO_THROTTLE_ARM) (A:AIRSPEED INDICATED, knots) (&gt;K:AP_SPD_VAR_SET) (&gt;K:AP_AIRSPEED_ON) }
+						   els{ (&gt;K:AUTO_THROTTLE_ARM) (&gt;K:AP_AIRSPEED_OFF) }
+                        </Script>
+                    </MouseClick>
+                </MouseArea>
+            <Tooltip id="Tooltip">
+                <DefaultScript>Autothrottle</DefaultScript>
+            </Tooltip>
+        </MouseArea>
+
+    </SimGauge.Gauge>
+</SimBase.Document>

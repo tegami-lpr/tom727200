@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<SimBase.Document
+        Type="AceXML"
+        version="1,0"
+        id="eng_fuelflow01">
+    <Descr>AceXML Document</Descr>
+    <Filename>eng_fuelflow01.xml</Filename>
+    <SimGauge.Gauge id="Gauge" ArtDirectory=".">
+        <FloatPosition>0.000,0.000</FloatPosition>
+
+        <Image id="eng_fuelflow_back.bmp" Name="eng_fuelflow_back.bmp">
+            <Transparent>True</Transparent>
+        </Image>
+
+
+        <Element id="fuelflow_needle">
+            <FloatPosition>64.000,64.000</FloatPosition>
+            <Image id="eng_fuelflow_needle.bmp" Name="eng_fuelflow_needle.bmp">
+                <Transparent>True</Transparent>
+                <Axis>35.000,45.000</Axis>
+            </Image>
+            <Rotation id="Rotation">
+               	    <PointsTo>WEST</PointsTo>
+		    <Expression id="Expression">
+                    <Minimum>300.000</Minimum>
+                    <Maximum>12000.000</Maximum>
+                        <Script>(A:TURB ENG CORRECTED FF:1, pounds per hour)</Script>
+		    </Expression>
+		     <NonlinearityTable id="NonlinearityTable">
+						  <NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>300</ExpressionResult>
+							<Degrees>1</Degrees>
+						  </NonlinearityEntry>
+						  <NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>6000</ExpressionResult>
+							<Degrees>277</Degrees>
+						  </NonlinearityEntry>
+						  <NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>12000</ExpressionResult>
+							<Degrees>340</Degrees>
+						  </NonlinearityEntry>
+		     </NonlinearityTable>
+
+            </Rotation>
+        </Element>
+
+        <MouseArea>
+        <Tooltip id="Tooltip">
+               <DefaultScript>Fuel Flow:%((A:TURB ENG CORRECTED FF:1, pounds per hour))%! 5.0f! lbs/h</DefaultScript>
+               </Tooltip>
+         </MouseArea>
+
+    </SimGauge.Gauge>
+</SimBase.Document>

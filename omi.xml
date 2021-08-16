@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<SimBase.Document
+        Type="AceXML"
+        version="1,0"
+        id="autopilot">
+    <Descr>AceXML Document</Descr>
+    <Filename>omi.xml</Filename>
+    <SimGauge.Gauge id="omi" ArtDirectory=".">
+        <FloatPosition>0.000,0.000</FloatPosition>
+        <Size>51,139</Size>
+        <Image id="omi_back.bmp" Name="omi_back.bmp">
+            <Transparent>True</Transparent>
+        </Image>
+        <Element id="aircraft">
+            <FloatPosition>1.000,1.000</FloatPosition>
+            <Visibility>(A:MARKER BEACON STATE, Enum) 3 == (A:CIRCUIT GENERAL PANEL ON, bool) &amp;&amp;</Visibility>
+            <Image id="omi_inner.bmp" Name="omi_inner.bmp">
+                <Transparent>True</Transparent>
+                <Bright>True</Bright>
+            </Image>
+        </Element>
+        <Element id="aircraft">
+            <FloatPosition>2.000,48.000</FloatPosition>
+            <Visibility>(A:MARKER BEACON STATE, Enum) 2 == (A:CIRCUIT GENERAL PANEL ON, bool) &amp;&amp;</Visibility>
+            <Image id="omi_middle.bmp" Name="omi_middle.bmp">
+                <Transparent>True</Transparent>
+                <Bright>True</Bright>
+            </Image>
+        </Element>
+        <Element id="aircraft">
+            <FloatPosition>1.000,94.000</FloatPosition>
+            <Visibility>(A:MARKER BEACON STATE, Enum) 1 == (A:CIRCUIT GENERAL PANEL ON, bool) &amp;&amp;</Visibility>
+            <Image id="omi_outer.bmp" Name="omi_outer.bmp">
+                <Transparent>True</Transparent>
+                <Bright>True</Bright>
+            </Image>
+        </Element>
+    </SimGauge.Gauge>
+</SimBase.Document>

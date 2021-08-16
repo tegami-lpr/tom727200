@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<SimBase.Document
+        Type="AceXML"
+        version="1,0"
+        id="eng_n201">
+    <Descr>AceXML Document</Descr>
+    <Filename>eng_n201.xml</Filename>
+    <SimGauge.Gauge id="Gauge" ArtDirectory=".">
+        <FloatPosition>0.000,0.000</FloatPosition>
+
+        <Image id="eng_n2_back.bmp" Name="eng_n2_back.bmp">
+            <Transparent>True</Transparent>
+        </Image>
+
+        <Element id="N2_small_needle">
+            <FloatPosition>61.000,33.000</FloatPosition>
+            <Image id="eng_nsmall_needle.bmp" Name="eng_nsmall_needle.bmp">
+                <Transparent>True</Transparent>
+                <Axis>2.000,15.000</Axis>
+            </Image>
+            <Rotation id="Rotation">
+               	    <PointsTo>NORTH</PointsTo>
+		    <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>754.000</Maximum>
+                        <Script>(A:TURB ENG CORRECTED N2:1, percent) 6.283 * </Script>
+		    </Expression>
+            </Rotation>
+        </Element>
+
+        <Element id="N2_big_needle">
+            <FloatPosition>64.000,64.000</FloatPosition>
+            <Image id="eng_n2_needle.bmp" Name="eng_n2_needle.bmp">
+                <Transparent>True</Transparent>
+                <Axis>8.000,56.000</Axis>
+            </Image>
+            <Rotation id="Rotation">
+               	    <PointsTo>NORTH</PointsTo>
+		    <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>120.000</Maximum>
+                        <Script>(A:TURB ENG CORRECTED N2:1, percent) 1 *</Script>
+		    </Expression>
+		     <NonlinearityTable id="NonlinearityTable">
+						  <NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>57</ExpressionResult>
+							<Degrees>154</Degrees>
+						  </NonlinearityEntry>
+						  <NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>114</ExpressionResult>
+							<Degrees>308</Degrees>
+						  </NonlinearityEntry>
+						  <NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>120</ExpressionResult>
+							<Degrees>309</Degrees>
+						  </NonlinearityEntry>
+		     </NonlinearityTable>
+            </Rotation>
+        </Element>
+
+        <MouseArea>
+        <Tooltip id="Tooltip">
+               <DefaultScript>N2:%((A:TURB ENG CORRECTED N2:1, percent))%! 3.1f! percent</DefaultScript>
+               </Tooltip>
+         </MouseArea>
+
+    </SimGauge.Gauge>
+</SimBase.Document>

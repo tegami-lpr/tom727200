@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<SimBase.Document
+        Type="AceXML"
+        version="1,0"
+        id="autopilot">
+    <Descr>AceXML Document</Descr>
+    <Filename>warn_fd.xml</Filename>
+    <SimGauge.Gauge id="autopilot" ArtDirectory=".">
+        <FloatPosition>0.000,0.000</FloatPosition>
+        <Image id="lamp_red.bmp" Name="lamp_red.bmp">
+            <Transparent>True</Transparent>
+        </Image>
+        <Size>37,37</Size>
+
+       <Element id="warn_parkbrake">
+            <FloatPosition>0.000,0.000</FloatPosition>
+            <Visibility>(A:AUTOPILOT FLIGHT DIRECTOR ACTIVE, bool) ! (A:CIRCUIT GENERAL PANEL ON, bool) &amp;&amp;
+	    </Visibility>
+            <Image id="Image" Name="lamp_redON.bmp">
+		<Bright>True</Bright>
+                <Transparent>True</Transparent>
+            </Image>
+        </Element>
+
+    </SimGauge.Gauge>
+</SimBase.Document>

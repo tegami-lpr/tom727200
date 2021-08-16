@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<SimBase.Document
+        Type="AceXML"
+        version="1,0"
+        id="A300 autopilot">
+    <Descr>AceXML Document</Descr>
+    <Filename>lever_gear.xml</Filename>
+    <SimGauge.Gauge id="Gauge" ArtDirectory=".">
+        <FloatPosition>0.000,0.000</FloatPosition>
+        <Size>24,195</Size>
+        <Element id="Element">
+            <FloatPosition>0.000,0.000</FloatPosition>
+            <Visibility>(A:Gear handle position,percent) 51 &lt;</Visibility>
+            <Image id="lever_gear.bmp" Name="lever_gear.bmp">
+                <Transparent>True</Transparent>
+            </Image>
+        </Element>
+        <Element id="Element">
+            <FloatPosition>0.000,130.000</FloatPosition>
+            <Visibility>(A:Gear handle position,percent) 50 &gt;</Visibility>
+            <Image id="lever_gear.bmp" Name="lever_gear.bmp">
+                <Transparent>True</Transparent>
+            </Image>
+        </Element>
+        <MouseArea id="MouseArea">
+            <FloatPosition>0.000,0.000</FloatPosition>
+            <Size>10,185</Size>
+                    <CursorType>UpArrow</CursorType>
+                    <MouseClick id="MouseClick">
+                        <KeyEvent>GEAR_TOGGLE</KeyEvent>
+                    </MouseClick>
+            <Tooltip id="Tooltip">
+                <DefaultScript>Gear Lever</DefaultScript>
+            </Tooltip>
+        </MouseArea>
+    </SimGauge.Gauge>
+</SimBase.Document>

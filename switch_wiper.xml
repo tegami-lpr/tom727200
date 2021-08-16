@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<SimBase.Document
+        Type="AceXML"
+        version="1,0"
+        id="autopilot">
+    <Descr>AceXML Document</Descr>
+    <Filename>switch_wiper.xml</Filename>
+    <SimGauge.Gauge id="autopilot" ArtDirectory=".">
+        <FloatPosition>0.000,0.000</FloatPosition>
+        <Size>40,40</Size>
+
+       <Element id="warn_press">
+            <FloatPosition>0.000,0.000</FloatPosition>
+            <Visibility>(L:switchwiper, bool) 
+	    </Visibility>
+            <Image id="switch_turn0.bmp" Name="switch_turn0.bmp">
+                <Transparent>True</Transparent>
+            </Image>
+        </Element>
+
+       <Element id="warn_press">
+            <FloatPosition>0.000,0.000</FloatPosition>
+            <Visibility>(L:switchwiper, bool) !
+	    </Visibility>
+            <Image id="switch_turn270.bmp" Name="switch_turn270.bmp">
+                <Transparent>True</Transparent>
+            </Image>
+        </Element>
+
+        <MouseArea id="MouseArea">
+            <FloatPosition>0.000,0.000</FloatPosition>
+            <Size>40,40</Size>
+ 
+                <MouseArea id="Increment">
+                    <FloatPosition>0.000,0.000</FloatPosition>
+                    <Size>40,40</Size>
+                    <CursorType>Hand</CursorType>
+                    <MouseClick id="MouseClick">
+                        <Script>			(L:switchwiper, bool) ! (>L:switchwiper, bool)
+                        </Script>
+                    </MouseClick>
+                </MouseArea>
+            <Tooltip id="Tooltip">
+                <DefaultScript>Windscreen Wipers</DefaultScript>
+            </Tooltip>
+        </MouseArea>
+
+    </SimGauge.Gauge>
+</SimBase.Document>

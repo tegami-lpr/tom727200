@@ -1,0 +1,260 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<SimBase.Document
+        Type="AceXML"
+        version="1,0"
+        id="hsi_backup">
+    <Descr>AceXML Document</Descr>
+    <Filename>eng_hyd.xml</Filename>
+    <SimGauge.Gauge id="A300 fuelback" ArtDirectory=".">
+        <FloatPosition>0.000,0.000</FloatPosition>
+        <Size>182,447</Size>
+
+
+
+        <Element id="switchbat1">
+            <FloatPosition>24.000,61.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Script>(A:Hydraulic Switch:1, bool)</Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>1.000</ExpressionResult>
+                    <Image id="Image" Name="switch_up.bmp">
+                        <Transparent>True</Transparent>
+                    </Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>0.000</ExpressionResult>
+                    <Image id="Image" Name="switch_dn.bmp">
+                        <Transparent>True</Transparent>
+                    </Image>
+                </Case>
+            </Select>
+        </Element>
+        <Element id="switchbat1">
+            <FloatPosition>63.000,61.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Script>(A:Hydraulic Switch:2, bool)</Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>1.000</ExpressionResult>
+                    <Image id="Image" Name="switch_up.bmp">
+                        <Transparent>True</Transparent>
+                    </Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>0.000</ExpressionResult>
+                    <Image id="Image" Name="switch_dn.bmp">
+                        <Transparent>True</Transparent>
+                    </Image>
+                </Case>
+            </Select>
+        </Element>
+        <Element id="switchbat1">
+            <FloatPosition>22.000,289.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Script>(A:Hydraulic Switch:3, bool)</Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>1.000</ExpressionResult>
+                    <Image id="Image" Name="switch_up.bmp">
+                        <Transparent>True</Transparent>
+                    </Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>0.000</ExpressionResult>
+                    <Image id="Image" Name="switch_dn.bmp">
+                        <Transparent>True</Transparent>
+                    </Image>
+                </Case>
+            </Select>
+        </Element>
+        <Element id="switchbat1">
+            <FloatPosition>60.000,289.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Script>(A:Hydraulic Switch:4, bool)</Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>1.000</ExpressionResult>
+                    <Image id="Image" Name="switch_up.bmp">
+                        <Transparent>True</Transparent>
+                    </Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>0.000</ExpressionResult>
+                    <Image id="Image" Name="switch_dn.bmp">
+                        <Transparent>True</Transparent>
+                    </Image>
+                </Case>
+            </Select>
+        </Element>
+
+        <Element id="gen1off">
+            <FloatPosition>22.000,33.000</FloatPosition>
+            <Visibility>(A:HYDRAULIC PRESSURE:1, psi) 500 &lt; (A:CIRCUIT GENERAL PANEL ON, bool) &amp;&amp;</Visibility>
+            <Image id="lamp_redsmallON.bmp" Name="lamp_redsmallON.bmp">
+                <Transparent>True</Transparent>
+                <Bright>True</Bright>
+            </Image>
+        </Element>
+        <Element id="gen1off">
+            <FloatPosition>58.000,33.000</FloatPosition>
+            <Visibility>(A:HYDRAULIC PRESSURE:2, psi) 500 &lt; (A:CIRCUIT GENERAL PANEL ON, bool) &amp;&amp;</Visibility>
+            <Image id="lamp_redsmallON.bmp" Name="lamp_redsmallON.bmp">
+                <Transparent>True</Transparent>
+                <Bright>True</Bright>
+            </Image>
+        </Element>
+        <Element id="gen1off">
+            <FloatPosition>20.000,258.000</FloatPosition>
+            <Visibility>(A:HYDRAULIC PRESSURE:3, psi) 500 &lt; (A:CIRCUIT GENERAL PANEL ON, bool) &amp;&amp;</Visibility>
+            <Image id="lamp_redsmallON.bmp" Name="lamp_redsmallON.bmp">
+                <Transparent>True</Transparent>
+                <Bright>True</Bright>
+            </Image>
+        </Element>
+        <Element id="gen1off">
+            <FloatPosition>57.000,259.000</FloatPosition>
+            <Visibility>(A:HYDRAULIC PRESSURE:4, psi) 500 &lt; (A:CIRCUIT GENERAL PANEL ON, bool) &amp;&amp;</Visibility>
+            <Image id="lamp_redsmallON.bmp" Name="lamp_redsmallON.bmp">
+                <Transparent>True</Transparent>
+                <Bright>True</Bright>
+            </Image>
+        </Element>
+
+        <Element id="gen1off">
+            <FloatPosition>37.000,108.000</FloatPosition>
+            <Visibility>(A:HYDRAULIC RESERVOIR PERCENT:1, percent) (A:HYDRAULIC RESERVOIR PERCENT:2, percent) + 30 &lt; (A:CIRCUIT GENERAL PANEL ON, bool) &amp;&amp;</Visibility>
+            <Image id="lamp_redsmallON.bmp" Name="lamp_redsmallON.bmp">
+                <Transparent>True</Transparent>
+                <Bright>True</Bright>
+            </Image>
+        </Element>
+        <Element id="gen1off">
+            <FloatPosition>37.000,335.000</FloatPosition>
+            <Visibility>(A:HYDRAULIC RESERVOIR PERCENT:3, percent) (A:HYDRAULIC RESERVOIR PERCENT:4, percent) + 30 &lt; (A:CIRCUIT GENERAL PANEL ON, bool) &amp;&amp;</Visibility>
+            <Image id="lamp_redsmallON.bmp" Name="lamp_redsmallON.bmp">
+                <Transparent>True</Transparent>
+                <Bright>True</Bright>
+            </Image>
+        </Element>
+
+       <Element id="Element">
+            <FloatPosition>59.000,184.000</FloatPosition>
+            <Image id="eng_hydneedle1.bmp" Name="eng_hydneedle1.bmp">
+                <Transparent>True</Transparent>
+                <Axis>7.000,23.000</Axis>
+            </Image>
+            <Rotation id="Rotation">
+                <PointsTo>WEST</PointsTo>
+                <Expression id="Expression">
+                    <Script>(A:HYDRAULIC PRESSURE:1, psi) (A:HYDRAULIC PRESSURE:2, psi) max 0.083 * dgrd</Script>
+                </Expression>
+            </Rotation>
+        </Element>
+       <Element id="Element">
+            <FloatPosition>58.000,409.000</FloatPosition>
+            <Image id="eng_hydneedle1.bmp" Name="eng_hydneedle1.bmp">
+                <Transparent>True</Transparent>
+                <Axis>7.000,23.000</Axis>
+            </Image>
+            <Rotation id="Rotation">
+                <PointsTo>WEST</PointsTo>
+                <Expression id="Expression">
+                    <Script>(A:HYDRAULIC PRESSURE:3, psi) (A:HYDRAULIC PRESSURE:4, psi) max 0.083 * dgrd</Script>
+                </Expression>
+            </Rotation>
+        </Element>
+
+       <Element id="Element">
+            <FloatPosition>134.000,182.000</FloatPosition>
+            <Image id="fuel_needle.bmp" Name="fuel_needle.bmp">
+                <Transparent>True</Transparent>
+                <Axis>21.000,2.000</Axis>
+            </Image>
+            <Rotation id="Rotation">
+                <PointsTo>WEST</PointsTo>
+                <Expression id="Expression">
+                    <Script>(A:HYDRAULIC RESERVOIR PERCENT:1, percent) (A:HYDRAULIC RESERVOIR PERCENT:2, percent) max 3.02 * dgrd</Script>
+                </Expression>
+            </Rotation>
+        </Element>
+       <Element id="Element">
+            <FloatPosition>133.000,409.000</FloatPosition>
+            <Image id="fuel_needle.bmp" Name="fuel_needle.bmp">
+                <Transparent>True</Transparent>
+                <Axis>21.000,2.000</Axis>
+            </Image>
+            <Rotation id="Rotation">
+                <PointsTo>WEST</PointsTo>
+                <Expression id="Expression">
+                    <Script>(A:HYDRAULIC RESERVOIR PERCENT:3, percent) (A:HYDRAULIC RESERVOIR PERCENT:4, percent) max 3.02 * dgrd</Script>
+                </Expression>
+            </Rotation>
+        </Element>
+
+     <MouseArea id="MouseArea">
+            <FloatPosition>0.000,0.000</FloatPosition>
+            <Size>182,447</Size>
+
+
+            <MouseArea id="HYD Eng 1">
+                 <FloatPosition>24.000,61.000</FloatPosition>
+                 <Size>11,40</Size>
+                 <CursorType>Hand</CursorType>
+                 <MouseClick id="MouseClick">
+                     <Script>1 (&gt;K:HYDRAULIC_SWITCH_TOGGLE)</Script>
+                     <ClickType>LeftSingle</ClickType>
+                 </MouseClick>
+	            <Tooltip id="Tooltip">
+ 	               <DefaultScript>Hydraulic Engine1</DefaultScript>
+                    </Tooltip>
+             </MouseArea>
+
+             <MouseArea id="HYD APU">
+                 <FloatPosition>63.000,61.000</FloatPosition>
+                 <Size>11,40</Size>
+                 <CursorType>Hand</CursorType>
+                 <MouseClick id="MouseClick">
+                     <Script>2 (&gt;K:HYDRAULIC_SWITCH_TOGGLE)</Script>
+                     <ClickType>LeftSingle</ClickType>
+                 </MouseClick>
+	            <Tooltip id="Tooltip">
+ 	               <DefaultScript>Hydraulic Engine2</DefaultScript>
+                    </Tooltip>
+             </MouseArea>
+
+             <MouseArea id="HYD Eng 2">
+                 <FloatPosition>22.000,289.000</FloatPosition>
+                 <Size>11,40</Size>
+                 <CursorType>Hand</CursorType>
+                 <MouseClick id="MouseClick">
+                     <Script>3 (&gt;K:HYDRAULIC_SWITCH_TOGGLE)</Script>
+                     <ClickType>LeftSingle</ClickType>
+                 </MouseClick>
+	            <Tooltip id="Tooltip">
+ 	               <DefaultScript>Hydraulic Electrical Pump1</DefaultScript>
+                    </Tooltip>
+             </MouseArea>
+
+             <MouseArea id="HYD Eng 2">
+                 <FloatPosition>60.000,289.000</FloatPosition>
+                 <Size>11,40</Size>
+                 <CursorType>Hand</CursorType>
+                 <MouseClick id="MouseClick">
+                     <Script>4 (&gt;K:HYDRAULIC_SWITCH_TOGGLE)</Script>
+                     <ClickType>LeftSingle</ClickType>
+                 </MouseClick>
+	            <Tooltip id="Tooltip">
+ 	               <DefaultScript>Hydraulic Electrical Pump2</DefaultScript>
+                    </Tooltip>
+             </MouseArea>
+
+        </MouseArea>
+
+    </SimGauge.Gauge>
+</SimBase.Document>

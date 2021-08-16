@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<SimBase.Document
+        Type="AceXML"
+        version="1,0"
+        id="autopilot">
+    <Descr>AceXML Document</Descr>
+    <Filename>warn_flaps.xml</Filename>
+    <SimGauge.Gauge id="autopilot" ArtDirectory=".">
+        <FloatPosition>0.000,0.000</FloatPosition>
+        <Image id="warn_flaps.bmp" Name="warn_flaps.bmp">
+            <Transparent>True</Transparent>
+        </Image>
+        <Size>70,68</Size>
+
+       <Element id="warn_flapsOR">
+            <FloatPosition>0.000,0.000</FloatPosition>
+            <Visibility>rng 1 99 (A:TRAILING EDGE FLAPS LEFT PERCENT, percent) (A:CIRCUIT GENERAL PANEL ON, bool) &amp;&amp;
+	    </Visibility>
+            <Image id="Image" Name="warn_flapsOR.bmp">
+		<Bright>True</Bright>
+                <Transparent>True</Transparent>
+            </Image>
+        </Element>
+
+       <Element id="warn_flapsGR">
+            <FloatPosition>0.000,0.000</FloatPosition>
+            <Visibility>12 14 (A:TRAILING EDGE FLAPS LEFT PERCENT, percent) rng
+			24 26 (A:TRAILING EDGE FLAPS LEFT PERCENT, percent) rng ||
+			37 39 (A:TRAILING EDGE FLAPS LEFT PERCENT, percent) rng ||
+			62 65 (A:TRAILING EDGE FLAPS LEFT PERCENT, percent) rng ||
+			74 76 (A:TRAILING EDGE FLAPS LEFT PERCENT, percent) rng ||
+			98 101 (A:TRAILING EDGE FLAPS LEFT PERCENT, percent) rng ||
+			(A:CIRCUIT GENERAL PANEL ON, bool) &amp;&amp;
+	    </Visibility>
+            <Image id="Image" Name="warn_flapsGR.bmp">
+		<Bright>True</Bright>
+                <Transparent>True</Transparent>
+            </Image>
+        </Element>
+
+    </SimGauge.Gauge>
+</SimBase.Document>

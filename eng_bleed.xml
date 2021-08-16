@@ -1,0 +1,418 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<SimBase.Document
+        Type="AceXML"
+        version="1,0"
+        id="hsi_backup">
+    <Descr>AceXML Document</Descr>
+    <Filename>eng_bleed.xml</Filename>
+    <SimGauge.Gauge id="A300 fuelback" ArtDirectory=".">
+        <FloatPosition>0.000,0.000</FloatPosition>
+        <Size>351,213</Size>
+
+
+        <Element id="switchbat1">
+            <FloatPosition>52.000,75.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Script>(A:BLEED AIR SOURCE CONTROL,enum) 0 == </Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>1.000</ExpressionResult>
+                    <Image id="Image" Name="switch_up.bmp">
+                        <Transparent>True</Transparent>
+                    </Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>0.000</ExpressionResult>
+                    <Image id="Image" Name="switch_dn.bmp">
+                        <Transparent>True</Transparent>
+                    </Image>
+                </Case>
+            </Select>
+        </Element>
+        <Element id="switchbat1">
+            <FloatPosition>290.000,76.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Script>(A:BLEED AIR SOURCE CONTROL,enum) 0 == </Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>1.000</ExpressionResult>
+                    <Image id="Image" Name="switch_up.bmp">
+                        <Transparent>True</Transparent>
+                    </Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>0.000</ExpressionResult>
+                    <Image id="Image" Name="switch_dn.bmp">
+                        <Transparent>True</Transparent>
+                    </Image>
+                </Case>
+            </Select>
+        </Element>
+        <Element id="switchbat1">
+            <FloatPosition>106.000,119.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Script>(A:BLEED AIR SOURCE CONTROL,enum) 1 == </Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>0.000</ExpressionResult>
+                    <Image id="Image" Name="switch_up.bmp">
+                        <Transparent>True</Transparent>
+                    </Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>1.000</ExpressionResult>
+                    <Image id="Image" Name="switch_dn.bmp">
+                        <Transparent>True</Transparent>
+                    </Image>
+                </Case>
+            </Select>
+        </Element>
+        <Element id="switchbat1">
+            <FloatPosition>236.000,120.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Script>(A:BLEED AIR SOURCE CONTROL,enum) 1 == </Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>0.000</ExpressionResult>
+                    <Image id="Image" Name="switch_up.bmp">
+                        <Transparent>True</Transparent>
+                    </Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>1.000</ExpressionResult>
+                    <Image id="Image" Name="switch_dn.bmp">
+                        <Transparent>True</Transparent>
+                    </Image>
+                </Case>
+            </Select>
+        </Element>
+        <Element id="switchbat1">
+            <FloatPosition>215.000,168.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Script>(A:BLEED AIR SOURCE CONTROL,enum) 2 == </Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>1.000</ExpressionResult>
+                    <Image id="Image" Name="switch_up.bmp">
+                        <Transparent>True</Transparent>
+                    </Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>0.000</ExpressionResult>
+                    <Image id="Image" Name="switch_dn.bmp">
+                        <Transparent>True</Transparent>
+                    </Image>
+                </Case>
+            </Select>
+        </Element>
+        <Element id="switchbat1">
+            <FloatPosition>25.000,166.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Script>(A:BLEED AIR SOURCE CONTROL,enum) 3 == </Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>1.000</ExpressionResult>
+                    <Image id="Image" Name="switch_up.bmp">
+                        <Transparent>True</Transparent>
+                    </Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>0.000</ExpressionResult>
+                    <Image id="Image" Name="switch_dn.bmp">
+                        <Transparent>True</Transparent>
+                    </Image>
+                </Case>
+            </Select>
+        </Element>
+        <Element id="switchbat1">
+            <FloatPosition>129.000,168.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Script>(A:BLEED AIR SOURCE CONTROL,enum) 3 == </Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>1.000</ExpressionResult>
+                    <Image id="Image" Name="switch_up.bmp">
+                        <Transparent>True</Transparent>
+                    </Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>0.000</ExpressionResult>
+                    <Image id="Image" Name="switch_dn.bmp">
+                        <Transparent>True</Transparent>
+                    </Image>
+                </Case>
+            </Select>
+        </Element>
+        <Element id="switchbat1">
+            <FloatPosition>317.000,170.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Script>(A:BLEED AIR SOURCE CONTROL,enum) 3 == </Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>1.000</ExpressionResult>
+                    <Image id="Image" Name="switch_up.bmp">
+                        <Transparent>True</Transparent>
+                    </Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>0.000</ExpressionResult>
+                    <Image id="Image" Name="switch_dn.bmp">
+                        <Transparent>True</Transparent>
+                    </Image>
+                </Case>
+            </Select>
+        </Element>
+
+        <Element id="gen1off">
+            <FloatPosition>23.000,124.000</FloatPosition>
+            <Visibility>(A:BLEED AIR SOURCE CONTROL,enum) 0 == (A:CIRCUIT GENERAL PANEL ON, bool) &amp;&amp;</Visibility>
+            <Image id="lamp_redsmallON.bmp" Name="lamp_redsmallON.bmp">
+                <Transparent>True</Transparent>
+                <Bright>True</Bright>
+            </Image>
+        </Element>
+        <Element id="gen1off">
+            <FloatPosition>168.000,176.000</FloatPosition>
+            <Visibility>(A:BLEED AIR SOURCE CONTROL,enum) 2 == (A:CIRCUIT GENERAL PANEL ON, bool) &amp;&amp;</Visibility>
+            <Image id="lamp_redsmallON.bmp" Name="lamp_redsmallON.bmp">
+                <Transparent>True</Transparent>
+                <Bright>True</Bright>
+            </Image>
+        </Element>
+
+        <Element id="gen1off">
+            <FloatPosition>59.000,129.000</FloatPosition>
+            <Visibility>(A:BLEED AIR SOURCE CONTROL,enum) 1 == (A:CIRCUIT GENERAL PANEL ON, bool) &amp;&amp;</Visibility>
+            <Image id="lamp_quadON.bmp" Name="lamp_quadON.bmp">
+                <Transparent>True</Transparent>
+                <Bright>True</Bright>
+            </Image>
+        </Element>
+        <Element id="gen1off">
+            <FloatPosition>271.000,130.000</FloatPosition>
+            <Visibility>(A:BLEED AIR SOURCE CONTROL,enum) 1 == (A:CIRCUIT GENERAL PANEL ON, bool) &amp;&amp;</Visibility>
+            <Image id="lamp_quadON.bmp" Name="lamp_quadON.bmp">
+                <Transparent>True</Transparent>
+                <Bright>True</Bright>
+            </Image>
+        </Element>
+
+        <Element id="gen1off">
+            <FloatPosition>59.000,174.000</FloatPosition>
+            <Visibility>(A:BLEED AIR SOURCE CONTROL,enum) 3 == (A:CIRCUIT GENERAL PANEL ON, bool) &amp;&amp;</Visibility>
+            <Image id="lamp_quadON.bmp" Name="lamp_quadON.bmp">
+                <Transparent>True</Transparent>
+                <Bright>True</Bright>
+            </Image>
+        </Element>
+        <Element id="gen1off">
+            <FloatPosition>271.000,174.000</FloatPosition>
+            <Visibility>(A:BLEED AIR SOURCE CONTROL,enum) 3 == (A:CIRCUIT GENERAL PANEL ON, bool) &amp;&amp;</Visibility>
+            <Image id="lamp_quadON.bmp" Name="lamp_quadON.bmp">
+                <Transparent>True</Transparent>
+                <Bright>True</Bright>
+            </Image>
+        </Element>
+
+       <Element id="Element">
+            <FloatPosition>177.000,122.000</FloatPosition>
+            <Image id="needle_qtytmp.bmp" Name="needle_qtytmp.bmp">
+                <Transparent>True</Transparent>
+                <Axis>15.000,6.000</Axis>
+            </Image>
+            <Rotation id="Rotation">
+                <PointsTo>WEST</PointsTo>
+                <Expression id="Expression">
+                    <Script>(A:TURB ENG BLEED AIR:1, psi) 0.3 * dgrd</Script>
+                </Expression>
+            </Rotation>
+        </Element>
+       <Element id="Element">
+            <FloatPosition>177.000,122.000</FloatPosition>
+            <Image id="needle_qtytmp.bmp" Name="needle_qtytmp.bmp">
+                <Transparent>True</Transparent>
+                <Axis>15.000,6.000</Axis>
+            </Image>
+            <Rotation id="Rotation">
+                <PointsTo>WEST</PointsTo>
+                <Expression id="Expression">
+                    <Script>(A:TURB ENG BLEED AIR:2, psi) 0.3 * dgrd</Script>
+                </Expression>
+            </Rotation>
+        </Element>
+       <Element id="Element">
+            <FloatPosition>177.000,122.000</FloatPosition>
+            <Image id="needle_qtytmp.bmp" Name="needle_qtytmp.bmp">
+                <Transparent>True</Transparent>
+                <Axis>15.000,6.000</Axis>
+            </Image>
+            <Rotation id="Rotation">
+                <PointsTo>WEST</PointsTo>
+                <Expression id="Expression">
+                    <Script>(A:TURB ENG BLEED AIR:3, psi) 0.3 * dgrd</Script>
+                </Expression>
+            </Rotation>
+        </Element>
+
+     <MouseArea id="MouseArea">
+            <FloatPosition>0.000,0.000</FloatPosition>
+            <Size>351,213</Size>
+
+             <MouseArea id="HYD Eng 2">
+                 <FloatPosition>52.000,76.000</FloatPosition>
+                 <Size>11,40</Size>
+                 <CursorType>Hand</CursorType>
+                 <MouseClick id="MouseClick">
+                     <Script>
+			(A:BLEED AIR SOURCE CONTROL,enum) 1 == if{ 1 (&gt;K:BLEED_AIR_SOURCE_CONTROL_DEC) }
+			(A:BLEED AIR SOURCE CONTROL,enum) 2 == if{ 1 (&gt;K:BLEED_AIR_SOURCE_CONTROL_DEC) 1 (&gt;K:BLEED_AIR_SOURCE_CONTROL_DEC) }
+			(A:BLEED AIR SOURCE CONTROL,enum) 3 == if{ 1 (&gt;K:BLEED_AIR_SOURCE_CONTROL_DEC) 1 (&gt;K:BLEED_AIR_SOURCE_CONTROL_DEC) 1 (&gt;K:BLEED_AIR_SOURCE_CONTROL_DEC) }
+		     </Script>
+                     <ClickType>LeftSingle</ClickType>
+                 </MouseClick>
+	            <Tooltip id="Tooltip">
+ 	               <DefaultScript>Bleed Air Auto</DefaultScript>
+                    </Tooltip>
+             </MouseArea>
+             <MouseArea id="HYD Eng 2">
+                 <FloatPosition>290.000,77.000</FloatPosition>
+                 <Size>11,40</Size>
+                 <CursorType>Hand</CursorType>
+                 <MouseClick id="MouseClick">
+                     <Script>
+			(A:BLEED AIR SOURCE CONTROL,enum) 1 == if{ 1 (&gt;K:BLEED_AIR_SOURCE_CONTROL_DEC) }
+			(A:BLEED AIR SOURCE CONTROL,enum) 2 == if{ 1 (&gt;K:BLEED_AIR_SOURCE_CONTROL_DEC) 1 (&gt;K:BLEED_AIR_SOURCE_CONTROL_DEC) }
+			(A:BLEED AIR SOURCE CONTROL,enum) 3 == if{ 1 (&gt;K:BLEED_AIR_SOURCE_CONTROL_DEC) 1 (&gt;K:BLEED_AIR_SOURCE_CONTROL_DEC) 1 (&gt;K:BLEED_AIR_SOURCE_CONTROL_DEC) }
+		     </Script>
+                     <ClickType>LeftSingle</ClickType>
+                 </MouseClick>
+	            <Tooltip id="Tooltip">
+ 	               <DefaultScript>Bleed Air Auto</DefaultScript>
+                    </Tooltip>
+             </MouseArea>
+
+             <MouseArea id="HYD Eng 2">
+                 <FloatPosition>106.000,119.000</FloatPosition>
+                 <Size>11,40</Size>
+                 <CursorType>Hand</CursorType>
+                 <MouseClick id="MouseClick">
+                     <Script>
+			(A:BLEED AIR SOURCE CONTROL,enum) 0 == if{ 1 (&gt;K:BLEED_AIR_SOURCE_CONTROL_INC) }
+			(A:BLEED AIR SOURCE CONTROL,enum) 2 == if{ 1 (&gt;K:BLEED_AIR_SOURCE_CONTROL_DEC) }
+			(A:BLEED AIR SOURCE CONTROL,enum) 3 == if{ 1 (&gt;K:BLEED_AIR_SOURCE_CONTROL_DEC) 1 (&gt;K:BLEED_AIR_SOURCE_CONTROL_DEC) }
+		     </Script>
+                     <ClickType>LeftSingle</ClickType>
+                 </MouseClick>
+	            <Tooltip id="Tooltip">
+ 	               <DefaultScript>Bleed Air Off</DefaultScript>
+                    </Tooltip>
+             </MouseArea>
+             <MouseArea id="HYD Eng 2">
+                 <FloatPosition>236.000,120.000</FloatPosition>
+                 <Size>11,40</Size>
+                 <CursorType>Hand</CursorType>
+                 <MouseClick id="MouseClick">
+                     <Script>
+			(A:BLEED AIR SOURCE CONTROL,enum) 0 == if{ 1 (&gt;K:BLEED_AIR_SOURCE_CONTROL_INC) }
+			(A:BLEED AIR SOURCE CONTROL,enum) 2 == if{ 1 (&gt;K:BLEED_AIR_SOURCE_CONTROL_DEC) }
+			(A:BLEED AIR SOURCE CONTROL,enum) 3 == if{ 1 (&gt;K:BLEED_AIR_SOURCE_CONTROL_DEC) 1 (&gt;K:BLEED_AIR_SOURCE_CONTROL_DEC) }
+		     </Script>
+                     <ClickType>LeftSingle</ClickType>
+                 </MouseClick>
+	            <Tooltip id="Tooltip">
+ 	               <DefaultScript>Bleed Air Off</DefaultScript>
+                    </Tooltip>
+             </MouseArea>
+
+             <MouseArea id="HYD Eng 2">
+                 <FloatPosition>215.000,169.000</FloatPosition>
+                 <Size>11,40</Size>
+                 <CursorType>Hand</CursorType>
+                 <MouseClick id="MouseClick">
+                     <Script>
+			(A:BLEED AIR SOURCE CONTROL,enum) 0 == if{ 1 (&gt;K:BLEED_AIR_SOURCE_CONTROL_INC) 1 (&gt;K:BLEED_AIR_SOURCE_CONTROL_INC) }
+			(A:BLEED AIR SOURCE CONTROL,enum) 1 == if{ 1 (&gt;K:BLEED_AIR_SOURCE_CONTROL_INC) }
+			(A:BLEED AIR SOURCE CONTROL,enum) 3 == if{ 1 (&gt;K:BLEED_AIR_SOURCE_CONTROL_DEC) }
+		     </Script>
+                     <ClickType>LeftSingle</ClickType>
+                 </MouseClick>
+	            <Tooltip id="Tooltip">
+ 	               <DefaultScript>Bleed Air APU</DefaultScript>
+                    </Tooltip>
+             </MouseArea>
+
+             <MouseArea id="HYD Eng 2">
+                 <FloatPosition>25.000,166.000</FloatPosition>
+                 <Size>11,40</Size>
+                 <CursorType>Hand</CursorType>
+                 <MouseClick id="MouseClick">
+                     <Script>
+			(A:BLEED AIR SOURCE CONTROL,enum) 0 == if{ 1 (&gt;K:BLEED_AIR_SOURCE_CONTROL_INC) 1 (&gt;K:BLEED_AIR_SOURCE_CONTROL_INC) 1 (&gt;K:BLEED_AIR_SOURCE_CONTROL_INC) }
+			(A:BLEED AIR SOURCE CONTROL,enum) 1 == if{ 1 (&gt;K:BLEED_AIR_SOURCE_CONTROL_INC) 1 (&gt;K:BLEED_AIR_SOURCE_CONTROL_INC) }
+			(A:BLEED AIR SOURCE CONTROL,enum) 2 == if{ 1 (&gt;K:BLEED_AIR_SOURCE_CONTROL_INC) }
+		     </Script>
+                     <ClickType>LeftSingle</ClickType>
+                 </MouseClick>
+	            <Tooltip id="Tooltip">
+ 	               <DefaultScript>Bleed Air Engines</DefaultScript>
+                    </Tooltip>
+             </MouseArea>
+             <MouseArea id="HYD Eng 2">
+                 <FloatPosition>130.000,168.000</FloatPosition>
+                 <Size>11,40</Size>
+                 <CursorType>Hand</CursorType>
+                 <MouseClick id="MouseClick">
+                     <Script>
+			(A:BLEED AIR SOURCE CONTROL,enum) 0 == if{ 1 (&gt;K:BLEED_AIR_SOURCE_CONTROL_INC) 1 (&gt;K:BLEED_AIR_SOURCE_CONTROL_INC) 1 (&gt;K:BLEED_AIR_SOURCE_CONTROL_INC) }
+			(A:BLEED AIR SOURCE CONTROL,enum) 1 == if{ 1 (&gt;K:BLEED_AIR_SOURCE_CONTROL_INC) 1 (&gt;K:BLEED_AIR_SOURCE_CONTROL_INC) }
+			(A:BLEED AIR SOURCE CONTROL,enum) 2 == if{ 1 (&gt;K:BLEED_AIR_SOURCE_CONTROL_INC) }
+		     </Script>
+                     <ClickType>LeftSingle</ClickType>
+                 </MouseClick>
+	            <Tooltip id="Tooltip">
+ 	               <DefaultScript>Bleed Air Engines</DefaultScript>
+                    </Tooltip>
+             </MouseArea>
+             <MouseArea id="HYD Eng 2">
+                 <FloatPosition>317.000,169.000</FloatPosition>
+                 <Size>11,40</Size>
+                 <CursorType>Hand</CursorType>
+                 <MouseClick id="MouseClick">
+                     <Script>
+			(A:BLEED AIR SOURCE CONTROL,enum) 0 == if{ 1 (&gt;K:BLEED_AIR_SOURCE_CONTROL_INC) 1 (&gt;K:BLEED_AIR_SOURCE_CONTROL_INC) 1 (&gt;K:BLEED_AIR_SOURCE_CONTROL_INC) }
+			(A:BLEED AIR SOURCE CONTROL,enum) 1 == if{ 1 (&gt;K:BLEED_AIR_SOURCE_CONTROL_INC) 1 (&gt;K:BLEED_AIR_SOURCE_CONTROL_INC) }
+			(A:BLEED AIR SOURCE CONTROL,enum) 2 == if{ 1 (&gt;K:BLEED_AIR_SOURCE_CONTROL_INC) }
+		     </Script>
+                     <ClickType>LeftSingle</ClickType>
+                 </MouseClick>
+	            <Tooltip id="Tooltip">
+ 	               <DefaultScript>Bleed Air Engines</DefaultScript>
+                    </Tooltip>
+             </MouseArea>
+
+            <MouseArea id="CLOSE">
+                <FloatPosition>320.000,106.000</FloatPosition>
+                <Size>33,33</Size>
+                    <CursorType>DownArrow</CursorType>
+                    <MouseClick id="MouseClick">
+                        <Script>
+			10020 (&gt;K:PANEL_ID_TOGGLE)							
+                        </Script>
+                    </MouseClick>
+                </MouseArea>
+
+
+
+        </MouseArea>
+
+    </SimGauge.Gauge>
+</SimBase.Document>
