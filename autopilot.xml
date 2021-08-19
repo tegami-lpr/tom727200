@@ -270,8 +270,15 @@
                     <Size>27,32</Size>
                     <CursorType>Hand</CursorType>
                     <MouseClick id="MouseClick">
-                        <Script> 
-                            (&gt;K:AP_PITCH_REF_INC_DN) 
+                        <Script>
+                            (L:USE_VS_FOR_PITCH, number) 1 == if{
+                                (&gt;K:AP_VS_VAR_DEC)
+                                (A:AUTOPILOT VERTICAL HOLD VAR, number) 0 &lt; if{
+                                    0 (&gt;K:AP_ALT_VAR_SET_ENGLISH)
+                                }
+                            } els{
+                                (&gt;K:AP_PITCH_REF_INC_DN)
+                            }
                         </Script>
                         <ClickRepeat>True</ClickRepeat>
                     </MouseClick>
@@ -284,8 +291,15 @@
                     <Size>27,32</Size>
                     <CursorType>Hand</CursorType>
                     <MouseClick id="MouseClick">
-                        <Script> 
-                            (&gt;K:AP_PITCH_REF_INC_UP) 
+                        <Script>
+                            (L:USE_VS_FOR_PITCH, number) 1 == if{
+                                (&gt;K:AP_VS_VAR_INC)
+                                (A:AUTOPILOT VERTICAL HOLD VAR, number) 0 &gt; if{
+                                    99000 (&gt;K:AP_ALT_VAR_SET_ENGLISH)
+                                }
+                            } els{
+                                (&gt;K:AP_PITCH_REF_INC_UP)
+                            }
                         </Script>
                         <ClickRepeat>True</ClickRepeat>
                     </MouseClick>
@@ -418,11 +432,16 @@
                     varset(&quot;L:ALT_SW_STATE&quot;, OLD_ALT_HOLD)
                     OLD_ALT_SW_STATE = OLD_ALT_HOLD
 
+                    --
+                    varset(&quot;L:USE_VS_FOR_PITCH&quot;,0)
+
                     --Prev AP Mode Switch position
                     OLD_AP_MODE = 1
                 end
 
                 local needProcessAPMode = false --If need to process AP Mode switch position
+
+                local USE_VS_FOR_PITCH = bool(varget(&quot;L:USE_VS_FOR_PITCH&quot;, &quot;Number&quot;))
 
                 -- Process AP Master state
                 local AP_MASTER = bool(varget(&quot;A:AUTOPILOT MASTER&quot;,&quot;Number&quot;))
@@ -494,8 +513,11 @@
                         --Set switch state to off
                         OLD_ALT_SW_STATE = 0
                     else
-                        --Set switch state to on
-                        OLD_ALT_SW_STATE = 1
+                        local USE_VS_FOR_PITCH = bool(varget(&quot;L:USE_VS_FOR_PITCH&quot;, &quot;Number&quot;))
+                        if (USE_VS_FOR_PITCH == false) then
+                            --Set switch state to on
+                            OLD_ALT_SW_STATE = 1
+                        end
                     end
                     varset(&quot;L:ALT_SW_STATE&quot;, OLD_ALT_SW_STATE)
                 end
@@ -514,8 +536,11 @@
                         OLD_ALT_SW_STATE = ALT_SW_STATE
                         -- Update old_states to expected for next update
                         if (ALT_HOLD == true) then
-                            varset(&quot;K:AP_ALT_HOLD_OFF&quot;, 1)
+                            if (USE_VS_FOR_PITCH == false) then
+                                varset(&quot;K:AP_ALT_HOLD_OFF&quot;, 1)
+                            end
                         else
+                            varset(&quot;L:USE_VS_FOR_PITCH&quot;,0)
                             varset(&quot;K:AP_ALT_HOLD_ON&quot;, 1)
                             --XXX: Setting altitude value from Lua not working!
                             --local ia = varget(&quot;A:INDICATED ALTITUDE&quot;, &quot;Feet&quot;)
@@ -533,6 +558,7 @@
                         -- In MAN mode LOC AND GS modes disabled
                         varset(&quot;K:AP_LOC_HOLD_OFF&quot;, 1)
                         varset(&quot;K:AP_APR_HOLD_OFF&quot;, 1)
+                        --varset(&quot;K:AP_WING_LEVELER_ON&quot;,1) --XXX:???
                     elseif(AP_MODE == 1) then
                         -- In NAV LOC mode enable LOC HOLD mode
                         varset(&quot;K:AP_LOC_HOLD_ON&quot;, 1)
@@ -549,13 +575,26 @@
                 -----------------Misc procedures-----------------
                 -- Check for ATT AP mode
                 if (AP_MASTER == true) then
-                    if (HDG_HOLD == false) and (ALT_HOLD == false) and (AP_MODE == 0) then
-                        --With MAN AP mode if HDG and ALT holding is disabled then enable ATT HOLD
+                    if (AP_MODE == 0) then
+                        varset(&quot;K:AP_WING_LEVELER_OFF&quot;,1) --XXX:???
                         local ATT_HOLD = bool(varget(&quot;A:AUTOPILOT ATTITUDE HOLD&quot;,&quot;Number&quot;))
-                        if (ATT_HOLD == false) then
-                            varset(&quot;K:AP_ATT_HOLD_ON&quot;, 1)
-                        end    
-                    end
+                        if ((ALT_HOLD == false) or (USE_VS_FOR_PITCH == false)) and (HDG_HOLD == false) then
+                            --With MAN AP mode if HDG and ALT holding is disabled then enable ATT HOLD
+                            if (ATT_HOLD == false) then
+                                varset(&quot;K:AP_ATT_HOLD_ON&quot;, 1)
+                                --varset(&quot;K:AP_WING_LEVELER_ON&quot;,1) --XXX:???
+                                varset(&quot;K:AP_WING_LEVELER_OFF&quot;,1) --XXX:???
+                            end
+                        elseif (ALT_HOLD == false) and (HDG_HOLD == true) then
+                            if (USE_VS_FOR_PITCH == false) then
+                                varset(&quot;L:USE_VS_FOR_PITCH&quot;, 1)
+                                --TODO: Set current VSI value
+                                varset(&quot;K:AP_ALT_HOLD_ON&quot;, 1)
+                            end
+                        else
+                          varset(&quot;L:USE_VS_FOR_PITCH&quot;,0)
+                        end
+                    end    
                 end
 
 
