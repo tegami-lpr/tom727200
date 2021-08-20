@@ -273,6 +273,10 @@
                         <Script>
                             (L:I_ALT_HLD_MODE, number) 3 == if{
                                 (&gt;K:AP_VS_VAR_DEC)
+
+                                (A:AUTOPILOT VERTICAL HOLD VAR, number) 0 == if{
+                                    0 (&gt;K:AP_ALT_VAR_SET_ENGLISH)
+                                }
                                 (A:AUTOPILOT VERTICAL HOLD VAR, number) 0 &lt; if{
                                     0 (&gt;K:AP_ALT_VAR_SET_ENGLISH)
                                 }
@@ -294,6 +298,10 @@
                         <Script>
                             (L:I_ALT_HLD_MODE, number) 3 == if{
                                 (&gt;K:AP_VS_VAR_INC)
+
+                                (A:AUTOPILOT VERTICAL HOLD VAR, number) 0 == if{
+                                    99000 (&gt;K:AP_ALT_VAR_SET_ENGLISH)
+                                }
                                 (A:AUTOPILOT VERTICAL HOLD VAR, number) 0 &gt; if{
                                     99000 (&gt;K:AP_ALT_VAR_SET_ENGLISH)
                                 }
@@ -434,16 +442,12 @@
                     OLD_ALT_SW_STATE = OLD_ALT_HOLD
 
                     --
-                    varset(&quot;L:USE_VS_FOR_PITCH&quot;,0)
-
                     --Prev AP Mode Switch position
                     OLD_AP_MODE = 1
                 end
 
+
                 local needProcessAPMode = false --If need to process AP Mode switch position
-
-                local USE_VS_FOR_PITCH = bool(varget(&quot;L:USE_VS_FOR_PITCH&quot;, &quot;Number&quot;))
-
                 local I_ALT_HLD_MODE = varget(&quot;L:I_ALT_HLD_MODE&quot;, &quot;Number&quot;) -- current internal ALT HLD MODE (0-disabled, 1-enabled, 3-enabled for pith emulation)
 
 
@@ -550,9 +554,11 @@
                             -- If ALT HOlD enabled for Pitch simulation, then just set it as enabled
                             I_ALT_HLD_MODE = 1
                         else
+                            soundOneShot(&quot;CatapultLaunch.wav&quot;)
                             if (ALT_HOLD == true) then
                                 varset(&quot;K:AP_ALT_HOLD_OFF&quot;, 1)
                                 I_ALT_HLD_MODE = 0
+                                varset(&quot;L:ALT_SW_STATE&quot;, 0)
                             else
                                 I_ALT_HLD_MODE = 1
                                 varset(&quot;K:AP_ALT_HOLD_ON&quot;, 1)
