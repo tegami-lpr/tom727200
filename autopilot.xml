@@ -271,7 +271,7 @@
                     <CursorType>Hand</CursorType>
                     <MouseClick id="MouseClick">
                         <Script>
-                            (L:USE_VS_FOR_PITCH, number) 1 == if{
+                            (L:I_ALT_HLD_MODE, number) 3 == if{
                                 (&gt;K:AP_VS_VAR_DEC)
                                 (A:AUTOPILOT VERTICAL HOLD VAR, number) 0 &lt; if{
                                     0 (&gt;K:AP_ALT_VAR_SET_ENGLISH)
@@ -292,7 +292,7 @@
                     <CursorType>Hand</CursorType>
                     <MouseClick id="MouseClick">
                         <Script>
-                            (L:USE_VS_FOR_PITCH, number) 1 == if{
+                            (L:I_ALT_HLD_MODE, number) 3 == if{
                                 (&gt;K:AP_VS_VAR_INC)
                                 (A:AUTOPILOT VERTICAL HOLD VAR, number) 0 &gt; if{
                                     99000 (&gt;K:AP_ALT_VAR_SET_ENGLISH)
@@ -430,6 +430,7 @@
                     --Prev ALT Hold and ALT Hold Switch states
                     OLD_ALT_HOLD = bool(varget(&quot;A:AUTOPILOT ALTITUDE LOCK&quot;,&quot;Number&quot;))
                     varset(&quot;L:ALT_SW_STATE&quot;, OLD_ALT_HOLD)
+                    varset(&quot;L:I_ALT_HLD_MODE&quot;, OLD_ALT_HOLD) -- Internal use of AP ALT HLD mode
                     OLD_ALT_SW_STATE = OLD_ALT_HOLD
 
                     --
@@ -442,6 +443,9 @@
                 local needProcessAPMode = false --If need to process AP Mode switch position
 
                 local USE_VS_FOR_PITCH = bool(varget(&quot;L:USE_VS_FOR_PITCH&quot;, &quot;Number&quot;))
+
+                local I_ALT_HLD_MODE = varget(&quot;L:ALT_HLD_MODE&quot;, &quot;Number&quot;) -- current internal ALT HLD MODE (0-disabled, 1-enabled, 3-enabled for pith emulation)
+
 
                 -- Process AP Master state
                 local AP_MASTER = bool(varget(&quot;A:AUTOPILOT MASTER&quot;,&quot;Number&quot;))
@@ -456,14 +460,15 @@
                         varset(&quot;K:AP_APR_HOLD_OFF&quot;, 1)
                         varset(&quot;K:AP_PANEL_HEADING_OFF&quot;, 1)
                         varset(&quot;L:Autopilot Mode&quot;, 0)
-                        
+                    
                         return 1
                     else
                         --varset(&quot;K:KEY_YAW_DAMPER_ON&quot;, 1)
                         --varset(&quot;K:KEY_YAW_DAMPER_TOGGLE&quot;, 1)
-                        needProcessAPMode = true
                     end
                 end
+
+                local appModesChanged = false
 
                 -----------------Heading Hold State-----------------
                 -- Process SIM Heading hold state
@@ -492,6 +497,7 @@
                             varset(&quot;L:HDG_SW_STATE&quot;, OLD_HDG_SW_STATE)
                         end
                     else
+                        appModesChanged = true
                         -- Update old_states to expected for next update
                         if (HDG_HOLD == true) then
                             varset(&quot;K:AP_PANEL_HEADING_OFF&quot;, 1)
@@ -509,16 +515,20 @@
                 local ALT_HOLD = bool(varget(&quot;A:AUTOPILOT ALTITUDE LOCK&quot;,&quot;Number&quot;))
                 if not (OLD_ALT_HOLD == ALT_HOLD) then
                     OLD_ALT_HOLD = ALT_HOLD
-                    if (ALT_HOLD == false) then
-                        --Set switch state to off
-                        OLD_ALT_SW_STATE = 0
-                    else
-                        local USE_VS_FOR_PITCH = bool(varget(&quot;L:USE_VS_FOR_PITCH&quot;, &quot;Number&quot;))
-                        if (USE_VS_FOR_PITCH == false) then
+                    
+                    if not (I_ALT_HLD_MODE == 3) then
+                        -- If ALT HLD not used for Pitch emulate, then we can change Alt Switch state
+                        if (ALT_HOLD == false) then
+                            --Set switch state to off
+                            OLD_ALT_SW_STATE = 0
+                        else
                             --Set switch state to on
                             OLD_ALT_SW_STATE = 1
                         end
+                    else
+                        OLD_ALT_SW_STATE = 0
                     end
+
                     varset(&quot;L:ALT_SW_STATE&quot;, OLD_ALT_SW_STATE)
                 end
                 
@@ -533,19 +543,24 @@
                             varset(&quot;L:ALT_SW_STATE&quot;, OLD_ALT_SW_STATE)
                         end
                     else
-                        OLD_ALT_SW_STATE = ALT_SW_STATE
                         -- Update old_states to expected for next update
-                        if (ALT_HOLD == true) then
-                            if (USE_VS_FOR_PITCH == false) then
-                                varset(&quot;K:AP_ALT_HOLD_OFF&quot;, 1)
-                            end
+                        OLD_ALT_SW_STATE = ALT_SW_STATE
+                        
+                        if (I_ALT_HLD_MODE == 3) then
+                            -- If ALT HOlD enabled for Pitch simulation, then just set it as enabled
+                            I_ALT_HLD_MODE = 1
                         else
-                            varset(&quot;L:USE_VS_FOR_PITCH&quot;,0)
-                            varset(&quot;K:AP_ALT_HOLD_ON&quot;, 1)
-                            --XXX: Setting altitude value from Lua not working!
-                            --local ia = varget(&quot;A:INDICATED ALTITUDE&quot;, &quot;Feet&quot;)
-                            --local ia = varget(&quot;A:INDICATED ALTITUDE&quot;, &quot;Number&quot;)
-                            --varset(&quot;A:AUTOPILOT ALTITUDE LOCK VAR&quot;, &quot;4000&quot;)
+                            if (ALT_HOLD == true) then
+                                varset(&quot;K:AP_ALT_HOLD_OFF&quot;, 1)
+                                I_ALT_HLD_MODE = 0
+                            else
+                                I_ALT_HLD_MODE = 1
+                                varset(&quot;K:AP_ALT_HOLD_ON&quot;, 1)
+                                --XXX: Setting altitude value from Lua not working!
+                                --local ia = varget(&quot;A:INDICATED ALTITUDE&quot;, &quot;Feet&quot;)
+                                --local ia = varget(&quot;A:INDICATED ALTITUDE&quot;, &quot;Number&quot;)
+                                --varset(&quot;A:AUTOPILOT ALTITUDE LOCK VAR&quot;, &quot;4000&quot;)
+                            end
                         end
                     end
                 end                
@@ -558,7 +573,6 @@
                         -- In MAN mode LOC AND GS modes disabled
                         varset(&quot;K:AP_LOC_HOLD_OFF&quot;, 1)
                         varset(&quot;K:AP_APR_HOLD_OFF&quot;, 1)
-                        --varset(&quot;K:AP_WING_LEVELER_ON&quot;,1) --XXX:???
                     elseif(AP_MODE == 1) then
                         -- In NAV LOC mode enable LOC HOLD mode
                         varset(&quot;K:AP_LOC_HOLD_ON&quot;, 1)
@@ -574,25 +588,21 @@
 
                 -----------------Misc procedures-----------------
                 -- Check for ATT AP mode
-                if (AP_MASTER == true) then
+                if (AP_MASTER == true) and (appModesChanged == false) then
                     if (AP_MODE == 0) then
                         varset(&quot;K:AP_WING_LEVELER_OFF&quot;,1) --XXX:???
                         local ATT_HOLD = bool(varget(&quot;A:AUTOPILOT ATTITUDE HOLD&quot;,&quot;Number&quot;))
-                        if ((ALT_HOLD == false) or (USE_VS_FOR_PITCH == false)) and (HDG_HOLD == false) then
+                        if (HDG_HOLD == false) and (I_ALT_HLD_MODE == 0) then
                             --With MAN AP mode if HDG and ALT holding is disabled then enable ATT HOLD
                             if (ATT_HOLD == false) then
                                 varset(&quot;K:AP_ATT_HOLD_ON&quot;, 1)
                                 --varset(&quot;K:AP_WING_LEVELER_ON&quot;,1) --XXX:???
                                 varset(&quot;K:AP_WING_LEVELER_OFF&quot;,1) --XXX:???
                             end
-                        elseif (ALT_HOLD == false) and (HDG_HOLD == true) then
-                            if (USE_VS_FOR_PITCH == false) then
-                                varset(&quot;L:USE_VS_FOR_PITCH&quot;, 1)
-                                --TODO: Set current VSI value
-                                varset(&quot;K:AP_ALT_HOLD_ON&quot;, 1)
-                            end
-                        else
-                          varset(&quot;L:USE_VS_FOR_PITCH&quot;,0)
+                        elseif (HDG_HOLD == true) and (I_ALT_HLD_MODE == 0) then
+                            I_ALT_HLD_MODE = 3
+                            --TODO: Set current VSI value
+                            varset(&quot;K:AP_ALT_HOLD_ON&quot;, 1)
                         end
                     end    
                 end
