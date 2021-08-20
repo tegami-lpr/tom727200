@@ -554,7 +554,6 @@
                             -- If ALT HOlD enabled for Pitch simulation, then just set it as enabled
                             I_ALT_HLD_MODE = 1
                         else
-                            soundOneShot(&quot;CatapultLaunch.wav&quot;)
                             if (ALT_HOLD == true) then
                                 varset(&quot;K:AP_ALT_HOLD_OFF&quot;, 1)
                                 I_ALT_HLD_MODE = 0
@@ -582,6 +581,7 @@
                     else
                         if (I_ALT_HLD_MODE == 3) then
                             varset(&quot;K:AP_ALT_HOLD_OFF&quot;, 1)
+                            I_ALT_HLD_MODE = 0
                         end
                         if(AP_MODE == 1) then
                             -- In NAV LOC mode enable LOC HOLD mode
