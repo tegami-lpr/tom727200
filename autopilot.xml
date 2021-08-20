@@ -444,7 +444,7 @@
 
                 local USE_VS_FOR_PITCH = bool(varget(&quot;L:USE_VS_FOR_PITCH&quot;, &quot;Number&quot;))
 
-                local I_ALT_HLD_MODE = varget(&quot;L:ALT_HLD_MODE&quot;, &quot;Number&quot;) -- current internal ALT HLD MODE (0-disabled, 1-enabled, 3-enabled for pith emulation)
+                local I_ALT_HLD_MODE = varget(&quot;L:I_ALT_HLD_MODE&quot;, &quot;Number&quot;) -- current internal ALT HLD MODE (0-disabled, 1-enabled, 3-enabled for pith emulation)
 
 
                 -- Process AP Master state
@@ -573,16 +573,21 @@
                         -- In MAN mode LOC AND GS modes disabled
                         varset(&quot;K:AP_LOC_HOLD_OFF&quot;, 1)
                         varset(&quot;K:AP_APR_HOLD_OFF&quot;, 1)
-                    elseif(AP_MODE == 1) then
-                        -- In NAV LOC mode enable LOC HOLD mode
-                        varset(&quot;K:AP_LOC_HOLD_ON&quot;, 1)
-                    elseif(AP_MODE == 2) then
-                        -- In AUTO G/S mode enable APR HOLD mode
-                        varset(&quot;K:AP_APR_HOLD_ON&quot;, 1)
-                    elseif(AP_MODE == 3) then
-                        -- In MAN G/S mode enable only LOC HOLD mode
-                        -- MAN G/S mode currently is not working properly
-                        varset(&quot;K:AP_LOC_HOLD_ON&quot;, 1)
+                    else
+                        if (I_ALT_HLD_MODE == 3) then
+                            varset(&quot;K:AP_ALT_HOLD_OFF&quot;, 1)
+                        end
+                        if(AP_MODE == 1) then
+                            -- In NAV LOC mode enable LOC HOLD mode
+                            varset(&quot;K:AP_LOC_HOLD_ON&quot;, 1)
+                        elseif(AP_MODE == 2) then
+                            -- In AUTO G/S mode enable APR HOLD mode
+                            varset(&quot;K:AP_APR_HOLD_ON&quot;, 1)
+                        elseif(AP_MODE == 3) then
+                            -- In MAN G/S mode enable only LOC HOLD mode
+                            -- MAN G/S mode currently is not working properly
+                            varset(&quot;K:AP_LOC_HOLD_ON&quot;, 1)
+                        end
                     end
                 end
 
@@ -607,6 +612,7 @@
                     end    
                 end
 
+                varset(&quot;L:I_ALT_HLD_MODE&quot;, I_ALT_HLD_MODE)
 
 --soundOneShot(&quot;CatapultLaunch.wav&quot;)
 
