@@ -551,12 +551,13 @@
                         OLD_ALT_SW_STATE = ALT_SW_STATE
                         
                         if (I_ALT_HLD_MODE == 3) then
-                            -- If ALT HOlD enabled for Pitch simulation, then just set it as enabled
+                            -- If ALT HOLD enabled for Pitch simulation, then just set it as enabled
                             I_ALT_HLD_MODE = 1
                         else
                             if (ALT_HOLD == true) then
                                 varset(&quot;K:AP_ALT_HOLD_OFF&quot;, 1)
                                 I_ALT_HLD_MODE = 0
+                                OLD_ALT_SW_STATE = 0
                                 varset(&quot;L:ALT_SW_STATE&quot;, 0)
                             else
                                 I_ALT_HLD_MODE = 1
@@ -603,12 +604,13 @@
                     if (AP_MODE == 0) then
                         varset(&quot;K:AP_WING_LEVELER_OFF&quot;,1) --XXX:???
                         local ATT_HOLD = bool(varget(&quot;A:AUTOPILOT ATTITUDE HOLD&quot;,&quot;Number&quot;))
-                        if (HDG_HOLD == false) and (I_ALT_HLD_MODE == 0) then
+                        if (HDG_HOLD == false) and (not (I_ALT_HLD_MODE == 1)) then
                             --With MAN AP mode if HDG and ALT holding is disabled then enable ATT HOLD
                             if (ATT_HOLD == false) then
                                 varset(&quot;K:AP_ATT_HOLD_ON&quot;, 1)
                                 --varset(&quot;K:AP_WING_LEVELER_ON&quot;,1) --XXX:???
                                 varset(&quot;K:AP_WING_LEVELER_OFF&quot;,1) --XXX:???
+                                I_ALT_HLD_MODE = 0
                             end
                         elseif (HDG_HOLD == true) and (I_ALT_HLD_MODE == 0) then
                             I_ALT_HLD_MODE = 3
